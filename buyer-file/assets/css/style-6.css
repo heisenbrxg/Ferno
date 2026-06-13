@@ -1,0 +1,287 @@
+/* =============================================
+   Century Gothic – Universal Font Override
+   ============================================= */
+
+/* Apply Century Gothic to all text elements (NOT ::before/::after which FA uses for icons) */
+*,
+body, html,
+h1, h2, h3, h4, h5, h6,
+p, a, span, li, ul, ol,
+button, input, textarea, select,
+label, th, td, caption,
+blockquote, pre, code,
+.nav-links a, .glass-nav a,
+.mobile-dropdown a, .btn,
+div, section, header, footer, nav, article, aside {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, "Gill Sans", "Gill Sans MT", Calibri, sans-serif !important;
+}
+
+/* ── Restore Font Awesome icon fonts on <i> elements ── */
+i[class*="fa-"],
+i.fas, i.far, i.fal, i.fad, i.fab, i.fa,
+i.fa-solid, i.fa-regular, i.fa-light,
+i.fa-brands, i.fa-duotone, i.fa-thin,
+span[class*="fa-"], i.flaticon, span.flaticon {
+    font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free",
+                 "Font Awesome 5 Pro", "Font Awesome 5 Free",
+                 "Font Awesome 6 Brands", "Font Awesome 5 Brands",
+                 "Font Awesome 5 Duotone", "FontAwesome",
+                 "flaticon" !important;
+}
+
+/* ── Restore FA font on ::before / ::after pseudo-elements of icon tags ── */
+i[class*="fa-"]::before, i[class*="fa-"]::after,
+i.fas::before, i.far::before, i.fal::before,
+i.fab::before, i.fad::before, i.fa::before,
+i.fa-solid::before, i.fa-regular::before,
+i.fa-light::before, i.fa-brands::before,
+i.fa-duotone::before, i.fa-thin::before,
+i.flaticon::before, i.flaticon::after,
+span[class*="fa-"]::before, span[class*="fa-"]::after,
+span.flaticon::before, span.flaticon::after {
+    font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free",
+                 "Font Awesome 5 Pro", "Font Awesome 5 Free",
+                 "Font Awesome 6 Brands", "Font Awesome 5 Brands",
+                 "Font Awesome 5 Duotone", "FontAwesome",
+                 "flaticon" !important;
+}
+
+h1, h2, h3, h4:not(.custom-footer-title), h5, h6 {
+    margin: 0px;
+    padding: 0;
+    color: #000 !important;
+}
+
+.simple-btn-white a {
+    text-transform: capitalize !important;
+    font-weight: 500 !important;
+}
+
+/* ── Shift logo near the left edge of the navbar, with a small inset ── */
+.header-section .header-3 .logo {
+    margin-left: 24px !important;
+}
+.header-section .header-3 .mega-menu-wrapper {
+    margin: 0 !important;
+}
+
+/* ── Navbar Size Adjustments ── */
+.header-section .header-3 .header-left {
+    margin-left: 40px !important;
+}
+.header-section .header-3 .main-menu ul li {
+    margin-inline-end: 28px !important;
+}
+.header-section .header-3 .main-menu ul li > a {
+    font-size: 18px !important;
+}
+@media (min-width: 1400px) {
+    .header-section .header-3 .main-menu ul li {
+        margin-inline-end: 36px !important;
+    }
+    .header-section .header-3 .main-menu ul li > a {
+        font-size: 19px !important;
+    }
+}
+.header-section .header-3 .main-menu ul li .submenu li a {
+    font-size: 16px !important;
+}
+.header-section .header-3 .logo img {
+    height: 55px !important;
+}
+.sticky.header-3 .logo img {
+    height: 50px !important;
+}
+
+/* ── Footer: visible headings + brand social icons on dark background ── */
+.custom-footer-container h4.custom-footer-title,
+h4.custom-footer-title {
+    color: #C9F31D !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 22px !important;
+}
+
+/* Footer social: dark bars with green accent + brand icons */
+a.custom-social-btn,
+a.custom-social-btn.w-100 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    width: 200px !important;
+    max-width: 200px !important;
+    padding: 12px 16px !important;
+    margin-bottom: 12px !important;
+    border-left: 2px solid #C9F31D !important;
+    background: #222 !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+a.custom-social-btn .social-icon {
+    flex-shrink: 0;
+    width: 18px;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+}
+
+a.custom-social-btn .social-icon--fb {
+    color: #1877F2 !important;
+}
+
+a.custom-social-btn .social-icon--linkedin {
+    color: #0A66C2 !important;
+}
+
+a.custom-social-btn .social-icon--instagram {
+    color: #E4405F !important;
+}
+
+a.custom-social-btn .social-icon--youtube {
+    color: #FF0000 !important;
+}
+
+a.custom-social-btn span {
+    color: #fff !important;
+}
+
+a.custom-social-btn:hover {
+    background: #2a2a2a !important;
+    color: #fff !important;
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Hero Title Adjustments ── */
+@media (min-width: 1200px) {
+    .hero-area-four .hero-wrapper .hero-main-content .section-title .title {
+        font-size: 72px !important;
+        line-height: 82px !important;
+        letter-spacing: -1.5px !important;
+    }
+}
+
+/* ── Green Theme Highlight ── */
+.green-highlight {
+    color: #C9F31D !important;
+    font-weight: bold;
+}
+
+/* ── How We Do / Process Flow Sizing ── */
+.service-area-four .service-wrapper .service-right-content .text {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+}
+.service-area-four .service-wrapper .service-right-content ul li {
+    font-size: 18px !important;
+    line-height: 2 !important;
+    color: #C9F31D !important;
+}
+
+/* Featured works description text – bigger */
+.featured-area-four .featured-wrapper .section-title-four .text {
+    font-size: 19px !important;
+    line-height: 1.8 !important;
+    max-width: 100% !important;
+    color: rgba(255,255,255,0.85) !important;
+}
+
+/* Featured works card title and sub-text – bigger */
+.featured-area-four .featured-wrapper .featured-card .card-content .card-title {
+    font-size: 22px !important;
+}
+.featured-area-four .featured-wrapper .featured-card .card-content .card-title a {
+    font-size: 22px !important;
+}
+.featured-area-four .featured-wrapper .featured-card .card-content .text {
+    font-size: 17px !important;
+}
+.service-area-four .service-thumb-caption h4 {
+    font-size: 15px !important;
+}
+.service-area-four .service-thumb-caption p {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+}
+.service-area-four .ades-process-intro .sub-title {
+    font-size: 16px !important;
+}
+
+/* ── Global Sizing for Small Text Elements ── */
+.custom-contact-text,
+.custom-contact-text a {
+    font-size: 16px !important;
+}
+.custom-footer-link li {
+    font-size: 15px !important;
+}
+.custom-footer-link a {
+    font-size: 15px !important;
+}
+.custom-newsletter-input {
+    font-size: 15px !important;
+}
+.custom-copyright {
+    font-size: 14px !important;
+}
+a.custom-social-btn,
+a.custom-social-btn.w-100 {
+    font-size: 16px !important;
+}
+.fppt-sys {
+    font-size: 15px !important;
+}
+.fppt-quote {
+    font-size: 22px !important;
+    color: #C9F31D !important;
+    font-weight: 600 !important;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    border-left: 4px solid #C9F31D;
+    padding-left: 18px;
+    margin-top: 40px;
+    line-height: 1.7 !important;
+}
+.about-wrapper.style-4 .about-right-content .about-card .about-card-items .card-title {
+    font-size: 16px !important;
+}
+
+/* How we do / ADES services — green faded secondary title lines */
+.service-area-four .service-left-content .section-title-four .title span,
+.service-area-four .service-left-content .section-title-four .title span .word,
+.service-area-four .service-left-content .section-title-four .title span .line,
+.service-area-four .service-left-content .section-title-four .title .line:last-child,
+.service-area-four .service-left-content .section-title-four .title .line:last-child .word,
+.service-area-four .section-title-four .title span.green-highlight,
+.service-area-four .section-title-four .title span.green-highlight .word {
+    color: #C9F31D !important;
+    -webkit-text-fill-color: #C9F31D !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+/* Award section — green faded years, highlights & subtitle */
+.award-area-four .section-title-four .title span {
+    color: #C9F31D !important;
+    opacity: 1 !important;
+}
+
+.award-area-four .award-wrapper .award-info .info-items .year {
+    color: #C9F31D !important;
+    opacity: 1 !important;
+}
+
+.award-area-four .award-wrapper .award-info .info-items .info-content span {
+    color: #C9F31D !important;
+    opacity: 1 !important;
+}
+
