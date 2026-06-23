@@ -160,7 +160,8 @@
             transform-style: preserve-3d;
         }
 
-        .flip-card-outer:hover .flip-card-inner {
+        .flip-card-outer:hover .flip-card-inner,
+        .flip-card-outer.flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
 
@@ -283,24 +284,14 @@
             color: #e0e0e0 !important;
         }
 
-        /* ── Bootstrap nav-pills tab buttons ── */
-        .nav-pills .nav-link {
-            color: #cccccc !important;
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            transition: all 0.3s ease;
-        }
-        .nav-pills .nav-link:hover {
-            color: #ffffff !important;
-            background: rgba(201,243,29,0.12) !important;
-            border-color: rgba(201,243,29,0.3) !important;
-        }
-        .nav-pills .nav-link.active {
-            color: #0a0a0a !important;
-            background: #C9F31D !important;
-            border-color: #C9F31D !important;
+        /* ── Hide filter tabs / nav-pills completely ── */
+        .project-page-wrapper .nav,
+        .project-page-wrapper .nav-pills,
+        .project-page-wrapper > .container > .nav,
+        .project-page-wrapper > .container > .nav-pills,
+        ul[id^="pills-tab"],
+        .nav-pills {
+            display: none !important;
         }
 
         /* ── Featured area — remove Bootstrap bg-white ── */
@@ -1202,6 +1193,13 @@
                     mobileDropdown.classList.toggle("open");
                 });
             }
+        </script>
+        <script>
+            document.querySelectorAll('.flip-card-outer').forEach(function(card) {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            });
         </script>
 </body>
 
