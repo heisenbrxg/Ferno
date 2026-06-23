@@ -33,16 +33,16 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style-6.css">
     <style>
-        /* Custom Light Theme for Design Philosophy (Our Projects) Breadcrumb */
+        /* Dark Theme for Design Philosophy (Our Projects) Breadcrumb */
         .breadcrumb-page-area-one.style-2 {
             padding-top: 100px;
         }
         
         .breadcrumb-page-wrap.custom-light-bg {
-            background: #ffffff !important;
+            background: #0a0a0a !important;
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .breadcrumb-bg-graphic {
@@ -52,36 +52,36 @@
             width: 50%;
             height: 100%;
             pointer-events: none;
-            opacity: 0.12; /* Watermark opacity */
+            opacity: 0.10;
             z-index: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             padding-left: 50px;
+            filter: invert(1);
         }
 
-        /* Adjust content layout for dark text on white */
         .custom-light-bg .gt-breadcrumb-wrapper {
             position: relative;
             z-index: 1;
         }
 
         .custom-light-bg .gt-breadcrumb-wrapper .title {
-            color: #121212 !important;
+            color: #ffffff !important;
         }
 
         .custom-light-bg .gt-breadcrumb-wrapper .title::before,
         .custom-light-bg .gt-breadcrumb-wrapper .title::after {
-            background: #121212 !important;
+            background: #ffffff !important;
         }
 
         .custom-light-bg .gt-breadcrumb-wrapper .right-contents .text {
-            color: #121212 !important;
+            color: #cccccc !important;
         }
 
         /* Stats highlighting style */
         .custom-light-bg .info-cta {
-            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.10);
             padding-top: 30px;
             margin-top: 30px;
             display: flex;
@@ -90,7 +90,7 @@
         }
 
         .custom-light-bg .info-cta .cta-item {
-            border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.10) !important;
             padding-right: 40px;
             display: flex;
             flex-direction: column;
@@ -107,22 +107,22 @@
             font-weight: 600 !important;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #555555 !important;
+            color: #aaaaaa !important;
             margin-bottom: 0 !important;
             line-height: 1.2;
             position: relative;
         }
 
-        /* Remove the black line decoration that gets inherited by .title */
+        /* Remove the line decoration inherited by .title */
         .custom-light-bg .info-cta .cta-item .title::before,
         .custom-light-bg .info-cta .cta-item .title::after {
             display: none !important;
         }
 
         .custom-light-bg .info-cta .cta-item span {
-            font-size: 48px !important; /* Make it big */
+            font-size: 48px !important;
             font-weight: 800 !important;
-            color: #8ebc15 !important; /* Brand green theme color, contrast-adjusted for light bg */
+            color: #C9F31D !important;
             line-height: 1 !important;
             display: inline-block;
             position: relative;
@@ -133,7 +133,7 @@
         @media (max-width: 991px) {
             .breadcrumb-bg-graphic {
                 width: 100%;
-                opacity: 0.08;
+                opacity: 0.07;
                 padding-left: 0;
             }
             .custom-light-bg .info-cta {
@@ -144,6 +144,223 @@
                 padding-right: 0;
                 width: 100%;
             }
+        }
+    /* ===== Flip Card Styles ===== */
+        .flip-card-outer {
+            perspective: 1200px;
+            height: 420px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card-outer:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        /* Front: image fills the card */
+        .flip-card-front {
+            background: #111;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        /* Subtle label badge on front */
+        .flip-card-front .fc-label {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            color: #C9F31D;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(201,243,29,0.35);
+        }
+
+        /* Back: dark panel with text */
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 60%, #111 100%);
+            border: 1px solid #2a2a2a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 36px 32px;
+            gap: 18px;
+        }
+
+        .flip-card-back::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #C9F31D 0%, #8ebc15 100%);
+            border-radius: 14px 0 0 14px;
+        }
+
+        .flip-card-back .fc-tag {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #C9F31D;
+            opacity: 0.85;
+        }
+
+        .flip-card-back .fc-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .flip-card-back .fc-text {
+            font-size: 15.5px;
+            color: #b0b0b0;
+            line-height: 1.72;
+            margin: 0;
+        }
+
+        .flip-card-back .fc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #C9F31D;
+            text-decoration: none;
+            margin-top: 4px;
+            transition: gap 0.25s ease;
+        }
+
+        .flip-card-back .fc-link:hover {
+            gap: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .flip-card-outer {
+                height: 360px;
+            }
+        }
+
+        /* ===== Global Dark Theme Overrides ===== */
+
+        /* Force white text on body so no Bootstrap default black leaks through */
+        body {
+            color: #e0e0e0 !important;
+        }
+
+        /* ── Bootstrap nav-pills tab buttons ── */
+        .nav-pills .nav-link {
+            color: #cccccc !important;
+            background: rgba(255,255,255,0.04) !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            transition: all 0.3s ease;
+        }
+        .nav-pills .nav-link:hover {
+            color: #ffffff !important;
+            background: rgba(201,243,29,0.12) !important;
+            border-color: rgba(201,243,29,0.3) !important;
+        }
+        .nav-pills .nav-link.active {
+            color: #0a0a0a !important;
+            background: #C9F31D !important;
+            border-color: #C9F31D !important;
+        }
+
+        /* ── Featured area — remove Bootstrap bg-white ── */
+        .featured-area-four.bg-white,
+        .featured-area-four {
+            background: transparent !important;
+        }
+
+        /* ── Card titles and links inside featured-card ── */
+        .featured-card .card-title,
+        .featured-card .card-title a,
+        .card-title,
+        .card-title a {
+            color: #ffffff !important;
+        }
+        .featured-card .card-title a:hover,
+        .card-title a:hover {
+            color: #C9F31D !important;
+        }
+        .featured-card .card-content .text,
+        .card-content .text,
+        .card-content p {
+            color: #aaaaaa !important;
+        }
+
+        /* ── CTA section text ── */
+        .cta-area-three .title,
+        .cta-content-wrap .title,
+        .cta-area-three h2,
+        .cta-area-three h3 {
+            color: #ffffff !important;
+        }
+        .cta-area-three .title span,
+        .cta-content-wrap .title span {
+            color: #C9F31D !important;
+        }
+
+        /* ── Pagination ── */
+        .content-pagination ul li a {
+            color: #cccccc !important;
+            border-color: rgba(255,255,255,0.12) !important;
+            background: rgba(255,255,255,0.04) !important;
+        }
+        .content-pagination ul li a:hover {
+            color: #0a0a0a !important;
+            background: #C9F31D !important;
+            border-color: #C9F31D !important;
+        }
+
+        /* ── Project page wrapper background ── */
+        .project-page-area,
+        .project-page-wrapper {
+            background: #0a0a0a !important;
+        }
+
+        /* ── Hide Unused Profile Tab and Pagination ── */
+        #pills-profile,
+        .content-pagination,
+        .tab-pane.fade:not(.show) {
+            display: none !important;
         }
     </style>
 </head>
@@ -312,110 +529,96 @@
             <!-- Project Page Section Start  -->
             <div class="project-page-area">
                 <div class="project-page-wrapper one pb-150">
-                    <ul class="nav nav-pills mb-75" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                                aria-selected="true">All Projects</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-comm-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-comm" type="button" role="tab" aria-controls="pills-comm"
-                                aria-selected="false">Commercial</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-hosp-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-hosp" type="button" role="tab" aria-controls="pills-hosp"
-                                aria-selected="false">Hospitality</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-ind-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-ind" type="button" role="tab" aria-controls="pills-ind"
-                                aria-selected="false">Industrial</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-inst-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-inst" type="button" role="tab" aria-controls="pills-inst"
-                                aria-selected="false">Institutional</button>
-                        </li>
-                    </ul>
+                    <div class="container">
+                        <div class="row gy-5">
 
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                            aria-labelledby="pills-home-tab">
-                            <div class="featured-area-four bg-white">
-                                <div class="featured-wrapper">
-                                    <div class="container">
-                                        <div class="row gy-5">
+                                            <!-- Card 1: Lulu Mall -->
                                             <div class="col-xl-6 col-lg-6 col-md-6">
-                                                <div class="featured-card">
-                                                    <div class="hover-item" data-cursor="View details">
-                                                        <a href="project-lulu-mall.html" class="thumb no-cursor">
-                                                            <img src="assets/img/project/pro4.png" alt="Lulu Mall">
-                                                            <div class="cursor-content"></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="card-content">
-                                                        <div class="card-title"><a href="project-lulu-mall.html">MEP systems for Lulu Mall Sharjah were designed to optimize HVAC, electrical, plumbing, and fire protection services, improving efficiency and operational reliability.</a></div>
+                                                <div class="flip-card-outer">
+                                                    <div class="flip-card-inner">
+                                                        <!-- Front -->
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/img/project/pro4.png" alt="Lulu Mall Sharjah">
+                                                            <span class="fc-label">Commercial</span>
+                                                        </div>
+                                                        <!-- Back -->
+                                                        <div class="flip-card-back">
+                                                            <span class="fc-tag">Lulu Mall · Sharjah</span>
+                                                            <h3 class="fc-title">Integrated MEP — Lulu Mall</h3>
+                                                            <p class="fc-text">MEP systems were designed to optimize HVAC, electrical, plumbing, and fire protection services, improving efficiency and operational reliability across the entire retail complex.</p>
+                                                            <a href="project-lulu-mall.html" class="fc-link">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
+                                            <!-- Card 2: Pre-Cooling / GRT -->
                                             <div class="col-xl-6 col-lg-6 col-md-6">
-                                                <div class="featured-card">
-                                                    <div class="hover-item" data-cursor="View details">
-                                                        <a href="project-radisson-blu.html" class="thumb no-cursor">
-                                                            <img src="assets/img/project/pro2.png" alt="GRT Chennai">
-                                                            <div class="cursor-content"></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="card-content">
-                                                        <div class="card-title"><a
-                                                                href="project-radisson-blu.html">The fresh air pre-cooling solution reduced cooling costs by 19%, delivering savings of ₹24 lakhs while maintaining a pressurized production environment. The design also reduced initial cooling investment by 19% and O&M costs by 17%, improving overall operational efficiency.</a></div>
+                                                <div class="flip-card-outer">
+                                                    <div class="flip-card-inner">
+                                                        <!-- Front -->
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/img/project/pro2.png" alt="Fresh Air Pre-Cooling">
+                                                            <span class="fc-label">Hospitality</span>
+                                                        </div>
+                                                        <!-- Back -->
+                                                        <div class="flip-card-back">
+                                                            <span class="fc-tag">Radisson Blu · Hospitality</span>
+                                                            <h3 class="fc-title">Fresh Air Pre-Cooling Solution</h3>
+                                                            <p class="fc-text">Reduced cooling costs by 19%, delivering savings of ₹24 lakhs while maintaining a pressurized production environment. Initial cooling investment cut by 19% and O&amp;M costs by 17%.</p>
+                                                            <a href="project-radisson-blu.html" class="fc-link">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
+                                            <!-- Card 3: Apollo Tyres -->
                                             <div class="col-xl-6 col-lg-6 col-md-6">
-                                                <div class="featured-card">
-                                                    <div class="hover-item" data-cursor="View details">
-                                                        <a href="project-apollo-tyres.html" class="thumb no-cursor">
+                                                <div class="flip-card-outer">
+                                                    <div class="flip-card-inner">
+                                                        <!-- Front -->
+                                                        <div class="flip-card-front">
                                                             <img src="assets/img/project/pro3.png" alt="Apollo Tyres">
-                                                            <div class="cursor-content"></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="card-content">
-                                                        <div class="card-title"><a
-                                                                href="project-apollo-tyres.html">The ADES cooling solution optimized cooling capacity from 4,000 TR to 2,400 TR, reducing cooling system costs by 40.5%. This resulted in a total saving of ₹2,042 lakhs while also reducing transformer infrastructure by 2,000 kVA.</a></div>
+                                                            <span class="fc-label">Industrial</span>
+                                                        </div>
+                                                        <!-- Back -->
+                                                        <div class="flip-card-back">
+                                                            <span class="fc-tag">Apollo Tyres · Industrial</span>
+                                                            <h3 class="fc-title">Cooling Capacity Optimisation</h3>
+                                                            <p class="fc-text">Optimized cooling capacity from 4,000 TR to 2,400 TR, reducing system costs by 40.5%. Total saving of ₹2,042 lakhs achieved, alongside a 2,000 kVA reduction in transformer infrastructure.</p>
+                                                            <a href="project-apollo-tyres.html" class="fc-link">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
+                                            <!-- Card 4: TPI Composites -->
                                             <div class="col-xl-6 col-lg-6 col-md-6">
-                                                <div class="featured-card">
-                                                    <div class="hover-item" data-cursor="View details">
-                                                        <a href="project-tpi-composites.html" class="thumb no-cursor">
-                                                            <img src="assets/img/project/pro1.png" alt="Industrial">
-                                                            <div class="cursor-content"></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="card-content">
-                                                        <div class="card-title"><a
-                                                                href="project-tpi-composites.html">CFD analysis achieved 100% temperature uniformity, while the fabric duct system reduced duct weight by 82%. The optimized ADES design lowered cooling system cost by 66%, resulting in a saving of ₹227 lakhs compared to the conventional system.</a></div>
+                                                <div class="flip-card-outer">
+                                                    <div class="flip-card-inner">
+                                                        <!-- Front -->
+                                                        <div class="flip-card-front">
+                                                            <img src="assets/img/project/pro1.png" alt="TPI Composites">
+                                                            <span class="fc-label">Industrial</span>
+                                                        </div>
+                                                        <!-- Back -->
+                                                        <div class="flip-card-back">
+                                                            <span class="fc-tag">TPI Composites · Industrial</span>
+                                                            <h3 class="fc-title">CFD &amp; Fabric Duct System</h3>
+                                                            <p class="fc-text">CFD analysis achieved 100% temperature uniformity. The fabric duct system cut duct weight by 82%. ADES design lowered cooling system cost by 66%, saving ₹227 lakhs vs the conventional system.</p>
+                                                            <a href="project-tpi-composites.html" class="fc-link">View Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                        </div><!-- /.row -->
+                                    </div><!-- /.container -->
+                                </div><!-- /.project-page-wrapper -->
+                            </div><!-- /.project-page-area -->
+                        <!-- extra div removed -->
+
+                        <!-- pills-profile tab pane and pagination removed
                             aria-labelledby="pills-profile-tab">
                             <div class="featured-area-four bg-white">
                                 <div class="featured-wrapper">
@@ -509,7 +712,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project Page Section Start  -->
+                -->
 
                 <!-- CTA Section Start -->
                 <div class="cta-area-three fix">
@@ -521,9 +724,9 @@
                             <div class="container">
                                 <div class="cta-content-wrap">
                                     <div class="title title-anim">
-                                        Let’s create the best
+                                        Let’s engineer the best
                                         <span>
-                                            product experience
+                                            MEP solution
                                             <img src="./assets/img/home-3/cta/ctaLineShape.png" alt="shape">
                                         </span>
                                         for your project
@@ -811,9 +1014,7 @@
                                     <img src="assets/img/update new logo.png" alt="logo"
                                         style="height: 40px; width: auto;">
                                 </a>
-                                <p style="font-size: 13px; line-height: 1.8;">2026 Begins Its Journey With
-                                    Road To Jia CURATED, An Immersive Exhibition Featuring Threadapeutic, A
-                                    Pioneering Studio Redefining Textile Re-Crafting.</p>
+                                <p style="font-size: 13px; line-height: 1.8;">ADES is a leading MEP consultancy delivering optimised, high-performance engineering solutions across Commercial, Industrial, and Institutional sectors worldwide.</p>
                             </div>
 
                             <!-- Center Social -->
@@ -834,8 +1035,7 @@
                                                     d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                             </svg>
                                         </div>
-                                        <div class="custom-contact-text">731 Madison Ave, New York,
-                                            NY<br>10065 New York City</div>
+                                        <div class="custom-contact-text">Chennai, Tamil Nadu<br>India</div>
                                     </div>
                                     <div class="custom-contact-item">
                                         <div class="custom-contact-icon">
@@ -844,8 +1044,7 @@
                                                     d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                                             </svg>
                                         </div>
-                                        <div class="custom-contact-text">+91 0321 5098 003<br>+88 0123 987
-                                            258 002</div>
+                                        <div class="custom-contact-text">+91 98765 43210<br>+91 44 1234 5678</div>
                                     </div>
                                     <div class="custom-contact-item">
                                         <div class="custom-contact-icon">
@@ -855,7 +1054,7 @@
                                             </svg>
                                         </div>
                                         <div class="custom-contact-text">
-                                            Info.Company@Yahoo.Mail.Com<br>Hi@Ades.Com</div>
+                                            info@ades-mep.com<br>projects@ades-mep.com</div>
                                     </div>
                                 </div>
                             </div>
@@ -878,23 +1077,25 @@
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-4 pl-lg-4">
-                                <h4 class="custom-footer-title">Main Services</h4>
+                                <h4 class="custom-footer-title">Our Services</h4>
                                 <ul class="custom-footer-link">
-                                    <li><a href="service-details.html">Branding Guideline</a></li>
-                                    <li><a href="service-details.html">Ux/Ui Design</a></li>
-                                    <li><a href="service-details.html">Digital Marketing</a></li>
-                                    <li><a href="service-details.html">Website Design</a></li>
-                                    <li><a href="service-details.html">Graphic Design</a></li>
-                                    <li><a href="service-details.html">Consulting Services</a></li>
+                                    <li><a href="service-mep.html">Integrated MEP</a></li>
+                                    <li><a href="service-electrical.html">Electrical Systems</a></li>
+                                    <li><a href="service-hvac.html">HVAC Engineering</a></li>
+                                    <li><a href="service-phe.html">Plumbing &amp; PHE</a></li>
+                                    <li><a href="service-fire.html">Fire Protection</a></li>
+                                    <li><a href="service-2.html">All Services</a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-4">
-                                <h4 class="custom-footer-title">Worldwide Office Locations</h4>
+                                <h4 class="custom-footer-title">Quick Links</h4>
                                 <ul class="custom-footer-link">
-                                    <li><a href="#">United State Of America</a></li>
-                                    <li><a href="#">Canada</a></li>
-                                    <li><a href="#">United Kingdom</a></li>
-                                    <li><a href="#">India</a></li>
+                                    <li><a href="about-1.html">Who We Are</a></li>
+                                    <li><a href="key-highlights.html">Why Us</a></li>
+                                    <li><a href="clients.html">Our Clients</a></li>
+                                    <li><a href="team.html">Our Team</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-4 col-md-6 mb-4 pl-lg-5">
