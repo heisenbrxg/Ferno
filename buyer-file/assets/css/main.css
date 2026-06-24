@@ -26580,4 +26580,10 @@ html {
   /* ensure no weird pseudo dot rendering */
 }
 
+/* Footer logo — invert blue to white for dark backgrounds */
+.footer-area-four img[alt="logo"],
+.footer-wrapper img[alt="logo"] {
+  filter: brightness(0) invert(1);
+}
+
 /*# sourceMappingURL=main.css.map */

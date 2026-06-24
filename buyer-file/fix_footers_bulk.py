@@ -54,7 +54,7 @@ footer_standard = """<!-- Footer Section -->
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="footer-contact">
                         <h4 class="title text-white mb-4">Get In Touch</h4>
-                        <p class="text-white opacity-75">No. 19, 2nd Cross Street, Lake Area, Nungambakkam, Chennai - 34<br>info@ades.pro<br>+91-44-4265 8822</p>
+                        <p class="text-white opacity-75">109, Godavari Street, Chinmaya Nagar, Chennai - 600 092, Tamilnadu<br>info@ades.in<br>+91 97909 51112</p>
                     </div>
                 </div>
             </div>
