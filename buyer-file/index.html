@@ -604,6 +604,36 @@
                 display: none;
             }
         }
+
+        /* Featured project cards – flat grid, uniform image height, aligned text */
+        .featured-area-four .featured-wrapper .row .col-xl-6:nth-child(2) .featured-card,
+        .featured-area-four .featured-wrapper .row .col-xl-6:nth-child(4) .featured-card {
+            margin-left: 0 !important;
+            padding-top: 0 !important;
+        }
+        .featured-area-four .featured-wrapper .row .col-xl-6:nth-child(3) {
+            padding-top: 0 !important;
+        }
+        .featured-area-four .featured-wrapper .featured-card .hover-item {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .featured-area-four .featured-wrapper .featured-card .hover-item img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 991px) {
+            .featured-area-four .featured-wrapper .featured-card .hover-item img {
+                height: 260px;
+            }
+        }
+        @media (max-width: 767px) {
+            .featured-area-four .featured-wrapper .featured-card .hover-item img {
+                height: 220px;
+            }
+        }
     </style>
 </head>
 
@@ -728,7 +758,6 @@
                                                     <li><a href="service-mep.html">Integrated MEP</a></li>
                                                     <li><a href="service-electrical.html">Electrical Systems</a></li>
                                                     <li><a href="service-hvac.html">HVAC Engineering</a></li>
-                                                    <li><a href="service-phe.html">Plumbing &amp; PHE</a></li>
                                                     <li><a href="service-fire.html">Fire Protection</a></li>
                                                     <li><a href="service-2.html">All Services</a></li>
                                                 </ul>
@@ -1777,7 +1806,7 @@
                             </p>
                         </div>
 
-                        <div class="row">
+                        <div class="row gy-5">
 
                             <!-- 1 Lulu Mall -->
                             <div class="col-xl-6 col-lg-6 col-md-6">
@@ -2558,7 +2587,6 @@
                                                 <li><a href="service-mep.html">Integrated MEP</a></li>
                                                 <li><a href="service-electrical.html">Electrical Systems</a></li>
                                                 <li><a href="service-hvac.html">HVAC Engineering</a></li>
-                                                <li><a href="service-phe.html">Plumbing &amp; PHE</a></li>
                                                 <li><a href="service-fire.html">Fire Protection</a></li>
                                             </ul>
                                         </div>
