@@ -248,7 +248,7 @@
                                                     d="M5.79459 0C2.59944 0 0 2.59944 0 5.79456C0 9.75981 5.18559 15.581 5.40637 15.8269C5.61375 16.0579 5.97581 16.0575 6.18281 15.8269C6.40359 15.581 11.5892 9.75981 11.5892 5.79456C11.5891 2.59944 8.98972 0 5.79459 0ZM5.79459 8.70997C4.18703 8.70997 2.87922 7.40212 2.87922 5.79456C2.87922 4.187 4.18706 2.87919 5.79459 2.87919C7.40213 2.87919 8.70994 4.18703 8.70994 5.79459C8.70994 7.40216 7.40213 8.70997 5.79459 8.70997Z"
                                                     fill="#555555" />
                                             </svg>
-                                            109, Godavari Street, Chinmaya Nagar, Chennai - 600 092, Tamilnadu
+                                            260/8, Anbu Colony, Anna Nagar West, Chennai 600 040
                                         </p>
                                     </div>
                                 </div>
@@ -256,18 +256,21 @@
 
                             <div class="col-xl-6 col-lg-6">
                                 <div class="contact-form style-2">
-                                    <form action="#" method="post" autocomplete="on">
+                                    <form id="ades-contact-form" autocomplete="on">
+                                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                                        <input type="hidden" name="subject" value="New Enquiry from ADES Website">
+                                        <input type="hidden" name="from_name" value="ADES Website Contact Form">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="name">Enter name</label>
                                                 <input type="text" class="form-control" id="name" name="name"
-                                                    autocomplete="name">
+                                                    autocomplete="name" required>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <label for="email">Email address</label>
                                                 <input type="email" class="form-control" id="email" name="email"
-                                                    autocomplete="email">
+                                                    autocomplete="email" required>
                                             </div>
 
                                             <div class="col-md-6">
@@ -289,16 +292,54 @@
                                             </div>
 
                                             <div class="col-12 mt-15">
+                                                <div id="form-status" style="display:none;margin-bottom:12px;font-weight:600;font-size:15px;"></div>
                                                 <div class="simple-btn-black" data-fade-from="bottom">
-                                                    <a href="index.html"
-                                                        class="gt-hover-btn gt-hover-btn-item gt-btn-circle-2 d-inline-flex align-items-center justify-content-center flex-column ">
-                                                        <span class="gt-btn-circle-text-2">send message</span>
+                                                    <button type="submit" id="form-submit-btn"
+                                                        class="gt-hover-btn gt-hover-btn-item gt-btn-circle-2 d-inline-flex align-items-center justify-content-center flex-column"
+                                                        style="border:none;background:none;cursor:pointer;">
+                                                        <span class="gt-btn-circle-text-2" id="btn-label">send message</span>
                                                         <i class="gt-btn-circle-dot"></i>
-                                                    </a>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
+
+                                    <script>
+                                    document.getElementById('ades-contact-form').addEventListener('submit', async function(e) {
+                                        e.preventDefault();
+                                        const btn = document.getElementById('form-submit-btn');
+                                        const label = document.getElementById('btn-label');
+                                        const status = document.getElementById('form-status');
+                                        btn.disabled = true;
+                                        label.textContent = 'Sending…';
+                                        status.style.display = 'none';
+
+                                        const data = new FormData(this);
+                                        try {
+                                            const res = await fetch('https://api.web3forms.com/submit', {
+                                                method: 'POST',
+                                                body: data
+                                            });
+                                            const json = await res.json();
+                                            if (json.success) {
+                                                status.textContent = '✓ Message sent! We will get back to you shortly.';
+                                                status.style.color = '#3aaf3a';
+                                                status.style.display = 'block';
+                                                this.reset();
+                                                label.textContent = 'send message';
+                                            } else {
+                                                throw new Error(json.message || 'Submission failed');
+                                            }
+                                        } catch(err) {
+                                            status.textContent = '✗ Failed to send. Please email us directly at info@ades.in';
+                                            status.style.color = '#e53e3e';
+                                            status.style.display = 'block';
+                                            label.textContent = 'send message';
+                                        }
+                                        btn.disabled = false;
+                                    });
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -540,7 +581,7 @@
                                                                 d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                                         </svg>
                                                     </div>
-                                                    <div class="custom-contact-text">109, Godavari Street,<br>Chinmaya Nagar, Chennai - 600 092</div>
+                                                    <div class="custom-contact-text">260/8, Anbu Colony,<br>Anna Nagar West, Chennai 600 040</div>
                                                 </div>
                                                 <div class="custom-contact-item">
                                                     <div class="custom-contact-icon">
