@@ -16375,7 +16375,7 @@ span {
   position: absolute;
   top: 100%;
   inset-inline-start: 0;
-  min-width: 240px;
+  min-width: 260px;
   background: #f6f6f6;
   padding: 20px 0;
   z-index: 99999;
@@ -16406,6 +16406,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  white-space: nowrap;
 }
 
 .header-main .main-menu ul li .submenu li a::before {
