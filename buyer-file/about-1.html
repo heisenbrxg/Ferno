@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <!--<< Header Area >>-->
 
@@ -752,21 +752,27 @@
                         .tl-left, .tl-right { padding:0 32px; }
 
                         .tl-card {
-                            background:transparent;
-                            border:none;
-                            border-radius:0;
-                            padding:0 0 0 16px;
+                            background:rgba(255,255,255,0.05);
+                            border:1px solid rgba(255,255,255,0.12);
+                            border-radius:14px;
+                            padding:28px 28px 28px 32px;
                             position:relative;
-                            overflow:visible;
+                            overflow:hidden;
+                            transition:border-color 0.35s ease, box-shadow 0.35s ease;
+                        }
+                        .tl-card:hover {
+                            border-color:rgba(201,243,29,0.3);
+                            box-shadow:0 12px 36px rgba(0,0,0,0.35);
                         }
 
                         /* Left accent bar */
                         .tl-card::before {
                             content:'';
                             position:absolute;
-                            left:0; top:2px; bottom:2px;
-                            width:2px;
+                            left:0; top:16%; bottom:16%;
+                            width:3px;
                             background:var(--tl-accent);
+                            border-radius:0 2px 2px 0;
                             transform:scaleY(0);
                             transform-origin:top;
                             transition:transform 0.5s var(--tl-ease) 0.5s;
@@ -774,19 +780,19 @@
                         .tl-card.in::before { transform:scaleY(1); }
 
                         .tl-card-label {
-                            font-size:11px; font-weight:700;
-                            letter-spacing:0.2em; text-transform:uppercase;
-                            color:var(--tl-accent); margin-bottom:8px;
-                            opacity:0; transform:translateY(6px);
+                            font-size:12px; font-weight:700;
+                            letter-spacing:0.22em; text-transform:uppercase;
+                            color:var(--tl-accent); margin-bottom:10px;
+                            opacity:0; transform:translateY(8px);
                             transition:opacity 0.4s ease 0.08s,
                                        transform 0.4s var(--tl-ease) 0.08s;
                         }
                         .tl-card.in .tl-card-label { opacity:1; transform:translateY(0); }
 
                         .tl-card-title {
-                            font-size:clamp(1.1rem,1.6vw,1.4rem);
+                            font-size:clamp(1.25rem,2vw,1.6rem);
                             font-weight:800; color:#fff;
-                            margin-bottom:10px; line-height:1.25;
+                            margin-bottom:12px; line-height:1.2;
                             opacity:0; transform:translateY(10px);
                             transition:opacity 0.45s ease 0.16s,
                                        transform 0.45s var(--tl-ease) 0.16s;
@@ -794,7 +800,7 @@
                         .tl-card.in .tl-card-title { opacity:1; transform:translateY(0); }
 
                         .tl-card-desc {
-                            font-size:0.95rem; color:rgba(255,255,255,0.6);
+                            font-size:1rem; color:rgba(255,255,255,0.65);
                             line-height:1.7; margin-bottom:0;
                             opacity:0; transform:translateY(8px);
                             transition:opacity 0.45s ease 0.26s,
@@ -1339,305 +1345,6 @@
                  END OUR KEY STRENGTH
             ═══════════════════════════════════════════ -->
 
-            <!-- ═══════════════════════════════════════════
-                 ABOUT THE TEAM SECTION
-            ═══════════════════════════════════════════ -->
-            <section id="ades-about-team" style="padding:90px 0 100px;position:relative;">
-                <style>
-                    #ades-about-team {
-                        --at-ease:   cubic-bezier(0.22,1,0.36,1);
-                        --at-spring: cubic-bezier(0.34,1.56,0.64,1);
-                        --at-accent: #C9F31D;
-                    }
-
-                    .at-title {
-                        font-size:clamp(1.5rem,3vw,2.2rem);
-                        font-weight:900; letter-spacing:0.08em;
-                        text-transform:uppercase; color:var(--at-accent);
-                        margin:0 0 48px;
-                        opacity:0; transform:translateX(-28px);
-                        transition:opacity 0.65s ease, transform 0.65s var(--at-ease);
-                    }
-                    .at-title.in { opacity:1; transform:translateX(0); }
-
-                    .at-layout {
-                        display:grid;
-                        grid-template-columns:58% 42%;
-                        gap:50px;
-                        align-items:center;
-                    }
-                    @media(max-width:900px){ .at-layout { grid-template-columns:1fr; gap:40px; } }
-
-                    /* ── Honeycomb wrapper ── */
-                    .at-hc-wrap {
-                        position:relative;
-                        min-height:440px;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        /* overflow:visible so extra hex & cluster can overflow left */
-                        overflow:visible;
-                    }
-
-                    /* Background image — clipped to wrapper via border-radius trick */
-                    .at-hc-bg {
-                        position:absolute;
-                        top:0; right:0; bottom:0;
-                        left:60px;               /* leave room for big left hex */
-                        background-image:url('assets/img/about/abot2.png');
-                        background-size:cover;
-                        background-position:center top;
-                        filter:brightness(0.35);
-                        border-radius:14px;
-                        z-index:0;
-                    }
-
-                    /* ── Honeycomb grid ── */
-                    .hc-container {
-                        position:relative; z-index:1;
-                        display:flex; flex-direction:column;
-                        align-items:center;
-                        gap:0;
-                        padding:24px 16px;
-                    }
-                    .hc-row {
-                        display:flex;
-                        gap:6px;
-                        margin-top:-26px;          /* vertical overlap for honeycomb */
-                    }
-                    .hc-row:first-child { margin-top:0; }
-                    .hc-row.hc-odd { margin-left:47px; } /* half-hex offset */
-
-                    /* Pointy-top hex */
-                    .hc-hex {
-                        width:86px; height:98px;
-                        clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-                        display:flex; flex-direction:column;
-                        align-items:center; justify-content:center;
-                        font-size:10px; font-weight:700;
-                        text-align:center; color:#fff;
-                        line-height:1.2; padding:0 8px;
-                        cursor:default; user-select:none;
-                        /* animation state */
-                        transform:scale(0) rotate(-30deg);
-                        opacity:0;
-                        transition:transform 0.6s var(--at-spring),
-                                   opacity 0.45s ease,
-                                   filter 0.25s ease;
-                    }
-                    .hc-hex.in {
-                        transform:scale(1) rotate(0deg);
-                        opacity:1;
-                        animation:hcFloat var(--hc-dur,3s) ease-in-out var(--hc-delay,0s) infinite alternate;
-                    }
-                    @keyframes hcFloat {
-                        from { transform:scale(1) rotate(0deg) translateY(0); }
-                        to   { transform:scale(1) rotate(0deg) translateY(-6px); }
-                    }
-                    .hc-hex:hover {
-                        filter:brightness(1.25) drop-shadow(0 0 8px rgba(255,255,255,0.3));
-                        animation-play-state:paused;
-                        transform:scale(1.15) rotate(0deg) !important;
-                        z-index:10; position:relative;
-                    }
-
-                    /* Center 12+ hex — larger */
-                    .hc-center {
-                        width:98px; height:110px;
-                        background:#111111 !important;
-                        border:2px solid rgba(201,243,29,0.5);
-                        color:var(--at-accent);
-                        font-size:1.75rem; font-weight:900;
-                        clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-                    }
-
-                    /* Extra large decorative hex — absolutely positioned left */
-                    .hc-xleft {
-                        position:absolute;
-                        left:-30px; top:50%;
-                        width:110px; height:124px;
-                        clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-                        background:#E91E8C;
-                        display:flex; align-items:center; justify-content:center;
-                        z-index:2;
-                        transform:translateY(-50%) scale(0) rotate(-30deg);
-                        opacity:0;
-                        transition:transform 0.7s var(--at-spring) 0.1s,
-                                   opacity 0.5s ease 0.1s;
-                    }
-                    .hc-xleft.in {
-                        transform:translateY(-50%) scale(1) rotate(0deg);
-                        opacity:1;
-                        animation:hcFloatLeft 3.5s ease-in-out 0.3s infinite alternate;
-                    }
-                    @keyframes hcFloatLeft {
-                        from { transform:translateY(-50%) scale(1) translateY(0); }
-                        to   { transform:translateY(calc(-50% - 7px)) scale(1); }
-                    }
-
-                    /* ── Talent Pool ── */
-                    .at-talent-heading {
-                        font-size:clamp(1rem,2vw,1.5rem);
-                        font-weight:900; letter-spacing:0.1em;
-                        text-transform:uppercase; color:#00c8ff;
-                        margin:0 0 24px;
-                        opacity:0; transform:translateX(28px);
-                        transition:opacity 0.65s ease 0.1s, transform 0.65s var(--at-ease) 0.1s;
-                    }
-                    .at-talent-heading.in { opacity:1; transform:translateX(0); }
-
-                    .at-talent-list { display:flex; flex-direction:column; gap:14px; }
-
-                    .at-tc {
-                        border-radius:14px;
-                        padding:20px 28px;
-                        font-size:1rem; font-weight:900;
-                        letter-spacing:0.08em; text-transform:uppercase;
-                        color:#0a0a0a; text-align:center;
-                        cursor:default;
-                        opacity:0; transform:translateX(55px) scale(0.9);
-                        transition:opacity 0.55s ease,
-                                   transform 0.55s var(--at-spring);
-                    }
-                    .at-tc.in { opacity:1; transform:translateX(0) scale(1); }
-                    .at-tc:hover { transform:translateX(8px) scale(1.02) !important; }
-
-                    .at-tc-1 { background:#3CB917; color:#fff; }
-                    .at-tc-2 { background:#45CC1C; color:#fff; }
-                    .at-tc-3 { background:#4FDD22; color:#0a0a0a; }
-                    .at-tc-4 { background:#59EE28; color:#0a0a0a; }
-
-                    .at-tc[data-tc="0"] { transition-delay:0s,0s; }
-                    .at-tc[data-tc="1"] { transition-delay:0.15s,0.15s; }
-                    .at-tc[data-tc="2"] { transition-delay:0.3s,0.3s; }
-                    .at-tc[data-tc="3"] { transition-delay:0.45s,0.45s; }
-                </style>
-
-                <div class="container">
-                    <h2 class="at-title" data-at-title>ABOUT THE TEAM</h2>
-
-                    <div class="at-layout">
-
-                        <!-- Left: Honeycomb -->
-                        <div class="at-hc-wrap" data-at-hc>
-                            <div class="at-hc-bg" id="at-hc-bg"></div>
-
-                            <!-- Extra large pink hex on far left -->
-                            <div class="hc-xleft" data-hc-xl></div>
-
-                            <div class="hc-container">
-                                <!-- Row 1: 2 hexes -->
-                                <div class="hc-row">
-                                    <div class="hc-hex" style="background:#C62828" data-hc-idx="5">HVAC</div>
-                                    <div class="hc-hex" style="background:#E65100" data-hc-idx="6">ELEC&shy;TRICAL</div>
-                                </div>
-                                <!-- Row 2: 3 hexes (offset) -->
-                                <div class="hc-row hc-odd">
-                                    <div class="hc-hex" style="background:#7CB342" data-hc-idx="4">PHE</div>
-                                    <div class="hc-hex" style="background:#1A237E" data-hc-idx="3">ELV</div>
-                                    <div class="hc-hex" style="background:#F9A825" data-hc-idx="7">IBMS</div>
-                                </div>
-                                <!-- Row 3: 3 hexes with 12+ center -->
-                                <div class="hc-row">
-                                    <div class="hc-hex" style="background:#6D4C41" data-hc-idx="3">FPS</div>
-                                    <div class="hc-hex hc-center" data-hc-idx="0">12+</div>
-                                    <div class="hc-hex" style="background:#2E7D32" data-hc-idx="4">PAS</div>
-                                </div>
-                                <!-- Row 4: 3 hexes (offset) -->
-                                <div class="hc-row hc-odd">
-                                    <div class="hc-hex" style="background:#1565C0" data-hc-idx="4">BMS</div>
-                                    <div class="hc-hex" style="background:#6A1B9A" data-hc-idx="5">FAS</div>
-                                    <div class="hc-hex" style="background:#BF360C" data-hc-idx="6">PAS</div>
-                                </div>
-                                <!-- Row 5: 2 hexes -->
-                                <div class="hc-row">
-                                    <div class="hc-hex" style="background:#795548;font-size:9px" data-hc-idx="5">PEER&#10;REVIEW</div>
-                                    <div class="hc-hex" style="background:#2E7D32" data-hc-idx="7">CCTV</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right: Talent Pool -->
-                        <div class="at-talent-col">
-                            <h3 class="at-talent-heading" data-at-th>OUR TALENT POOL</h3>
-                            <div class="at-talent-list">
-                                <div class="at-tc at-tc-1" data-tc="0" data-at-tc>PRINCIPAL</div>
-                                <div class="at-tc at-tc-2" data-tc="1" data-at-tc>TEAM LEADS</div>
-                                <div class="at-tc at-tc-3" data-tc="2" data-at-tc>SR. ENGINEERS</div>
-                                <div class="at-tc at-tc-4" data-tc="3" data-at-tc>ENGINEERS</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <script>
-                (function(){
-                    var sec  = document.getElementById('ades-about-team');
-                    var hcBg = document.getElementById('at-hc-bg');
-
-                    /* Title */
-                    var title = sec.querySelector('[data-at-title]');
-                    new IntersectionObserver(function(es){
-                        es.forEach(function(e){ title.classList.toggle('in', e.isIntersecting); });
-                    },{threshold:0.3}).observe(title);
-
-                    /* Talent heading + cards */
-                    var talentHead = sec.querySelector('[data-at-th]');
-                    var tCards = sec.querySelectorAll('[data-at-tc]');
-                    new IntersectionObserver(function(es){
-                        es.forEach(function(e){
-                            talentHead.classList.toggle('in', e.isIntersecting);
-                            tCards.forEach(function(c){ c.classList.toggle('in', e.isIntersecting); });
-                        });
-                    },{threshold:0.2}).observe(sec.querySelector('.at-talent-col'));
-
-                    /* Honeycomb: staggered by data-hc-idx + extra xl hex */
-                    var hcWrap   = sec.querySelector('[data-at-hc]');
-                    var hexes    = sec.querySelectorAll('.hc-hex');
-                    var xlHex    = sec.querySelector('[data-hc-xl]');
-                    var durations = [2.8,3.2,3.0,2.6,3.4,2.9,3.1,2.7,3.3];
-                    var fDelays   = [0,-0.8,-1.5,-2.2,-0.4,-1.1,-1.8,-0.6,-2.5];
-
-                    hexes.forEach(function(h, i){
-                        h.style.setProperty('--hc-dur',   durations[i % durations.length] + 's');
-                        h.style.setProperty('--hc-delay', fDelays[i % fDelays.length] + 's');
-                    });
-
-                    new IntersectionObserver(function(es){
-                        es.forEach(function(e){
-                            if(e.isIntersecting){
-                                if(xlHex) xlHex.classList.add('in');
-                                hexes.forEach(function(h){
-                                    var idx = parseInt(h.getAttribute('data-hc-idx') || 0);
-                                    setTimeout(function(){ h.classList.add('in'); }, idx * 80);
-                                });
-                            } else {
-                                if(xlHex) xlHex.classList.remove('in');
-                                hexes.forEach(function(h){ h.classList.remove('in'); });
-                            }
-                        });
-                    },{threshold:0.2}).observe(hcWrap);
-
-                    /* Parallax on bg image */
-                    var rafPx = null;
-                    function parallax(){
-                        rafPx = null;
-                        var rect = hcWrap.getBoundingClientRect();
-                        var vh   = window.innerHeight;
-                        var pct  = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
-                        hcBg.style.transform = 'translateY(' + ((pct * 40) - 20).toFixed(1) + 'px)';
-                    }
-                    window.addEventListener('scroll', function(){
-                        if(!rafPx) rafPx = requestAnimationFrame(parallax);
-                    },{passive:true});
-                    parallax();
-                })();
-                </script>
-            </section>
-            <!-- ═══════════════════════════════════════════
-                 END ABOUT THE TEAM
-            ═══════════════════════════════════════════ -->
 
 
             <!-- About page Section Start -->
