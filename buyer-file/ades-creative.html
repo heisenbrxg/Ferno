@@ -1362,9 +1362,28 @@
 
     .philosophy-img {
       width: 100%;
-      aspect-ratio: 3/4;
       border-radius: 20px;
       overflow: hidden;
+    }
+
+    .philosophy-img-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .philosophy-img-stack img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .philosophy-img-stack img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,102,255,0.2);
     }
 
     .philosophy-quote {
