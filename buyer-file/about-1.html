@@ -589,7 +589,512 @@
             </div>
             <!-- About Section End -->
 
-            <!-- Principal Section Start -->
+            <!-- ═══════════════════════════════════════════
+                     TIMELINE OF OUR ORGANISATION
+                ═══════════════════════════════════════════ -->
+                <section id="ades-timeline" style="padding:100px 0 120px;position:relative;overflow:hidden;">
+                    <style>
+                        /* ── Variables ── */
+                        #ades-timeline {
+                            --tl-accent:  #C9F31D;
+                            --tl-dim:     rgba(201,243,29,0.38);
+                            --tl-dot-sz:  22px;
+                            --tl-ease:    cubic-bezier(0.22,1,0.36,1);
+                            --tl-spring:  cubic-bezier(0.34,1.56,0.64,1);
+                        }
+
+                        /* ── Heading ── */
+                        .tl-heading {
+                            text-align:center;
+                            font-size:clamp(1.6rem,3.5vw,2.6rem);
+                            font-weight:900;
+                            letter-spacing:0.08em;
+                            text-transform:uppercase;
+                            color:var(--tl-accent);
+                            margin-bottom:80px;
+                            opacity:0;
+                            transform:translateY(-22px);
+                            transition:opacity 0.7s ease, transform 0.7s var(--tl-ease);
+                        }
+                        .tl-heading.in { opacity:1; transform:translateY(0); }
+                        .tl-heading::after {
+                            content:'';
+                            display:block;
+                            width:60px; height:3px;
+                            background:var(--tl-accent);
+                            border-radius:2px;
+                            margin:14px auto 0;
+                        }
+
+                        /* ── Spine ── */
+                        .tl-spine-wrap {
+                            position:absolute;
+                            left:50%; top:180px; bottom:40px;
+                            width:2px;
+                            transform:translateX(-50%);
+                            overflow:visible;
+                        }
+                        .tl-spine {
+                            width:100%; height:100%;
+                            background:linear-gradient(to bottom,
+                                var(--tl-accent) 0%,
+                                rgba(201,243,29,0.65) 45%,
+                                rgba(201,243,29,0.18) 85%,
+                                transparent 100%);
+                            transform-origin:top;
+                            transform:scaleY(0);
+                            position:relative;
+                        }
+                        /* Glowing dot that rides the spine head */
+                        .tl-spine::after {
+                            content:'';
+                            position:absolute;
+                            bottom:0; left:50%;
+                            width:10px; height:10px;
+                            background:var(--tl-accent);
+                            border-radius:50%;
+                            transform:translate(-50%,50%);
+                            box-shadow:0 0 14px 5px rgba(201,243,29,0.65);
+                            opacity:0;
+                            transition:opacity 0.25s ease;
+                        }
+                        .tl-spine.drawing::after { opacity:1; }
+
+                        /* ── Entry row ── */
+                        .tl-entry {
+                            display:grid;
+                            grid-template-columns:1fr 80px 1fr;
+                            align-items:start;           /* year anchors to top of card */
+                            margin-bottom:90px;
+                            position:relative;
+                            gap:0;
+                        }
+
+                        /* ── Year + Dot centre column ── */
+                        .tl-year-wrap {
+                            display:flex;
+                            flex-direction:column;
+                            align-items:center;
+                            gap:9px;
+                            position:relative;
+                            z-index:2;
+                            padding-top:28px;            /* aligns year with card title */
+                        }
+                        /* Horizontal connector lines from dot outward */
+                        .tl-year-wrap::before,
+                        .tl-year-wrap::after {
+                            content:'';
+                            position:absolute;
+                            bottom:11px;
+                            height:1px;
+                            width:0;
+                            background:rgba(201,243,29,0.4);
+                            transition:width 0.55s var(--tl-ease) 0.5s;
+                            z-index:-1;
+                        }
+                        .tl-year-wrap::before { right:100%; }
+                        .tl-year-wrap::after  { left:100%; }
+                        .tl-entry.in .tl-year-wrap::before,
+                        .tl-entry.in .tl-year-wrap::after { width:55px; }
+
+                        /* Year number */
+                        .tl-year {
+                            font-size:clamp(1.5rem,2.8vw,2.1rem);
+                            font-weight:900;
+                            color:#fff;
+                            line-height:1;
+                            transform:scale(0.2);
+                            opacity:0;
+                            transition:transform 0.75s var(--tl-spring),
+                                       opacity 0.4s ease;
+                        }
+                        .tl-year.in {
+                            transform:scale(1);
+                            opacity:1;
+                            text-shadow:0 0 22px rgba(201,243,29,0.3);
+                        }
+
+                        /* Dot */
+                        .tl-dot {
+                            width:var(--tl-dot-sz);
+                            height:var(--tl-dot-sz);
+                            border-radius:50%;
+                            background:var(--tl-accent);
+                            border:3px solid #0a0a0a;
+                            position:relative;
+                            transform:scale(0);
+                            transition:transform 0.55s var(--tl-spring) 0.2s;
+                        }
+                        .tl-dot.in {
+                            transform:scale(1);
+                            animation:tl-dot-breath 2.6s ease-in-out 0.85s infinite;
+                        }
+                        @keyframes tl-dot-breath {
+                            0%,100% { box-shadow:0 0 0 0   rgba(201,243,29,0.5); }
+                            50%     { box-shadow:0 0 0 8px rgba(201,243,29,0);   }
+                        }
+
+                        /* Ripple ring (JS-injected span) */
+                        .tl-ring {
+                            position:absolute;
+                            inset:-6px;
+                            border-radius:50%;
+                            border:2px solid var(--tl-accent);
+                            pointer-events:none;
+                            animation:tl-ripple 1s cubic-bezier(0.2,1,0.4,1) forwards;
+                        }
+                        @keyframes tl-ripple {
+                            0%   { transform:scale(0.5); opacity:0.9; }
+                            100% { transform:scale(3.5); opacity:0; }
+                        }
+
+                        /* ── Cards ── */
+                        .tl-left, .tl-right { padding:0 32px; }
+
+                        .tl-card {
+                            background:transparent;
+                            border:none;
+                            border-radius:0;
+                            padding:0 0 0 16px;
+                            position:relative;
+                            overflow:visible;
+                        }
+
+                        /* Left accent bar */
+                        .tl-card::before {
+                            content:'';
+                            position:absolute;
+                            left:0; top:2px; bottom:2px;
+                            width:2px;
+                            background:var(--tl-accent);
+                            transform:scaleY(0);
+                            transform-origin:top;
+                            transition:transform 0.5s var(--tl-ease) 0.5s;
+                        }
+                        .tl-card.in::before { transform:scaleY(1); }
+
+                        .tl-card-label {
+                            font-size:11px; font-weight:700;
+                            letter-spacing:0.2em; text-transform:uppercase;
+                            color:var(--tl-accent); margin-bottom:8px;
+                            opacity:0; transform:translateY(6px);
+                            transition:opacity 0.4s ease 0.08s,
+                                       transform 0.4s var(--tl-ease) 0.08s;
+                        }
+                        .tl-card.in .tl-card-label { opacity:1; transform:translateY(0); }
+
+                        .tl-card-title {
+                            font-size:clamp(1.1rem,1.6vw,1.4rem);
+                            font-weight:800; color:#fff;
+                            margin-bottom:10px; line-height:1.25;
+                            opacity:0; transform:translateY(10px);
+                            transition:opacity 0.45s ease 0.16s,
+                                       transform 0.45s var(--tl-ease) 0.16s;
+                        }
+                        .tl-card.in .tl-card-title { opacity:1; transform:translateY(0); }
+
+                        .tl-card-desc {
+                            font-size:0.95rem; color:rgba(255,255,255,0.6);
+                            line-height:1.7; margin-bottom:0;
+                            opacity:0; transform:translateY(8px);
+                            transition:opacity 0.45s ease 0.26s,
+                                       transform 0.45s var(--tl-ease) 0.26s;
+                        }
+                        .tl-card.in .tl-card-desc { opacity:1; transform:translateY(0); }
+
+                        /* Images */
+                        .tl-imgs { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+                        .tl-img {
+                            border-radius:10px; overflow:hidden;
+                            flex:1; min-width:90px; max-height:90px;
+                            border:1px solid rgba(255,255,255,0.08);
+                            transform:translateY(18px) scale(0.93);
+                            opacity:0;
+                            transition:transform 0.6s var(--tl-ease) 0.42s,
+                                       opacity 0.5s ease 0.42s;
+                        }
+                        .tl-img img { width:100%; height:100%; object-fit:cover; display:block; }
+                        .tl-entry.in .tl-img { transform:translateY(0) scale(1); opacity:1; }
+
+                        /* Logos */
+                        .tl-logo-wrap {
+                            display:flex; gap:10px; flex-wrap:wrap;
+                            align-items:center; margin-top:14px;
+                        }
+                        .tl-logo {
+                            background:rgba(255,255,255,0.05);
+                            border:1px solid rgba(255,255,255,0.08);
+                            border-radius:8px; padding:8px 14px;
+                            display:flex; align-items:center; justify-content:center;
+                            transform:translateY(14px); opacity:0;
+                            transition:transform 0.55s var(--tl-ease) 0.48s,
+                                       opacity 0.5s ease 0.48s;
+                        }
+                        .tl-logo img { max-height:48px; max-width:140px; object-fit:contain; }
+                        .tl-entry.in .tl-logo { transform:translateY(0); opacity:1; }
+                        .tl-entry.in .tl-logo:nth-child(2) { transition-delay:0.58s; }
+
+                        /* Card slide + blur */
+                        .tl-left .tl-card {
+                            transform:translateX(-70px); opacity:0; filter:blur(7px);
+                            transition:transform 0.8s var(--tl-ease),
+                                       opacity 0.7s ease, filter 0.7s ease;
+                        }
+                        .tl-right .tl-card {
+                            transform:translateX(70px); opacity:0; filter:blur(7px);
+                            transition:transform 0.8s var(--tl-ease),
+                                       opacity 0.7s ease, filter 0.7s ease;
+                        }
+                        .tl-left .tl-card.in,
+                        .tl-right .tl-card.in {
+                            transform:translateX(0); opacity:1; filter:blur(0);
+                        }
+
+                        /* ── Empty side ── */
+                        .tl-empty { padding:0 28px; }
+
+                        /* ── Mobile ── */
+                        @media(max-width:768px){
+                            .tl-spine-wrap { left:30px; transform:none; }
+                            .tl-year-wrap::before,
+                            .tl-year-wrap::after { display:none; }
+                            .tl-entry {
+                                grid-template-columns:60px 1fr;
+                                gap:0 12px;
+                                align-items:start;
+                            }
+                            .tl-entry .tl-left,
+                            .tl-entry .tl-right,
+                            .tl-entry .tl-empty { display:none; }
+                            .tl-entry .tl-mobile-content { display:block !important; }
+                            .tl-year-wrap {
+                                flex-direction:column;
+                                align-items:center;
+                                padding-top:14px;        /* align year with card content */
+                            }
+                            .tl-year {
+                                font-size:0.95rem !important;
+                                transform:scale(1) !important;
+                                opacity:1 !important;    /* always visible on mobile */
+                                transition:none !important;
+                            }
+                            .tl-dot {
+                                width:14px; height:14px;
+                                transform:scale(1) !important;
+                            }
+                            .tl-left .tl-card,
+                            .tl-right .tl-card { transform:translateX(30px); filter:none; }
+                        }
+                        .tl-mobile-content { display:none; }
+                    </style>
+
+                    <div class="container" style="position:relative;">
+                        <h2 class="tl-heading">Timeline of Our Organisation</h2>
+                    </div>
+
+                    <!-- Animated spine -->
+                    <div class="tl-spine-wrap"><div class="tl-spine" id="tl-spine"></div></div>
+
+                    <div class="container" style="position:relative;z-index:1;">
+
+                        <!-- ─── 2020 ─── -->
+                        <div class="tl-entry" data-tl-entry>
+                            <div class="tl-left">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">Milestone</div>
+                                    <div class="tl-card-title">UPGRADED TO PVT LTD</div>
+                                    <div class="tl-card-desc">airdesign engineered solutions Private Limited — formalising a decade of engineering excellence.</div>
+                                </div>
+                            </div>
+                            <div class="tl-year-wrap">
+                                <div class="tl-year">2020</div>
+                                <div class="tl-dot"></div>
+                            </div>
+                            <div class="tl-empty"></div>
+                            <!-- mobile -->
+                            <div class="tl-mobile-content">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">2020 · Milestone</div>
+                                    <div class="tl-card-title">UPGRADED TO PVT LTD</div>
+                                    <div class="tl-card-desc">airdesign engineered solutions Private Limited.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ─── 2016 ─── -->
+                        <div class="tl-entry" data-tl-entry>
+                            <div class="tl-empty"></div>
+                            <div class="tl-year-wrap">
+                                <div class="tl-year">2016</div>
+                                <div class="tl-dot"></div>
+                            </div>
+                            <div class="tl-right">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">Training</div>
+                                    <div class="tl-card-title">MEP TRAINING LAUNCHED</div>
+                                    <div class="tl-card-desc">Started MEP Training alongside Management and Skill Training programmes through Inception Institute.</div>
+                                </div>
+                            </div>
+                            <!-- mobile -->
+                            <div class="tl-mobile-content">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">2016 · Training</div>
+                                    <div class="tl-card-title">MEP TRAINING LAUNCHED</div>
+                                    <div class="tl-card-desc">Started MEP, Management and Skill Training.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ─── 2013 ─── -->
+                        <div class="tl-entry" data-tl-entry>
+                            <div class="tl-left">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">Associated</div>
+                                    <div class="tl-card-title">INNOWELL PARTNERSHIP</div>
+                                    <div class="tl-card-desc">Associated and Marketed by ADES — expanding reach through strategic alliances.</div>
+                                </div>
+                            </div>
+                            <div class="tl-year-wrap">
+                                <div class="tl-year">2013</div>
+                                <div class="tl-dot"></div>
+                            </div>
+                            <div class="tl-empty"></div>
+                            <!-- mobile -->
+                            <div class="tl-mobile-content">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">2013 · Associated</div>
+                                    <div class="tl-card-title">INNOWELL PARTNERSHIP</div>
+                                    <div class="tl-card-desc">Associated and marketed by ADES.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ─── 2010 ─── -->
+                        <div class="tl-entry" data-tl-entry>
+                            <div class="tl-empty"></div>
+                            <div class="tl-year-wrap">
+                                <div class="tl-year">2010</div>
+                                <div class="tl-dot"></div>
+                            </div>
+                            <div class="tl-right">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">Elevated</div>
+                                    <div class="tl-card-title">NEW OFFICE INAUGURATED</div>
+                                    <div class="tl-card-desc">A new chapter — ADES expands with a dedicated workspace, marking growth in team and capability.</div>
+                                </div>
+                            </div>
+                            <!-- mobile -->
+                            <div class="tl-mobile-content">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">2010 · Elevated</div>
+                                    <div class="tl-card-title">NEW OFFICE INAUGURATED</div>
+                                    <div class="tl-card-desc">ADES expands with a new dedicated workspace.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ─── 2008 ─── -->
+                        <div class="tl-entry" data-tl-entry>
+                            <div class="tl-left">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">Founded</div>
+                                    <div class="tl-card-title">PARTNERSHIP FIRM</div>
+                                    <div class="tl-card-desc">airdesign engineered solutions — Humble beginning. A vision for MEP excellence takes its first step.</div>
+                                </div>
+                            </div>
+                            <div class="tl-year-wrap">
+                                <div class="tl-year">2008</div>
+                                <div class="tl-dot"></div>
+                            </div>
+                            <div class="tl-empty"></div>
+                            <!-- mobile -->
+                            <div class="tl-mobile-content">
+                                <div class="tl-card">
+                                    <div class="tl-card-label">2008 · Founded</div>
+                                    <div class="tl-card-title">PARTNERSHIP FIRM</div>
+                                    <div class="tl-card-desc">airdesign engineered solutions — Humble beginning.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /container -->
+
+                    <script>
+                    (function(){
+                        var tl    = document.getElementById('ades-timeline');
+                        var spine = document.getElementById('tl-spine');
+                        var head  = tl.querySelector('.tl-heading');
+                        var rafId = null;
+
+                        /* rAF-throttled spine draw */
+                        function drawSpine(){
+                            rafId = null;
+                            var rect = tl.getBoundingClientRect();
+                            var vh   = window.innerHeight;
+                            var prog = Math.min(1, Math.max(0,
+                                (vh - rect.top) / (rect.height + vh)));
+                            spine.style.transform = 'scaleY(' + prog + ')';
+                            if(prog > 0.02 && prog < 0.99) spine.classList.add('drawing');
+                            else                            spine.classList.remove('drawing');
+                        }
+                        window.addEventListener('scroll', function(){
+                            if(!rafId) rafId = requestAnimationFrame(drawSpine);
+                        },{passive:true});
+                        drawSpine();
+
+                        /* Heading observer */
+                        if(head){
+                            new IntersectionObserver(function(es){
+                                es.forEach(function(e){
+                                    head.classList.toggle('in', e.isIntersecting);
+                                });
+                            },{threshold:0.4}).observe(head);
+                        }
+
+                        /* Entry observer */
+                        var io = new IntersectionObserver(function(entries){
+                            entries.forEach(function(e){
+                                var el   = e.target;
+                                var card = el.querySelector('.tl-left .tl-card, .tl-right .tl-card');
+                                var year = el.querySelector('.tl-year');
+                                var dot  = el.querySelector('.tl-dot');
+
+                                if(e.isIntersecting){
+                                    el.classList.add('in');
+                                    if(year) year.classList.add('in');
+                                    if(dot){
+                                        setTimeout(function(){
+                                            dot.classList.add('in');
+                                            /* fresh ripple ring each entry */
+                                            var ring = document.createElement('span');
+                                            ring.className = 'tl-ring';
+                                            dot.appendChild(ring);
+                                            setTimeout(function(){ ring.remove(); }, 1100);
+                                        }, 210);
+                                    }
+                                    if(card){
+                                        setTimeout(function(){ card.classList.add('in'); }, 120);
+                                    }
+                                } else {
+                                    el.classList.remove('in');
+                                    if(year) year.classList.remove('in');
+                                    if(dot)  dot.classList.remove('in');
+                                    if(card) card.classList.remove('in');
+                                }
+                            });
+                        },{threshold:0.25});
+
+                        document.querySelectorAll('[data-tl-entry]').forEach(function(el){
+                            io.observe(el);
+                        });
+                    })();
+                    </script>
+                </section>
+                <!-- ═══════════════════════════════════════════
+                     END TIMELINE
+                ═══════════════════════════════════════════ -->
+
+                <!-- Principal Section Start -->
             <section id="principal-sec">
                 <div class="container">
                     <div class="wwa-section-head">
@@ -620,6 +1125,520 @@
                                     </div>
             </section>
             <!-- Principal Section End -->
+
+            <!-- ═══════════════════════════════════════════
+                 OUR KEY STRENGTH SECTION
+            ═══════════════════════════════════════════ -->
+            <section id="ades-key-strength" style="padding:90px 0 100px;position:relative;">
+                <style>
+                    #ades-key-strength {
+                        --ks-ease: cubic-bezier(0.22,1,0.36,1);
+                        --ks-spring: cubic-bezier(0.34,1.56,0.64,1);
+                    }
+                    .ks-header { text-align:left; margin-bottom:56px; }
+                    .ks-title {
+                        font-size:clamp(1.5rem,3vw,2.2rem);
+                        font-weight:900; letter-spacing:0.08em;
+                        text-transform:uppercase; color:#C9F31D;
+                        opacity:0; transform:translateY(-18px);
+                        transition:opacity 0.65s ease, transform 0.65s var(--ks-ease);
+                        margin:0 0 8px;
+                    }
+                    .ks-subtitle {
+                        font-size:1rem; font-style:italic;
+                        color:rgba(255,255,255,0.5); margin:0;
+                        opacity:0; transform:translateY(-12px);
+                        transition:opacity 0.65s ease 0.15s, transform 0.65s var(--ks-ease) 0.15s;
+                    }
+                    .ks-header.in .ks-title,
+                    .ks-header.in .ks-subtitle { opacity:1; transform:translateY(0); }
+
+                    /* Grid wrapper */
+                    .ks-grid-wrap {
+                        position:relative;
+                        border:1px solid rgba(255,255,255,0.1);
+                        border-radius:4px;
+                        overflow:hidden;
+                    }
+                    /* Animated divider lines */
+                    .ks-divider-h {
+                        position:absolute; left:0; right:0;
+                        top:50%; height:1px;
+                        background:rgba(255,255,255,0.1);
+                        transform:scaleX(0); transform-origin:left;
+                        transition:transform 0.85s var(--ks-ease) 0.5s;
+                        z-index:1;
+                    }
+                    .ks-divider-v {
+                        position:absolute; top:0; bottom:0;
+                        left:50%; width:1px;
+                        background:rgba(255,255,255,0.1);
+                        transform:scaleY(0); transform-origin:top;
+                        transition:transform 0.85s var(--ks-ease) 0.55s;
+                        z-index:1;
+                    }
+                    .ks-grid-wrap.in .ks-divider-h { transform:scaleX(1); }
+                    .ks-grid-wrap.in .ks-divider-v { transform:scaleY(1); }
+
+                    /* 2x2 grid */
+                    .ks-grid {
+                        display:grid;
+                        grid-template-columns:1fr 1fr;
+                    }
+                    .ks-card {
+                        display:flex;
+                        align-items:center;
+                        gap:24px;
+                        padding:40px 36px;
+                        opacity:0; transform:scale(0.86) translateY(28px);
+                        transition:opacity 0.65s ease,
+                                   transform 0.65s var(--ks-spring);
+                    }
+                    .ks-card.in { opacity:1; transform:scale(1) translateY(0); }
+                    .ks-card:hover { background:rgba(255,255,255,0.02); }
+
+                    /* card stagger delays */
+                    .ks-card[data-ks="0"] { transition-delay:0s,0s; }
+                    .ks-card[data-ks="1"] { transition-delay:0.12s,0.12s; }
+                    .ks-card[data-ks="2"] { transition-delay:0.24s,0.24s; }
+                    .ks-card[data-ks="3"] { transition-delay:0.36s,0.36s; }
+
+                    /* icon circle */
+                    .ks-icon-circle {
+                        width:76px; height:76px;
+                        border-radius:50%;
+                        display:flex; align-items:center; justify-content:center;
+                        flex-shrink:0;
+                        transform:scale(0);
+                        transition:transform 0.55s var(--ks-spring) 0.22s;
+                    }
+                    .ks-card.in .ks-icon-circle { transform:scale(1); }
+                    .ks-icon-circle:hover { transform:scale(1.12) rotate(6deg) !important; }
+                    .ks-icon-circle svg { width:36px; height:36px; }
+
+                    /* card text */
+                    .ks-card-body { flex:1; }
+                    .ks-card-heading {
+                        font-size:clamp(0.9rem,1.4vw,1.1rem);
+                        font-weight:800; letter-spacing:0.06em;
+                        text-transform:uppercase; margin:0 0 10px;
+                        opacity:0; transform:translateY(8px);
+                        transition:opacity 0.4s ease, transform 0.4s var(--ks-ease);
+                    }
+                    .ks-card.in .ks-card-heading { opacity:1; transform:translateY(0); transition-delay:0.28s; }
+                    .ks-card-desc {
+                        font-size:0.875rem; line-height:1.65;
+                        color:rgba(255,255,255,0.55); margin:0;
+                        opacity:0; transform:translateY(8px);
+                        transition:opacity 0.4s ease, transform 0.4s var(--ks-ease);
+                    }
+                    .ks-card.in .ks-card-desc { opacity:1; transform:translateY(0); transition-delay:0.36s; }
+
+                    /* left col: text left, icon right */
+                    .ks-card.ks-layout-lr { flex-direction:row; }
+                    /* right col: icon left, text right */
+                    .ks-card.ks-layout-rl { flex-direction:row; }
+
+                    @media(max-width:768px){
+                        .ks-grid { grid-template-columns:1fr; }
+                        .ks-divider-v { display:none; }
+                        .ks-card { flex-direction:row !important; padding:28px 20px; }
+                    }
+                </style>
+
+                <div class="container">
+                    <div class="ks-header" data-ks-header>
+                        <h2 class="ks-title">OUR KEY STRENGTH</h2>
+                        <p class="ks-subtitle">What drives us to deliver the best</p>
+                    </div>
+
+                    <div class="ks-grid-wrap" data-ks-grid>
+                        <div class="ks-divider-h"></div>
+                        <div class="ks-divider-v"></div>
+                        <div class="ks-grid">
+
+                            <!-- Card 1: PROCESS ORIENTED — left col, text L / icon R -->
+                            <div class="ks-card ks-layout-lr" data-ks="0">
+                                <div class="ks-card-body">
+                                    <h3 class="ks-card-heading" style="color:#4d7cf8;">PROCESS ORIENTED</h3>
+                                    <p class="ks-card-desc"><strong style="color:#fff;">ADES is</strong> a process driven &amp; service-oriented design firm. We assure our clients of principal involvement and commitment on every project.</p>
+                                </div>
+                                <div class="ks-icon-circle" style="background:rgba(77,124,248,0.15);border:2px solid rgba(77,124,248,0.4);">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#4d7cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="14" width="8" height="8" rx="1"/><rect x="7" y="8" width="8" height="8" rx="1"/><rect x="12" y="2" width="8" height="8" rx="1"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: TIME CONSCIOUS — right col, icon L / text R -->
+                            <div class="ks-card ks-layout-rl" data-ks="1">
+                                <div class="ks-icon-circle" style="background:rgba(251,176,64,0.15);border:2px solid rgba(251,176,64,0.4);">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#fbb040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v4c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 9v4c0 1.66 4.03 3 9 3s9-1.34 9-3V9"/><path d="M3 13v4c0 1.66 4.03 3 9 3s9-1.34 9-3v-4"/>
+                                    </svg>
+                                </div>
+                                <div class="ks-card-body">
+                                    <h3 class="ks-card-heading" style="color:#fbb040;">TIME CONSCIOUS</h3>
+                                    <p class="ks-card-desc">On-time delivery and Project Commitments. We take pride in delivering the quality while maintaining the time equity.</p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: VALUE ENGINEERING — left col, text L / icon R -->
+                            <div class="ks-card ks-layout-lr" data-ks="2">
+                                <div class="ks-card-body">
+                                    <h3 class="ks-card-heading" style="color:#48c774;">VALUE ENGINEERING</h3>
+                                    <p class="ks-card-desc">Adding value to services that we provide seems to be the path forward. ADES ensures this in its offerings.</p>
+                                </div>
+                                <div class="ks-icon-circle" style="background:rgba(72,199,116,0.15);border:2px solid rgba(72,199,116,0.4);">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#48c774" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><circle cx="12" cy="15" r="3"/><path d="M12 12v0M14.5 13.5l-1-1M9.5 13.5l1-1M9.5 16.5l1-1M14.5 16.5l-1-1"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: OUR ETHICS — right col, icon L / text R -->
+                            <div class="ks-card ks-layout-rl" data-ks="3">
+                                <div class="ks-icon-circle" style="background:rgba(255,107,157,0.15);border:2px solid rgba(255,107,157,0.4);">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6b9d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/><path d="m9 8 1.5 1.5L13 7"/>
+                                    </svg>
+                                </div>
+                                <div class="ks-card-body">
+                                    <h3 class="ks-card-heading" style="color:#ff6b9d;">OUR ETHICS</h3>
+                                    <p class="ks-card-desc">We have a strong foundation of corporate ethical commitments and the organization's approach to our corporate responsibility.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                (function(){
+                    var sec = document.getElementById('ades-key-strength');
+
+                    /* Header */
+                    var hdr = sec.querySelector('[data-ks-header]');
+                    new IntersectionObserver(function(es){
+                        es.forEach(function(e){ hdr.classList.toggle('in', e.isIntersecting); });
+                    },{threshold:0.4}).observe(hdr);
+
+                    /* Grid: dividers + cards */
+                    var grid = sec.querySelector('[data-ks-grid]');
+                    var cards = sec.querySelectorAll('.ks-card');
+                    new IntersectionObserver(function(es){
+                        es.forEach(function(e){
+                            grid.classList.toggle('in', e.isIntersecting);
+                            cards.forEach(function(c){ c.classList.toggle('in', e.isIntersecting); });
+                        });
+                    },{threshold:0.2}).observe(grid);
+                })();
+                </script>
+            </section>
+            <!-- ═══════════════════════════════════════════
+                 END OUR KEY STRENGTH
+            ═══════════════════════════════════════════ -->
+
+            <!-- ═══════════════════════════════════════════
+                 ABOUT THE TEAM SECTION
+            ═══════════════════════════════════════════ -->
+            <section id="ades-about-team" style="padding:90px 0 100px;position:relative;">
+                <style>
+                    #ades-about-team {
+                        --at-ease:   cubic-bezier(0.22,1,0.36,1);
+                        --at-spring: cubic-bezier(0.34,1.56,0.64,1);
+                        --at-accent: #C9F31D;
+                    }
+
+                    .at-title {
+                        font-size:clamp(1.5rem,3vw,2.2rem);
+                        font-weight:900; letter-spacing:0.08em;
+                        text-transform:uppercase; color:var(--at-accent);
+                        margin:0 0 48px;
+                        opacity:0; transform:translateX(-28px);
+                        transition:opacity 0.65s ease, transform 0.65s var(--at-ease);
+                    }
+                    .at-title.in { opacity:1; transform:translateX(0); }
+
+                    .at-layout {
+                        display:grid;
+                        grid-template-columns:58% 42%;
+                        gap:50px;
+                        align-items:center;
+                    }
+                    @media(max-width:900px){ .at-layout { grid-template-columns:1fr; gap:40px; } }
+
+                    /* ── Honeycomb wrapper ── */
+                    .at-hc-wrap {
+                        position:relative;
+                        min-height:440px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        /* overflow:visible so extra hex & cluster can overflow left */
+                        overflow:visible;
+                    }
+
+                    /* Background image — clipped to wrapper via border-radius trick */
+                    .at-hc-bg {
+                        position:absolute;
+                        top:0; right:0; bottom:0;
+                        left:60px;               /* leave room for big left hex */
+                        background-image:url('assets/img/about/abot2.png');
+                        background-size:cover;
+                        background-position:center top;
+                        filter:brightness(0.35);
+                        border-radius:14px;
+                        z-index:0;
+                    }
+
+                    /* ── Honeycomb grid ── */
+                    .hc-container {
+                        position:relative; z-index:1;
+                        display:flex; flex-direction:column;
+                        align-items:center;
+                        gap:0;
+                        padding:24px 16px;
+                    }
+                    .hc-row {
+                        display:flex;
+                        gap:6px;
+                        margin-top:-26px;          /* vertical overlap for honeycomb */
+                    }
+                    .hc-row:first-child { margin-top:0; }
+                    .hc-row.hc-odd { margin-left:47px; } /* half-hex offset */
+
+                    /* Pointy-top hex */
+                    .hc-hex {
+                        width:86px; height:98px;
+                        clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+                        display:flex; flex-direction:column;
+                        align-items:center; justify-content:center;
+                        font-size:10px; font-weight:700;
+                        text-align:center; color:#fff;
+                        line-height:1.2; padding:0 8px;
+                        cursor:default; user-select:none;
+                        /* animation state */
+                        transform:scale(0) rotate(-30deg);
+                        opacity:0;
+                        transition:transform 0.6s var(--at-spring),
+                                   opacity 0.45s ease,
+                                   filter 0.25s ease;
+                    }
+                    .hc-hex.in {
+                        transform:scale(1) rotate(0deg);
+                        opacity:1;
+                        animation:hcFloat var(--hc-dur,3s) ease-in-out var(--hc-delay,0s) infinite alternate;
+                    }
+                    @keyframes hcFloat {
+                        from { transform:scale(1) rotate(0deg) translateY(0); }
+                        to   { transform:scale(1) rotate(0deg) translateY(-6px); }
+                    }
+                    .hc-hex:hover {
+                        filter:brightness(1.25) drop-shadow(0 0 8px rgba(255,255,255,0.3));
+                        animation-play-state:paused;
+                        transform:scale(1.15) rotate(0deg) !important;
+                        z-index:10; position:relative;
+                    }
+
+                    /* Center 12+ hex — larger */
+                    .hc-center {
+                        width:98px; height:110px;
+                        background:#111111 !important;
+                        border:2px solid rgba(201,243,29,0.5);
+                        color:var(--at-accent);
+                        font-size:1.75rem; font-weight:900;
+                        clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+                    }
+
+                    /* Extra large decorative hex — absolutely positioned left */
+                    .hc-xleft {
+                        position:absolute;
+                        left:-30px; top:50%;
+                        width:110px; height:124px;
+                        clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+                        background:#E91E8C;
+                        display:flex; align-items:center; justify-content:center;
+                        z-index:2;
+                        transform:translateY(-50%) scale(0) rotate(-30deg);
+                        opacity:0;
+                        transition:transform 0.7s var(--at-spring) 0.1s,
+                                   opacity 0.5s ease 0.1s;
+                    }
+                    .hc-xleft.in {
+                        transform:translateY(-50%) scale(1) rotate(0deg);
+                        opacity:1;
+                        animation:hcFloatLeft 3.5s ease-in-out 0.3s infinite alternate;
+                    }
+                    @keyframes hcFloatLeft {
+                        from { transform:translateY(-50%) scale(1) translateY(0); }
+                        to   { transform:translateY(calc(-50% - 7px)) scale(1); }
+                    }
+
+                    /* ── Talent Pool ── */
+                    .at-talent-heading {
+                        font-size:clamp(1rem,2vw,1.5rem);
+                        font-weight:900; letter-spacing:0.1em;
+                        text-transform:uppercase; color:#00c8ff;
+                        margin:0 0 24px;
+                        opacity:0; transform:translateX(28px);
+                        transition:opacity 0.65s ease 0.1s, transform 0.65s var(--at-ease) 0.1s;
+                    }
+                    .at-talent-heading.in { opacity:1; transform:translateX(0); }
+
+                    .at-talent-list { display:flex; flex-direction:column; gap:14px; }
+
+                    .at-tc {
+                        border-radius:14px;
+                        padding:20px 28px;
+                        font-size:1rem; font-weight:900;
+                        letter-spacing:0.08em; text-transform:uppercase;
+                        color:#0a0a0a; text-align:center;
+                        cursor:default;
+                        opacity:0; transform:translateX(55px) scale(0.9);
+                        transition:opacity 0.55s ease,
+                                   transform 0.55s var(--at-spring);
+                    }
+                    .at-tc.in { opacity:1; transform:translateX(0) scale(1); }
+                    .at-tc:hover { transform:translateX(8px) scale(1.02) !important; }
+
+                    .at-tc-1 { background:#3CB917; color:#fff; }
+                    .at-tc-2 { background:#45CC1C; color:#fff; }
+                    .at-tc-3 { background:#4FDD22; color:#0a0a0a; }
+                    .at-tc-4 { background:#59EE28; color:#0a0a0a; }
+
+                    .at-tc[data-tc="0"] { transition-delay:0s,0s; }
+                    .at-tc[data-tc="1"] { transition-delay:0.15s,0.15s; }
+                    .at-tc[data-tc="2"] { transition-delay:0.3s,0.3s; }
+                    .at-tc[data-tc="3"] { transition-delay:0.45s,0.45s; }
+                </style>
+
+                <div class="container">
+                    <h2 class="at-title" data-at-title>ABOUT THE TEAM</h2>
+
+                    <div class="at-layout">
+
+                        <!-- Left: Honeycomb -->
+                        <div class="at-hc-wrap" data-at-hc>
+                            <div class="at-hc-bg" id="at-hc-bg"></div>
+
+                            <!-- Extra large pink hex on far left -->
+                            <div class="hc-xleft" data-hc-xl></div>
+
+                            <div class="hc-container">
+                                <!-- Row 1: 2 hexes -->
+                                <div class="hc-row">
+                                    <div class="hc-hex" style="background:#C62828" data-hc-idx="5">HVAC</div>
+                                    <div class="hc-hex" style="background:#E65100" data-hc-idx="6">ELEC&shy;TRICAL</div>
+                                </div>
+                                <!-- Row 2: 3 hexes (offset) -->
+                                <div class="hc-row hc-odd">
+                                    <div class="hc-hex" style="background:#7CB342" data-hc-idx="4">PHE</div>
+                                    <div class="hc-hex" style="background:#1A237E" data-hc-idx="3">ELV</div>
+                                    <div class="hc-hex" style="background:#F9A825" data-hc-idx="7">IBMS</div>
+                                </div>
+                                <!-- Row 3: 3 hexes with 12+ center -->
+                                <div class="hc-row">
+                                    <div class="hc-hex" style="background:#6D4C41" data-hc-idx="3">FPS</div>
+                                    <div class="hc-hex hc-center" data-hc-idx="0">12+</div>
+                                    <div class="hc-hex" style="background:#2E7D32" data-hc-idx="4">PAS</div>
+                                </div>
+                                <!-- Row 4: 3 hexes (offset) -->
+                                <div class="hc-row hc-odd">
+                                    <div class="hc-hex" style="background:#1565C0" data-hc-idx="4">BMS</div>
+                                    <div class="hc-hex" style="background:#6A1B9A" data-hc-idx="5">FAS</div>
+                                    <div class="hc-hex" style="background:#BF360C" data-hc-idx="6">PAS</div>
+                                </div>
+                                <!-- Row 5: 2 hexes -->
+                                <div class="hc-row">
+                                    <div class="hc-hex" style="background:#795548;font-size:9px" data-hc-idx="5">PEER&#10;REVIEW</div>
+                                    <div class="hc-hex" style="background:#2E7D32" data-hc-idx="7">CCTV</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Talent Pool -->
+                        <div class="at-talent-col">
+                            <h3 class="at-talent-heading" data-at-th>OUR TALENT POOL</h3>
+                            <div class="at-talent-list">
+                                <div class="at-tc at-tc-1" data-tc="0" data-at-tc>PRINCIPAL</div>
+                                <div class="at-tc at-tc-2" data-tc="1" data-at-tc>TEAM LEADS</div>
+                                <div class="at-tc at-tc-3" data-tc="2" data-at-tc>SR. ENGINEERS</div>
+                                <div class="at-tc at-tc-4" data-tc="3" data-at-tc>ENGINEERS</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <script>
+                (function(){
+                    var sec  = document.getElementById('ades-about-team');
+                    var hcBg = document.getElementById('at-hc-bg');
+
+                    /* Title */
+                    var title = sec.querySelector('[data-at-title]');
+                    new IntersectionObserver(function(es){
+                        es.forEach(function(e){ title.classList.toggle('in', e.isIntersecting); });
+                    },{threshold:0.3}).observe(title);
+
+                    /* Talent heading + cards */
+                    var talentHead = sec.querySelector('[data-at-th]');
+                    var tCards = sec.querySelectorAll('[data-at-tc]');
+                    new IntersectionObserver(function(es){
+                        es.forEach(function(e){
+                            talentHead.classList.toggle('in', e.isIntersecting);
+                            tCards.forEach(function(c){ c.classList.toggle('in', e.isIntersecting); });
+                        });
+                    },{threshold:0.2}).observe(sec.querySelector('.at-talent-col'));
+
+                    /* Honeycomb: staggered by data-hc-idx + extra xl hex */
+                    var hcWrap   = sec.querySelector('[data-at-hc]');
+                    var hexes    = sec.querySelectorAll('.hc-hex');
+                    var xlHex    = sec.querySelector('[data-hc-xl]');
+                    var durations = [2.8,3.2,3.0,2.6,3.4,2.9,3.1,2.7,3.3];
+                    var fDelays   = [0,-0.8,-1.5,-2.2,-0.4,-1.1,-1.8,-0.6,-2.5];
+
+                    hexes.forEach(function(h, i){
+                        h.style.setProperty('--hc-dur',   durations[i % durations.length] + 's');
+                        h.style.setProperty('--hc-delay', fDelays[i % fDelays.length] + 's');
+                    });
+
+                    new IntersectionObserver(function(es){
+                        es.forEach(function(e){
+                            if(e.isIntersecting){
+                                if(xlHex) xlHex.classList.add('in');
+                                hexes.forEach(function(h){
+                                    var idx = parseInt(h.getAttribute('data-hc-idx') || 0);
+                                    setTimeout(function(){ h.classList.add('in'); }, idx * 80);
+                                });
+                            } else {
+                                if(xlHex) xlHex.classList.remove('in');
+                                hexes.forEach(function(h){ h.classList.remove('in'); });
+                            }
+                        });
+                    },{threshold:0.2}).observe(hcWrap);
+
+                    /* Parallax on bg image */
+                    var rafPx = null;
+                    function parallax(){
+                        rafPx = null;
+                        var rect = hcWrap.getBoundingClientRect();
+                        var vh   = window.innerHeight;
+                        var pct  = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
+                        hcBg.style.transform = 'translateY(' + ((pct * 40) - 20).toFixed(1) + 'px)';
+                    }
+                    window.addEventListener('scroll', function(){
+                        if(!rafPx) rafPx = requestAnimationFrame(parallax);
+                    },{passive:true});
+                    parallax();
+                })();
+                </script>
+            </section>
+            <!-- ═══════════════════════════════════════════
+                 END ABOUT THE TEAM
+            ═══════════════════════════════════════════ -->
+
 
             <!-- About page Section Start -->
             <div class="about-page-area-two gt-sticky-wrap pb-80 fix">
@@ -1423,6 +2442,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- CTA Section Start -->
                 <div class="cta-area-three fix">
                     <div class="cta-wrapper pb-150">
