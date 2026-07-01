@@ -845,18 +845,122 @@
                     <div class="container">
                         <p style="font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#C9F31D;margin-bottom:10px;">Our Track Record</p>
                         <h2 style="font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;color:#fff !important;margin-bottom:48px;">Certified Projects &amp; Green Building Portfolio</h2>
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
-                            <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 32px rgba(0,0,0,0.4);height:420px;">
-                                <img src="./assets/img/ChatGPT Image Jun 30, 2026, 02_40_57 PM.png"
-                                     alt="ADES platinum certified projects"
-                                     style="width:100%;height:100%;object-fit:contain;display:block;background:#fff;">
+                        <style>
+                            .cert-table-wrap{background:#111;border:1px solid #1e1e1e;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.4);opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+                            .cert-table-wrap + .cert-table-wrap{margin-top:32px;}
+                            .cert-table-wrap.in-view{opacity:1;transform:translateY(0);}
+                            .cert-table-head{padding:20px 24px;border-bottom:1px solid #1e1e1e;}
+                            .cert-table-head h3{margin:0;font-size:19px;font-weight:700;color:#fff !important;letter-spacing:.01em;}
+                            .cert-table-scroll{overflow-x:auto;}
+                            .cert-table{width:100%;border-collapse:collapse;min-width:720px;}
+                            .cert-table thead th{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#999;text-align:left;padding:16px 20px;background:#161616;border-bottom:1px solid #1e1e1e;white-space:nowrap;}
+                            .cert-table tbody td{padding:17px 20px;font-size:16px;color:#ccc;border-bottom:1px solid #1a1a1a;white-space:nowrap;}
+                            .cert-table tbody td:first-child{color:#777;font-weight:600;}
+                            .cert-table tbody td:nth-child(2){white-space:normal;font-weight:600;color:#fff;}
+                            .cert-table tbody tr{opacity:0;transform:translateX(-12px);transition:opacity .45s ease,transform .45s ease,background .25s ease;transition-delay:calc(var(--d,0) * 45ms);}
+                            .cert-table-wrap.in-view tbody tr{opacity:1;transform:translateX(0);}
+                            .cert-table tbody tr:hover{background:rgba(201,243,29,0.05);}
+                            .cert-table tbody tr:last-child td{border-bottom:none;}
+                            .badge{display:inline-block;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;letter-spacing:.03em;white-space:nowrap;}
+                            .badge-platinum{background:#C9F31D;color:#0a0a0a;}
+                            .badge-gold{background:rgba(201,243,29,.12);color:#C9F31D;border:1px solid rgba(201,243,29,.4);}
+                            .badge-star{background:rgba(159,214,255,.1);color:#9fd6ff;border:1px solid rgba(159,214,255,.3);}
+                            .badge-certified{background:rgba(255,255,255,.06);color:#bbb;border:1px solid rgba(255,255,255,.18);}
+                            .role-tag{display:inline-block;padding:4px 10px;margin:0 3px 3px 0;background:#1c1c1c;border-radius:6px;font-size:13px;font-weight:700;color:#C9F31D;letter-spacing:.04em;}
+                            .score-cell{display:flex;align-items:center;gap:10px;min-width:130px;}
+                            .score-num{font-weight:800;color:#fff;font-size:16px;width:26px;}
+                            .score-bar{flex:1;height:6px;background:#1e1e1e;border-radius:4px;overflow:hidden;}
+                            .score-bar-fill{display:block;height:100%;background:#C9F31D;border-radius:4px;width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1);}
+                            .cert-table-wrap.in-view .score-bar-fill{width:var(--score);}
+                        </style>
+
+                        <div class="cert-table-wrap">
+                            <div class="cert-table-head">
+                                <h3>LEED &middot; IGBC &middot; GRIHA Certified Projects</h3>
                             </div>
-                            <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 32px rgba(0,0,0,0.4);height:420px;">
-                                <img src="./assets/img/08c185d4-d27f-4527-bb6d-c88367202701.png"
-                                     alt="ADES LEED and GRIHA certified projects"
-                                     style="width:100%;height:100%;object-fit:contain;display:block;background:#fff;">
+                            <div class="cert-table-scroll">
+                                <table class="cert-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Projects</th>
+                                            <th>Project Type</th>
+                                            <th>Certification Agency</th>
+                                            <th>Certification Level</th>
+                                            <th>Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="--d:0"><td>1</td><td>National Stock Exchange India Ltd.</td><td>Data Centre</td><td>LEED</td><td><span class="badge badge-platinum">PLATINUM</span></td><td><span class="role-tag">L</span></td></tr>
+                                        <tr style="--d:1"><td>2</td><td>Jeno Sougumaran</td><td>Residence</td><td>IGBC</td><td><span class="badge badge-platinum">PLATINUM PRECERTIFIED</span></td><td><span class="role-tag">L</span></td></tr>
+                                        <tr style="--d:2"><td>3</td><td>Apollo Tyres Ltd.</td><td>R&amp;D Centre</td><td>LEED</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">L</span><span class="role-tag">M</span></td></tr>
+                                        <tr style="--d:3"><td>4</td><td>Parker Hannifin India Pvt. Ltd.</td><td>Factory</td><td>IGBC</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">L</span><span class="role-tag">H</span></td></tr>
+                                        <tr style="--d:4"><td>5</td><td>IIT Girls Hostel</td><td>Residence</td><td>GRIHA</td><td><span class="badge badge-star">4 STAR</span></td><td><span class="role-tag">G</span></td></tr>
+                                        <tr style="--d:5"><td>6</td><td>IIT Boys Hostel</td><td>Residence</td><td>GRIHA</td><td><span class="badge badge-star">4 STAR</span></td><td><span class="role-tag">G</span></td></tr>
+                                        <tr style="--d:6"><td>7</td><td>Engineers India Ltd</td><td>Office Space</td><td>GRIHA</td><td><span class="badge badge-star">4 STAR</span></td><td><span class="role-tag">G</span></td></tr>
+                                        <tr style="--d:7"><td>8</td><td>IT Park for CTS@MEPZ, Chennai</td><td>IT Park</td><td>LEED</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">C</span></td></tr>
+                                        <tr style="--d:8"><td>9</td><td>IT Park for CTS@Hinjewadi, Pune</td><td>IT Park</td><td>LEED</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">C</span></td></tr>
+                                        <tr style="--d:9"><td>10</td><td>L&amp;T Technology Centre II</td><td>Commercial Building</td><td>LEED</td><td><span class="badge badge-certified">CERTIFIED</span></td><td><span class="role-tag">C</span></td></tr>
+                                        <tr style="--d:10"><td>11</td><td>HP Office Building at TRIL D Block</td><td>Office Building</td><td>LEED</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">H</span></td></tr>
+                                        <tr style="--d:11"><td>12</td><td>Saint Gobain India Pvt. Ltd.</td><td>Office Building</td><td>LEED</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">H</span></td></tr>
+                                        <tr style="--d:12"><td>13</td><td>Pershing at TRIL D Block</td><td>Office Building</td><td>LEED</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">H</span></td></tr>
+                                        <tr style="--d:13"><td>14</td><td>Agility Logistics Pvt. Ltd.</td><td>Office Building</td><td>LEED</td><td><span class="badge badge-gold">GOLD</span></td><td><span class="role-tag">H</span></td></tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+
+                        <div class="cert-table-wrap">
+                            <div class="cert-table-head">
+                                <h3>Textile &amp; Garment Industry &mdash; LEED Platinum Certified</h3>
+                            </div>
+                            <div class="cert-table-scroll">
+                                <table class="cert-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Projects</th>
+                                            <th>Company</th>
+                                            <th>Project Type</th>
+                                            <th>Certification Level</th>
+                                            <th>Points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="--d:0"><td>1</td><td>Genesis Washing Plant</td><td>M&amp;J Group</td><td>Washing Unit</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">83</span><div class="score-bar"><span class="score-bar-fill" style="--score:83%"></span></div></div></td></tr>
+                                        <tr style="--d:1"><td>2</td><td>Genesis Fashions Ltd</td><td>M&amp;J Group</td><td>RMG</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">81</span><div class="score-bar"><span class="score-bar-fill" style="--score:81%"></span></div></div></td></tr>
+                                        <tr style="--d:2"><td>3</td><td>Envoy Textiles Ltd</td><td>Envoy</td><td>Denim Mill</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">80</span><div class="score-bar"><span class="score-bar-fill" style="--score:80%"></span></div></div></td></tr>
+                                        <tr style="--d:3"><td>4</td><td>SQ Celsius 2</td><td>SQ Group</td><td>Auto Knitting</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">85</span><div class="score-bar"><span class="score-bar-fill" style="--score:85%"></span></div></div></td></tr>
+                                        <tr style="--d:4"><td>5</td><td>SQ ColBlanc Ltd</td><td>SQ Group</td><td>RMG (Shirts)</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">81</span><div class="score-bar"><span class="score-bar-fill" style="--score:81%"></span></div></div></td></tr>
+                                        <tr style="--d:5"><td>6</td><td>SQ Birichina Ltd</td><td>SQ Group</td><td>RMG (Lingeries)</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">81</span><div class="score-bar"><span class="score-bar-fill" style="--score:81%"></span></div></div></td></tr>
+                                        <tr style="--d:6"><td>7</td><td>Remi Holdings Ltd</td><td>Bitopi Group</td><td>RMG &amp; Washing</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">97</span><div class="score-bar"><span class="score-bar-fill" style="--score:97%"></span></div></div></td></tr>
+                                        <tr style="--d:7"><td>8</td><td>Tarasima Apparels Ltd</td><td>Bitopi Group</td><td>RMG &amp; Washing</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">93</span><div class="score-bar"><span class="score-bar-fill" style="--score:93%"></span></div></div></td></tr>
+                                        <tr style="--d:8"><td>9</td><td>Columbia Washing Plant Ltd</td><td>M&amp;J Group</td><td>Denim Washing Unit</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">87</span><div class="score-bar"><span class="score-bar-fill" style="--score:87%"></span></div></div></td></tr>
+                                        <tr style="--d:9"><td>10</td><td>Echotex Limited</td><td>RMG</td><td>RMG</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">86</span><div class="score-bar"><span class="score-bar-fill" style="--score:86%"></span></div></div></td></tr>
+                                        <tr style="--d:10"><td>11</td><td>SQ Central</td><td>SQ Group</td><td>Office Space</td><td><span class="badge badge-platinum">PLATINUM CERTIFIED</span></td><td><div class="score-cell"><span class="score-num">85</span><div class="score-bar"><span class="score-bar-fill" style="--score:85%"></span></div></div></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <script>
+                            (function () {
+                                var wraps = document.querySelectorAll('.cert-table-wrap');
+                                if (!('IntersectionObserver' in window)) {
+                                    wraps.forEach(function (w) { w.classList.add('in-view'); });
+                                    return;
+                                }
+                                var obs = new IntersectionObserver(function (entries) {
+                                    entries.forEach(function (entry) {
+                                        if (entry.isIntersecting) {
+                                            entry.target.classList.add('in-view');
+                                            obs.unobserve(entry.target);
+                                        }
+                                    });
+                                }, { threshold: 0.15 });
+                                wraps.forEach(function (w) { obs.observe(w); });
+                            })();
+                        </script>
                     </div>
                 </section>
                 <!-- Certifications Section End -->
