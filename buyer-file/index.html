@@ -1116,6 +1116,7 @@
                                             .about-founded-content-align {
                                                 margin-top: calc(clamp(32px, 3.5vw, 50px) * 1.15 + 24px) !important;
                                             }
+
                                             .about-left-title-align {
                                                 margin-left: -170px !important;
                                             }
@@ -1958,9 +1959,13 @@
                                 perspective: 1000px;
                                 margin-bottom: 30px;
                                 border-radius: 12px;
-                            }
-                            .ades-flip-card-inner {
                                 position: relative;
+                            }
+
+                            .ades-flip-card-inner {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
                                 width: 100%;
                                 height: 100%;
                                 text-align: center;
@@ -1968,10 +1973,13 @@
                                 transform-style: preserve-3d;
                                 border-radius: 12px;
                             }
+
                             .ades-flip-card:hover .ades-flip-card-inner {
                                 transform: rotateY(180deg);
                             }
-                            .ades-flip-front, .ades-flip-back {
+
+                            .ades-flip-front,
+                            .ades-flip-back {
                                 position: absolute;
                                 width: 100%;
                                 height: 100%;
@@ -1979,14 +1987,20 @@
                                 border-radius: 12px;
                                 overflow: hidden;
                             }
+
                             .ades-flip-front {
                                 background-color: #1a1a1a;
                             }
+
                             .ades-flip-front img {
-                                width: 100%;
-                                height: 100%;
-                                object-fit: cover;
+                                width: 100% !important;
+                                height: 100% !important;
+                                object-fit: cover !important;
+                                object-position: center !important;
+                                transform: scale(1.01) !important;
+                                display: block !important;
                             }
+
                             .ades-flip-back {
                                 background-color: #C9F31D;
                                 color: #121212;
@@ -1998,12 +2012,14 @@
                                 padding: 30px;
                                 text-decoration: none;
                             }
+
                             .ades-flip-back .card-title {
                                 font-size: 1.8rem;
                                 font-weight: 700;
                                 color: #121212 !important;
                                 margin-bottom: 12px;
                             }
+
                             .ades-flip-back .text {
                                 color: #333;
                                 font-size: 1.1rem;
@@ -2019,7 +2035,8 @@
                                     <div class="ades-flip-card hover-item" data-cursor="View details">
                                         <div class="ades-flip-card-inner">
                                             <div class="ades-flip-front">
-                                                <img loading="lazy" decoding="async" src="./assets/img/lulu mall.png" alt="Lulu Mall">
+                                                <img loading="lazy" decoding="async" src="./assets/img/lulu.png"
+                                                    alt="Lulu Mall">
                                             </div>
                                             <div class="ades-flip-back">
                                                 <div class="card-title">Lulu Mall – Sharjah</div>
@@ -2036,10 +2053,11 @@
                                     <div class="ades-flip-card hover-item" data-cursor="View details">
                                         <div class="ades-flip-card-inner">
                                             <div class="ades-flip-front">
-                                                <img loading="lazy" decoding="async" src="./assets/img/grt mage.png" alt="Hotel GRT">
+                                                <img loading="lazy" decoding="async" src="./assets/img/grt mage.png"
+                                                    alt="Radisson">
                                             </div>
                                             <div class="ades-flip-back">
-                                                <div class="card-title">Hotel GRT – Revitalization</div>
+                                                <div class="card-title">Radisson</div>
                                                 <p class="text">Rooftop & Basement Optimization</p>
                                             </div>
                                         </div>
@@ -2053,7 +2071,8 @@
                                     <div class="ades-flip-card hover-item" data-cursor="View details">
                                         <div class="ades-flip-card-inner">
                                             <div class="ades-flip-front">
-                                                <img loading="lazy" decoding="async" src="./assets/img/Work images (3).png" alt="Apollo Tyres">
+                                                <img loading="lazy" decoding="async" src="./assets/img/apollo.jpg"
+                                                    alt="Apollo Tyres">
                                             </div>
                                             <div class="ades-flip-back">
                                                 <div class="card-title">Apollo Tyres R&D Centre</div>
@@ -2070,7 +2089,8 @@
                                     <div class="ades-flip-card hover-item" data-cursor="View details">
                                         <div class="ades-flip-card-inner">
                                             <div class="ades-flip-front">
-                                                <img loading="lazy" decoding="async" src="./assets/img/pro3.png" alt="Cooling Project">
+                                                <img loading="lazy" decoding="async" src="./assets/img/pro3.png"
+                                                    alt="Cooling Project">
                                             </div>
                                             <div class="ades-flip-back">
                                                 <div class="card-title">TPI Composites</div>
@@ -2205,7 +2225,8 @@
                                 <div class="section-title-four text-center">
                                     <div class="sub-title title-anim justify-content-center">
                                         <div class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="9" viewBox="0 0 34 9" fill="none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="9"
+                                                viewBox="0 0 34 9" fill="none">
                                                 <rect width="34" height="2" fill="#121212" />
                                                 <rect x="14" y="7" width="20" height="2" fill="#121212" />
                                             </svg>
@@ -2222,7 +2243,7 @@
                             <!-- Award Section End -->
 
                             <!-- Gallery Section Start -->
-                            <div class="gallery-area-one">
+                            <div class="gallery-area-one" style="margin-bottom: 100px;">
                                 <div class="gallery-wrapper ades-parallax fix"
                                     style="height:600px;background-color:#0a0a0a;">
                                     <img src="./assets/img/adaas naim img.jpg" alt="thumb"
@@ -2230,6 +2251,25 @@
                                 </div>
                             </div>
                             <!-- Gallery Section End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2319,7 +2359,8 @@
                                                             </a>
                                                         </div>
 
-                                                        <p class="text title-anim" style="font-size: 1.35rem; line-height: 1.7;">
+                                                        <p class="text title-anim"
+                                                            style="font-size: 1.35rem; line-height: 1.7;">
                                                             Delivering advanced Mechanical, Electrical, and Plumbing
                                                             solutions —
                                                             request a consultation to receive a detailed engineering
@@ -2341,10 +2382,10 @@
 
 
                             <!-- Gallery Section Start -->
-                            <div class="gallery-area-one" style="margin-bottom: 100px;">
+                            <div class="gallery-area-one" style="margin-bottom: 200px;">
                                 <div class="gallery-wrapper ades-parallax fix"
                                     style="height:600px;background-color:#0a0a0a;">
-                                    <img src="./assets/img/gallery image.png" alt="thumb"
+                                    <img src="./assets/img/ades footer image.png" alt="thumb"
                                         style="width:100%;height:140%;object-fit:cover;object-position:center top;will-change:transform;">
                                 </div>
                             </div>
