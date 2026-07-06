@@ -83,6 +83,28 @@ h1, h2, h3, h4:not(.custom-footer-title), h5, h6 {
         font-size: 19px !important;
     }
 }
+@media (max-width: 1399px) {
+    .header-section .header-3 .header-left {
+        margin-left: 20px !important;
+    }
+    .header-section .header-3 .main-menu ul li {
+        margin-inline-end: 18px !important;
+    }
+    .header-section .header-3 .main-menu ul li > a {
+        font-size: 15px !important;
+    }
+}
+@media (max-width: 1199px) {
+    .header-section .header-3 .header-left {
+        margin-left: 10px !important;
+    }
+    .header-section .header-3 .main-menu ul li {
+        margin-inline-end: 12px !important;
+    }
+    .header-section .header-3 .main-menu ul li > a {
+        font-size: 14px !important;
+    }
+}
 .header-section .header-3 .main-menu ul li .submenu li a {
     font-size: 16px !important;
 }
