@@ -39,10 +39,10 @@
            HERO — editorial style
         ═══════════════════════════════════════ */
         .kh-hero {
-            min-height: 70vh;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center;
             padding: 140px 0 72px;
             background: #0a0a0a;
             border-bottom: 1px solid #1e1e1e;
@@ -50,14 +50,17 @@
         .kh-hero-meta {
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 16px;
             margin-bottom: 32px;
         }
         .kh-hero-meta span {
-            font-size: 14px;
+            font-size: 22px;
             letter-spacing: 0.22em;
             text-transform: uppercase;
             color: #ffffff;
+            font-weight: 600;
         }
         .kh-hero-meta .dot {
             width: 4px; height: 4px;
@@ -73,6 +76,7 @@
             text-transform: uppercase !important;
             letter-spacing: -0.02em;
             margin-bottom: 0;
+            text-align: center;
         }
         .kh-hero h1 em {
             font-style: normal;
@@ -362,7 +366,7 @@
         }
         .kh-info-card img {
             width: 100%;
-            height: 300px;
+            height: 400px !important;
             display: block;
             object-fit: cover;
         }
@@ -372,7 +376,7 @@
             border-radius: 14px;
             padding: 24px;
             backdrop-filter: blur(6px);
-            height: 300px;
+            height: 400px !important;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1075,26 +1079,8 @@
                         <div class="dot"></div>
                         <span>2026</span>
                     </div>
-                    <h1>Key<br><em>Highlights</em></h1>
-                    <div class="kh-hero-bottom">
-                        <p class="kh-hero-desc">
-                            Turning constrained, idle spaces into premium revenue-generating guest destinations through precision MEP engineering.
-                        </p>
-                        <div class="kh-hero-stats">
-                            <div class="kh-stat-item">
-                                <span class="num">27K</span>
-                                <span class="lbl">Sq.ft — Terrace</span>
-                            </div>
-                            <div class="kh-stat-item">
-                                <span class="num">3.3K</span>
-                                <span class="lbl">Sq.ft — Basement</span>
-                            </div>
-                            <div class="kh-stat-item">
-                                <span class="num">2</span>
-                                <span class="lbl">Spaces Revitalized</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h1>Key <em>Highlights</em></h1>
+
                 </div>
             </section>
 
@@ -1106,10 +1092,12 @@
                     <div class="kh-info-overlay"></div>
                     <div class="container kh-info-content">
                         <div class="row align-items-center g-5">
-                            <div class="col-lg-5">
-                                <div class="kh-info-card">
+                            <div class="col-lg-6">
+                                <div class="kh-info-card" style="margin-bottom: 0;">
                                     <img src="assets/img/pro3.png" alt="Industrial cooling plant">
                                 </div>
+                            </div>
+                            <div class="col-lg-6">
                                 <div class="kh-info-chart">
                                     <h4>Cooling Cost (Lakhs INR)</h4>
                                     <svg viewBox="0 0 220 190" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
@@ -1127,10 +1115,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-7">
+                        </div>
+                        <div class="row mt-5 pt-4">
+                            <div class="col-lg-10 offset-lg-1 text-center">
                                 <h2 class="kh-info-heading">Less Cooling Capacity &amp; Cost</h2>
                                 <p class="kh-info-lead">Detailed Calculation resulted in</p>
-                                <div class="kh-info-stats">
+                                <div class="kh-info-stats justify-content-center">
                                     <div class="kh-stat">
                                         <span class="kh-stat-num">40.5%</span>
                                         <span class="kh-stat-label">Reduction on Cost</span>
@@ -1140,7 +1130,7 @@
                                         <span class="kh-stat-label">Cost Saving</span>
                                     </div>
                                 </div>
-                                <ul class="kh-info-notes">
+                                <ul class="kh-info-notes text-start d-inline-block mt-3" style="text-align: left;">
                                     <li>4,000 TR Cooling Capacity was Optimised to 2,400 TR</li>
                                     <li>Electrical System Transformer Infrastructure was Reduced by 2,000 kVA</li>
                                 </ul>
@@ -1151,6 +1141,185 @@
             </section>
 
 
+
+            <!-- ══════════════════════════════════════════════
+                 CASE STUDY 01 — TERRACE
+            ══════════════════════════════════════════════ -->
+            <section class="kh-transform">
+                <div class="container">
+
+                    <div class="kh-tx-header">
+                        <h2 class="kh-tx-title">Terrace Revitalization</h2>
+                    </div>
+
+                    <div class="row gy-5">
+                        <div class="col-lg-6 col-md-12" style="align-self:flex-start;position:sticky;top:80px;">
+                            <!-- Slider -->
+                            <div class="ba-wrap" id="baWrap1">
+                                <img class="ba-img-after"  src="assets/img/transtion 2 (1).png" alt="After — Revitalized Terrace" draggable="false">
+                                <img class="ba-img-before" id="baB1" src="assets/img/transtion 1.png" alt="Before — Unused Terrace" draggable="false">
+                                <div class="ba-line" id="baL1">
+                                    <div class="ba-handle">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M15 18l-6-6 6-6M9 18l-6-6 6-6" transform="translate(3,0)"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="ba-label-before">Before</span>
+                                <span class="ba-label-after">After</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12">
+                            <!-- Analysis stacked -->
+                            <div style="width: 100%;">
+
+                                <div style="padding-top: 20px;">
+                                    <ul style="list-style-type: none; padding: 0; margin-left: 20px;">
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            Ideal airport-adjacent location
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            Height restrictions due to Airport Authority
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            Unused 27,000 sq. ft. terrace
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            ADES cleared utility services
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            Removed 25-year-old chimneys
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            REVITALIZED TERRACE INTO REVENUE-GENERATING GUEST SPACE
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            Added outdoor lawn for events
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            Significantly increased client value our client
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="kh-slider-caption">
+                                    <span class="caption-label">Transformation Area</span>
+                                    <div class="caption-area">27,000 <span style="font-size:0.7em;font-weight:700;">Sq.ft</span></div>
+                                    <p class="caption-sub">Unused rooftop terrace — revitalized into a premium revenue-generating guest destination through precision MEP engineering.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 DECORATIVE DIVIDER BETWEEN CASE STUDIES
+            ══════════════════════════════════════════════ -->
+            <div class="kh-section-divider">
+                <div class="marquee-text">
+                    <span class="marquee-item">MEP Engineering <span class="dot"></span></span>
+                    <span class="marquee-item">Space Transformation <span class="dot"></span></span>
+                    <span class="marquee-item">Revenue Generation <span class="dot"></span></span>
+                    <span class="marquee-item">HVAC Design <span class="dot"></span></span>
+                    <span class="marquee-item">Electrical Systems <span class="dot"></span></span>
+                    <span class="marquee-item">Fire Protection <span class="dot"></span></span>
+                    <span class="marquee-item">BIM Integration <span class="dot"></span></span>
+                    <span class="marquee-item">MEP Engineering <span class="dot"></span></span>
+                    <span class="marquee-item">Space Transformation <span class="dot"></span></span>
+                    <span class="marquee-item">Revenue Generation <span class="dot"></span></span>
+                    <span class="marquee-item">HVAC Design <span class="dot"></span></span>
+                    <span class="marquee-item">Electrical Systems <span class="dot"></span></span>
+                    <span class="marquee-item">Fire Protection <span class="dot"></span></span>
+                    <span class="marquee-item">BIM Integration <span class="dot"></span></span>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 CASE STUDY 02 — BASEMENT
+            ══════════════════════════════════════════════ -->
+            <section class="kh-transform">
+                <div class="container">
+
+                    <div class="kh-tx-header">
+                        <h2 class="kh-tx-title">Basement Revitalization</h2>
+                    </div>
+
+                    <div class="row gy-5">
+                        <div class="col-lg-6 col-md-12" style="align-self:flex-start;position:sticky;top:80px;">
+                            <!-- Slider -->
+                            <div class="ba-wrap" id="baWrap2">
+                                <img class="ba-img-after"  src="assets/img/transformation 2 (2).png" alt="After — Revitalized Basement" draggable="false">
+                                <img class="ba-img-before" id="baB2" src="assets/img/transformation 2 (1).png" alt="Before — Unused Basement" draggable="false">
+                                <div class="ba-line" id="baL2">
+                                    <div class="ba-handle">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M15 18l-6-6 6-6M9 18l-6-6 6-6" transform="translate(3,0)"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <span class="ba-label-before">Before</span>
+                                <span class="ba-label-after">After</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12">
+                            <!-- Analysis stacked -->
+                            <div style="width: 100%;">
+                                <div style="padding-top: 20px;">
+                                    <ul style="list-style-type: none; padding: 0; margin-left: 20px;">
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            REVITALIZED BASEMENT
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            RECLAIMING 3,300 SQFT USED FOR SPA
+                                        </li>
+                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
+                                            “It has now been transformed into a functional guest space, generating revenue.”
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="kh-slider-caption">
+                                    <span class="caption-label">Transformation Area</span>
+                                    <div class="caption-area">3,300 <span style="font-size:0.7em;font-weight:700;">Sq.ft</span></div>
+                                    <p class="caption-sub">Former non-revenue spa space — fully reclaimed and converted into a high-value, revenue-generating guest facility.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── Numbers ── -->
+            <section class="kh-numbers">
+                <div class="container-fluid px-0">
+                    <div class="kh-numbers-grid">
+                        <div class="kh-numbers-cell">
+                            <span class="n">27<span>K</span></span>
+                            <span class="d">Sq.ft of Terrace Transformed</span>
+                        </div>
+                        <div class="kh-numbers-cell">
+                            <span class="n">3.3<span>K</span></span>
+                            <span class="d">Sq.ft of Basement Reclaimed</span>
+                        </div>
+                        <div class="kh-numbers-cell">
+                            <span class="n">25<span>+</span></span>
+                            <span class="d">Years of Infrastructure Cleared</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- ── Project Experience — animated stat cards ── -->
             <section class="kh-experience">
                 <div class="container">
@@ -1513,235 +1682,6 @@
                                     <p class="kh-exp-desc">Peer Reviews</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ══════════════════════════════════════════════
-                 CASE STUDY 01 — TERRACE
-            ══════════════════════════════════════════════ -->
-            <section class="kh-transform">
-                <div class="container">
-
-                    <div class="kh-tx-header">
-                        <span class="kh-tx-num">Case Study — 01</span>
-                        <h2 class="kh-tx-title">Terrace Revitalization</h2>
-                        <span class="kh-tx-hint">← Drag to compare →</span>
-                    </div>
-
-                    <div class="row gy-5">
-                        <div class="col-lg-6 col-md-12" style="align-self:flex-start;position:sticky;top:80px;">
-                            <!-- Slider -->
-                            <div class="ba-wrap" id="baWrap1">
-                                <img class="ba-img-after"  src="assets/img/transtion 2 (1).png" alt="After — Revitalized Terrace" draggable="false">
-                                <img class="ba-img-before" id="baB1" src="assets/img/transtion 1.png" alt="Before — Unused Terrace" draggable="false">
-                                <div class="ba-line" id="baL1">
-                                    <div class="ba-handle">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M15 18l-6-6 6-6M9 18l-6-6 6-6" transform="translate(3,0)"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <span class="ba-label-before">Before</span>
-                                <span class="ba-label-after">After</span>
-                            </div>
-                            <div class="kh-slider-caption">
-                                <span class="caption-label">Transformation Area</span>
-                                <div class="caption-area">27,000 <span style="font-size:0.7em;font-weight:700;">Sq.ft</span></div>
-                                <p class="caption-sub">Unused rooftop terrace — revitalized into a premium revenue-generating guest destination through precision MEP engineering.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-12">
-                            <!-- Analysis stacked -->
-                            <div style="width: 100%;">
-
-                                <div style="padding-top: 20px;">
-                                    <ul style="list-style-type: none; padding: 0; margin-left: 20px;">
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            Ideal airport-adjacent location
-                                        </li>
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            Height restrictions due to Airport Authority
-                                        </li>
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            Unused 27,000 sq. ft. terrace
-                                        </li>
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            ADES cleared utility services
-                                        </li>
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            Removed 25-year-old chimneys
-                                        </li>
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            REVITALIZED TERRACE INTO REVENUE-GENERATING GUEST SPACE
-                                        </li>
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            Added outdoor lawn for events
-                                        </li>
-                                        <li style="position: relative; padding-left: 24px; margin-bottom: 16px; font-size: 1.05rem; color: #fff; font-weight: 500;">
-                                            <span style="position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background-color: #C9F31D; border-radius: 50%;"></span>
-                                            Significantly increased client value our client
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ══════════════════════════════════════════════
-                 DECORATIVE DIVIDER BETWEEN CASE STUDIES
-            ══════════════════════════════════════════════ -->
-            <div class="kh-section-divider">
-                <div class="marquee-text">
-                    <span class="marquee-item">MEP Engineering <span class="dot"></span></span>
-                    <span class="marquee-item">Space Transformation <span class="dot"></span></span>
-                    <span class="marquee-item">Revenue Generation <span class="dot"></span></span>
-                    <span class="marquee-item">HVAC Design <span class="dot"></span></span>
-                    <span class="marquee-item">Electrical Systems <span class="dot"></span></span>
-                    <span class="marquee-item">Fire Protection <span class="dot"></span></span>
-                    <span class="marquee-item">BIM Integration <span class="dot"></span></span>
-                    <span class="marquee-item">MEP Engineering <span class="dot"></span></span>
-                    <span class="marquee-item">Space Transformation <span class="dot"></span></span>
-                    <span class="marquee-item">Revenue Generation <span class="dot"></span></span>
-                    <span class="marquee-item">HVAC Design <span class="dot"></span></span>
-                    <span class="marquee-item">Electrical Systems <span class="dot"></span></span>
-                    <span class="marquee-item">Fire Protection <span class="dot"></span></span>
-                    <span class="marquee-item">BIM Integration <span class="dot"></span></span>
-                </div>
-            </div>
-
-            <!-- ══════════════════════════════════════════════
-                 CASE STUDY 02 — BASEMENT
-            ══════════════════════════════════════════════ -->
-            <section class="kh-transform">
-                <div class="container">
-
-                    <div class="kh-tx-header">
-                        <span class="kh-tx-num">Case Study — 02</span>
-                        <h2 class="kh-tx-title">Basement Revitalization</h2>
-                        <span class="kh-tx-hint">← Drag to compare →</span>
-                    </div>
-
-                    <div class="row gy-5">
-                        <div class="col-lg-6 col-md-12" style="align-self:flex-start;position:sticky;top:80px;">
-                            <!-- Slider -->
-                            <div class="ba-wrap" id="baWrap2">
-                                <img class="ba-img-after"  src="assets/img/transformation 2 (2).png" alt="After — Revitalized Basement" draggable="false">
-                                <img class="ba-img-before" id="baB2" src="assets/img/transformation 2 (1).png" alt="Before — Unused Basement" draggable="false">
-                                <div class="ba-line" id="baL2">
-                                    <div class="ba-handle">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M15 18l-6-6 6-6M9 18l-6-6 6-6" transform="translate(3,0)"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <span class="ba-label-before">Before</span>
-                                <span class="ba-label-after">After</span>
-                            </div>
-                            <div class="kh-slider-caption">
-                                <span class="caption-label">Transformation Area</span>
-                                <div class="caption-area">3,300 <span style="font-size:0.7em;font-weight:700;">Sq.ft</span></div>
-                                <p class="caption-sub">Former non-revenue spa space — fully reclaimed and converted into a high-value, revenue-generating guest facility.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-12">
-                            <!-- Analysis stacked -->
-                            <div class="kh-analysis-stacked">
-
-                                <!-- Challenges -->
-                                <div>
-                                    <div class="kh-analysis-col-head">
-                                        <span class="col-tag">The Challenge</span>
-                                        <div class="col-line"></div>
-                                    </div>
-
-                                    <div class="kh-point">
-                                        <span class="kh-point-num">01</span>
-                                        <div>
-                                            <p class="kh-point-title">3,300 Sq.ft Occupied by Spa</p>
-                                            <p class="kh-point-text">The basement space was occupied by a non-revenue spa facility, leaving thousands of prime square feet entirely underutilised.</p>
-                                        </div>
-                                    </div>
-                                    <div class="kh-point">
-                                        <span class="kh-point-num">02</span>
-                                        <div>
-                                            <p class="kh-point-title">Outdated MEP Infrastructure</p>
-                                            <p class="kh-point-text">Ageing plumbing, electrical, and mechanical systems from the original spa fit-out had to be fully stripped, documented, and rationalised.</p>
-                                        </div>
-                                    </div>
-                                    <div class="kh-point">
-                                        <span class="kh-point-num">03</span>
-                                        <div>
-                                            <p class="kh-point-title">Basement Spatial Constraints</p>
-                                            <p class="kh-point-text">Restricted ceiling heights and limited access routes made the MEP re-engineering a precise, complex coordination challenge.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Outcomes -->
-                                <div>
-                                    <div class="kh-analysis-col-head">
-                                        <span class="col-tag outcome">The Outcome</span>
-                                        <div class="col-line"></div>
-                                    </div>
-
-                                    <div class="kh-point">
-                                        <span class="kh-point-num outcome">01</span>
-                                        <div>
-                                            <p class="kh-point-title">Revitalized Basement</p>
-                                            <p class="kh-point-text">The space has been fully transformed into a functional, operational guest area that now generates direct revenue for the property.</p>
-                                        </div>
-                                    </div>
-                                    <div class="kh-point">
-                                        <span class="kh-point-num outcome">02</span>
-                                        <div>
-                                            <p class="kh-point-title">Reclaiming 3,300 Sq.ft for Productive Use</p>
-                                            <p class="kh-point-text">Every square foot of the former spa was repurposed into high-value guest-facing space through intelligent MEP redesign and spatial planning.</p>
-                                        </div>
-                                    </div>
-                                    <div class="kh-point">
-                                        <span class="kh-point-num outcome">03</span>
-                                        <div>
-                                            <p class="kh-point-title">Functional Space, Generating Revenue</p>
-                                            <p class="kh-point-text">A space once classified as a cost centre has been re-engineered into a revenue asset — demonstrating ADES's ability to unlock value at every level of a building.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ── Numbers ── -->
-            <section class="kh-numbers">
-                <div class="container-fluid px-0">
-                    <div class="kh-numbers-grid">
-                        <div class="kh-numbers-cell">
-                            <span class="n">27<span>K</span></span>
-                            <span class="d">Sq.ft of Terrace Transformed</span>
-                        </div>
-                        <div class="kh-numbers-cell">
-                            <span class="n">3.3<span>K</span></span>
-                            <span class="d">Sq.ft of Basement Reclaimed</span>
-                        </div>
-                        <div class="kh-numbers-cell">
-                            <span class="n">25<span>+</span></span>
-                            <span class="d">Years of Infrastructure Cleared</span>
                         </div>
                     </div>
                 </div>
