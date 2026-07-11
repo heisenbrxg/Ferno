@@ -62,17 +62,19 @@
        Mobile Menu Js Start
     ================================ */
 
-    $("#mobile-menu").meanmenu({
-      meanMenuContainer: ".mobile-menu",
-      meanScreenWidth: "1199",
-      meanExpand: ['<i class="far fa-plus"></i>'],
-    });
+    if ($.fn.meanmenu) {
+      $("#mobile-menu").meanmenu({
+        meanMenuContainer: ".mobile-menu",
+        meanScreenWidth: "1199",
+        meanExpand: ['<i class="far fa-plus"></i>'],
+      });
 
-    $("#mobile-menu-1").meanmenu({
-      meanMenuContainer: ".mobile-menu",
-      meanScreenWidth: "9999",
-      meanExpand: ['<i class="far fa-plus"></i>'],
-    });
+      $("#mobile-menu-1").meanmenu({
+        meanMenuContainer: ".mobile-menu",
+        meanScreenWidth: "9999",
+        meanExpand: ['<i class="far fa-plus"></i>'],
+      });
+    }
 
     /* ================================
        Sidebar Toggle Js Start
