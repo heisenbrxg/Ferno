@@ -131,6 +131,16 @@
         .kh-transform:nth-child(odd)  { background: #0a0a0a; }
         .kh-transform:nth-child(even) { background: #0e0e0e; }
 
+        /* On tablet/mobile the columns stack, so the sticky image (inline
+           position:sticky;top:80px) freezes at the top and the text column
+           scrolls over it. Disable sticky below the desktop breakpoint. */
+        @media (max-width: 991px) {
+            .kh-transform .row > [class*="col-"] {
+                position: static !important;
+                top: auto !important;
+            }
+        }
+
         /* Section header row */
         .kh-tx-header {
             display: flex;
