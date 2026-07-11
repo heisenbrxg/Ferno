@@ -52,13 +52,134 @@
         }
 
         #principal-sec {
+            --wwa-accent: #C9F31D;
+            --wwa-ease: cubic-bezier(0.22, 1, 0.36, 1);
+            --wwa-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
             background: #000 !important;
             padding: 90px 0 100px;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        /* ── Ambient smoke backdrop ── */
+        .wwa-smoke {
+            position: absolute;
+            inset: -12% -8%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .wwa-smoke span {
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0;
+            mix-blend-mode: screen;
+            will-change: transform, opacity;
+        }
+
+        /* Lime-tinted haze plumes */
+        .wwa-smoke .s1 {
+            width: 46vw;
+            height: 46vw;
+            left: -6%;
+            top: 6%;
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(201, 243, 29, 0.16), rgba(201, 243, 29, 0.04) 55%, transparent 72%);
+            animation: wwa-smoke-a 26s ease-in-out infinite;
+        }
+
+        .wwa-smoke .s2 {
+            width: 40vw;
+            height: 40vw;
+            right: -4%;
+            top: 30%;
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(201, 243, 29, 0.1), rgba(140, 170, 30, 0.04) 55%, transparent 72%);
+            animation: wwa-smoke-b 32s ease-in-out infinite;
+        }
+
+        /* Cool grey smoke for depth */
+        .wwa-smoke .s3 {
+            width: 52vw;
+            height: 52vw;
+            left: 24%;
+            bottom: -14%;
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(180, 190, 200, 0.08), rgba(120, 130, 140, 0.03) 55%, transparent 72%);
+            animation: wwa-smoke-c 38s ease-in-out infinite;
+        }
+
+        .wwa-smoke .s4 {
+            width: 34vw;
+            height: 34vw;
+            left: 40%;
+            top: -8%;
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015) 55%, transparent 72%);
+            animation: wwa-smoke-b 29s ease-in-out infinite reverse;
+        }
+
+        @keyframes wwa-smoke-a {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+            33% { transform: translate(8%, -6%) scale(1.15); opacity: 0.85; }
+            66% { transform: translate(-5%, 5%) scale(0.95); opacity: 0.5; }
+        }
+
+        @keyframes wwa-smoke-b {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            40% { transform: translate(-9%, 7%) scale(1.2); opacity: 0.8; }
+            70% { transform: translate(6%, -4%) scale(1.05); opacity: 0.55; }
+        }
+
+        @keyframes wwa-smoke-c {
+            0%, 100% { transform: translate(0, 0) scale(1.05); opacity: 0.6; }
+            50% { transform: translate(7%, -8%) scale(1.25); opacity: 0.9; }
+        }
+
+        /* Keep content above the smoke */
+        #principal-sec > .container { position: relative; z-index: 1; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .wwa-smoke span { animation: none !important; opacity: 0.55; }
         }
 
         .wwa-section-head {
             text-align: left;
-            margin-bottom: 48px;
+            margin-bottom: 56px;
+            opacity: 0;
+            transform: translateY(-18px);
+            transition: opacity 0.65s ease, transform 0.65s var(--wwa-ease);
+        }
+
+        .wwa-section-head.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wwa-eyebrow {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--wwa-accent) !important;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wwa-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 2px;
+            background: var(--wwa-accent);
+            border-radius: 2px;
         }
 
         .wwa-section-head h2 {
@@ -69,6 +190,7 @@
             letter-spacing: 0.02em;
             text-transform: uppercase;
             margin: 0;
+            line-height: 1.1;
         }
 
         .wwa-grid {
@@ -78,11 +200,39 @@
             align-items: start;
         }
 
+        .wwa-profile-col {
+            position: sticky;
+            top: 110px;
+            opacity: 0;
+            transform: translateX(-40px);
+            filter: blur(6px);
+            transition: opacity 0.7s ease, transform 0.8s var(--wwa-ease), filter 0.7s ease;
+        }
+
+        .wwa-profile-col.in {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0);
+        }
+
         .wwa-photo {
-            background: #8faadc;
+            position: relative;
             padding: 0;
             overflow: hidden;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(160deg, rgba(201, 243, 29, 0.08), rgba(255, 255, 255, 0.02));
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .wwa-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            box-shadow: inset 0 -80px 90px -40px rgba(0, 0, 0, 0.55),
+                inset 0 0 0 1px rgba(201, 243, 29, 0.14);
         }
 
         .wwa-photo img {
@@ -91,11 +241,16 @@
             object-fit: cover;
             object-position: top center;
             aspect-ratio: 4 / 5;
+            transition: transform 0.8s var(--wwa-ease);
+        }
+
+        .wwa-profile-col:hover .wwa-photo img {
+            transform: scale(1.04);
         }
 
         .wwa-profile-meta {
             margin-top: 22px;
-            padding-top: 18px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.12);
         }
 
@@ -104,18 +259,23 @@
             font-size: 1.55rem;
             font-weight: 800;
             color: #fff !important;
-            margin: 0 0 8px;
+            margin: 0 0 10px;
             line-height: 1.25;
         }
 
         .wwa-profile-meta span {
-            display: block;
+            display: inline-flex;
+            align-items: center;
             font-family: "Plus Jakarta Sans", sans-serif;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--gt-theme, #C9F31D) !important;
+            color: var(--wwa-accent) !important;
+            padding: 6px 14px;
+            border: 1px solid rgba(201, 243, 29, 0.3);
+            border-radius: 30px;
+            background: rgba(201, 243, 29, 0.08);
         }
 
         /* Dark-page text visibility (style-6.css forces headings to black) */
@@ -182,32 +342,59 @@
         .wwa-bio-list {
             list-style: none;
             margin: 0;
-            padding: 8px 0 0;
+            padding: 4px 0 0;
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 14px;
         }
 
         .wwa-bio-list li {
             position: relative;
-            padding-left: 22px;
+            padding: 16px 22px 16px 44px;
             font-family: "Kanit", sans-serif;
-            font-size: 19px;
-            /* Enlarged achievements text */
+            font-size: 18px;
             font-weight: 400;
-            line-height: 1.75;
+            line-height: 1.7;
             color: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-left: 3px solid rgba(201, 243, 29, 0.55);
+            border-radius: 0 10px 10px 0;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.55s var(--wwa-ease),
+                background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .wwa-bio-list.in li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wwa-bio-list.in li:nth-child(1) { transition-delay: 0.05s; }
+        .wwa-bio-list.in li:nth-child(2) { transition-delay: 0.11s; }
+        .wwa-bio-list.in li:nth-child(3) { transition-delay: 0.17s; }
+        .wwa-bio-list.in li:nth-child(4) { transition-delay: 0.23s; }
+        .wwa-bio-list.in li:nth-child(5) { transition-delay: 0.29s; }
+        .wwa-bio-list.in li:nth-child(6) { transition-delay: 0.35s; }
+        .wwa-bio-list.in li:nth-child(7) { transition-delay: 0.41s; }
+        .wwa-bio-list.in li:nth-child(8) { transition-delay: 0.47s; }
+
+        .wwa-bio-list li:hover {
+            background: rgba(201, 243, 29, 0.06);
+            border-left-color: var(--gt-theme, #C9F31D);
         }
 
         .wwa-bio-list li::before {
             content: "";
             position: absolute;
-            left: 0;
-            top: 0.72em;
-            width: 7px;
-            height: 7px;
+            left: 20px;
+            top: 1.5em;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--gt-theme, #C9F31D);
+            box-shadow: 0 0 10px rgba(201, 243, 29, 0.55);
             transform: translateY(-50%);
         }
 
@@ -225,6 +412,7 @@
             }
 
             .wwa-profile-col {
+                position: static;
                 max-width: 380px;
             }
 
@@ -1123,7 +1311,7 @@
                         <div class="tl-left">
                             <div class="tl-card">
                                 <div class="tl-card-label">Milestone</div>
-                                <div class="tl-card-title">ADES UPGRADED TO PVT LTD</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:28px;display:block;margin-bottom:6px;"> UPGRADED TO PVT LTD</div>
                                 <div class="tl-card-desc">airdesign engineered solutions Private Limited — formalising a
                                     decade of engineering excellence.</div>
                             </div>
@@ -1137,7 +1325,7 @@
                         <div class="tl-mobile-content">
                             <div class="tl-card">
                                 <div class="tl-card-label">2020 · Milestone</div>
-                                <div class="tl-card-title">ADES UPGRADED TO PVT LTD</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:24px;display:block;margin-bottom:4px;"> UPGRADED TO PVT LTD</div>
                                 <div class="tl-card-desc">airdesign engineered solutions Private Limited.</div>
                             </div>
                         </div>
@@ -1153,7 +1341,7 @@
                         <div class="tl-right">
                             <div class="tl-card">
                                 <div class="tl-card-label">Training</div>
-                                <div class="tl-card-title">ADES MEP TRAINING LAUNCHED</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:28px;display:block;margin-bottom:6px;"> MEP TRAINING LAUNCHED</div>
                                 <div class="tl-card-desc">Started MEP Training alongside Management and Skill Training
                                     programmes through Inception Institute.</div>
                             </div>
@@ -1162,7 +1350,7 @@
                         <div class="tl-mobile-content">
                             <div class="tl-card">
                                 <div class="tl-card-label">2016 · Training</div>
-                                <div class="tl-card-title">ADES MEP TRAINING LAUNCHED</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:24px;display:block;margin-bottom:4px;"> MEP TRAINING LAUNCHED</div>
                                 <div class="tl-card-desc">Started MEP, Management and Skill Training.</div>
                             </div>
                         </div>
@@ -1173,7 +1361,7 @@
                         <div class="tl-left">
                             <div class="tl-card">
                                 <div class="tl-card-label">Associated</div>
-                                <div class="tl-card-title">ADES INNOWELL PARTNERSHIP</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:28px;display:block;margin-bottom:6px;"> INNOWELL PARTNERSHIP</div>
                                 <div class="tl-card-desc">Associated and Marketed by ADES — expanding reach through
                                     strategic alliances.</div>
                             </div>
@@ -1187,7 +1375,7 @@
                         <div class="tl-mobile-content">
                             <div class="tl-card">
                                 <div class="tl-card-label">2013 · Associated</div>
-                                <div class="tl-card-title">ADES INNOWELL PARTNERSHIP</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:24px;display:block;margin-bottom:4px;"> INNOWELL PARTNERSHIP</div>
                                 <div class="tl-card-desc">Associated and marketed by ADES.</div>
                             </div>
                         </div>
@@ -1203,7 +1391,7 @@
                         <div class="tl-right">
                             <div class="tl-card">
                                 <div class="tl-card-label">Founded</div>
-                                <div class="tl-card-title">ADES PARTNERSHIP FIRM</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:28px;display:block;margin-bottom:6px;"> PARTNERSHIP FIRM</div>
                                 <div class="tl-card-desc">airdesign engineered solutions — Humble beginning. A vision
                                     for MEP excellence takes its first step.</div>
                             </div>
@@ -1212,7 +1400,7 @@
                         <div class="tl-mobile-content">
                             <div class="tl-card">
                                 <div class="tl-card-label">2008 · Founded</div>
-                                <div class="tl-card-title">ADES PARTNERSHIP FIRM</div>
+                                <div class="tl-card-title"><img src="./assets/img/update new logo.png" alt="ADES" style="height:24px;display:block;margin-bottom:4px;"> PARTNERSHIP FIRM</div>
                                 <div class="tl-card-desc">airdesign engineered solutions — Humble beginning.</div>
                             </div>
                         </div>
@@ -1297,15 +1485,22 @@
 
             <!-- Principal Section Start -->
             <section id="principal-sec">
+                <div class="wwa-smoke" aria-hidden="true">
+                    <span class="s1"></span>
+                    <span class="s2"></span>
+                    <span class="s3"></span>
+                    <span class="s4"></span>
+                </div>
                 <div class="container">
-                    <div class="wwa-section-head">
+                    <div class="wwa-section-head" data-wwa-head>
+                        <div class="wwa-eyebrow">Leadership</div>
                         <h2>Who We Are</h2>
                     </div>
 
                     <div class="wwa-grid">
-                        <div class="wwa-profile-col">
+                        <div class="wwa-profile-col" data-wwa-profile>
                             <div class="wwa-photo">
-                                <img src="./assets/img/about/prinicpal.png" alt="Dr. Ferno Susai A">
+                                <img src="./assets/img/ferno.jpeg" alt="Dr. Ferno Susai A">
                             </div>
                             <div class="wwa-profile-meta">
                                 <h3>Dr. Ferno Susai A</h3>
@@ -1313,7 +1508,7 @@
                             </div>
                         </div>
 
-                        <ul class="wwa-bio-list">
+                        <ul class="wwa-bio-list" data-wwa-list>
                             <li>Versatile Design Team Lead, Trainer, and Principal Consultant. Proven success in
                                 steering diverse building projects with visionary leadership.</li>
                             <li>Expertise in project management, innovation, and client relations. Committed to design
@@ -1327,14 +1522,430 @@
                             <li>Master degree in Sociology</li>
                             <li>President — 2022–23 <span class="wwa-highlight">ISHRAE</span> (Indian Society of Heating
                                 Refrigerating and Air-conditioning Engineers) — Chennai Chapter</li>
-                            <li><span class="wwa-highlight">Rashtriya Ashoka Samman Certificate (2026)</span> —
-                                Recognized for outstanding contributions to Human Rights & Social Services, under a
-                                certificate approved by the Ministry of Corporate Affairs, Government of India.</li>
+                            <li><span class="wwa-highlight">Rashtriya Ashoka Samman Award (2026)</span> —
+                                Recognized for outstanding contributions to Human Rights & Social Services, under an
+                                award approved by the Ministry of Corporate Affairs, Government of India.</li>
                         </ul>
                     </div>
                 </div>
+
+                <script>
+                    (function () {
+                        var sec = document.getElementById('principal-sec');
+                        if (!sec) return;
+                        [
+                            ['[data-wwa-head]', 0.4],
+                            ['[data-wwa-profile]', 0.25],
+                            ['[data-wwa-list]', 0.15]
+                        ].forEach(function (pair) {
+                            var el = sec.querySelector(pair[0]);
+                            if (!el) return;
+                            new IntersectionObserver(function (es) {
+                                es.forEach(function (e) { el.classList.toggle('in', e.isIntersecting); });
+                            }, { threshold: pair[1] }).observe(el);
+                        });
+                    })();
+                </script>
             </section>
             <!-- Principal Section End -->
+
+            <!-- ═══════════════════════════════════════════
+                 VISION MISSION VALUES SECTION
+            ═══════════════════════════════════════════ -->
+            <section id="ades-vmv" style="padding:100px 0;position:relative;">
+                <style>
+                    #ades-vmv {
+                        --vmv-accent: #C9F31D;
+                        --vmv-ease: cubic-bezier(0.22, 1, 0.36, 1);
+                        --vmv-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+                    }
+
+                    /* ── Section header ── */
+                    .vmv-header {
+                        text-align: left;
+                        margin-bottom: 64px;
+                        opacity: 0;
+                        transform: translateY(-18px);
+                        transition: opacity 0.65s ease, transform 0.65s var(--vmv-ease);
+                    }
+                    .vmv-header.in {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                    .vmv-header-label {
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        letter-spacing: 0.28em;
+                        text-transform: uppercase;
+                        color: var(--vmv-accent) !important;
+                        margin-bottom: 14px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    .vmv-header-label::before {
+                        content: '';
+                        display: inline-block;
+                        width: 32px;
+                        height: 2px;
+                        background: var(--vmv-accent);
+                        border-radius: 2px;
+                    }
+                    .vmv-header h2 {
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+                        font-weight: 900;
+                        color: #fff !important;
+                        letter-spacing: 0.02em;
+                        text-transform: uppercase;
+                        margin: 0;
+                        line-height: 1.1;
+                    }
+                    .vmv-header h2 span {
+                        color: var(--vmv-accent) !important;
+                    }
+
+                    /* ── Grid ── */
+                    .vmv-top-grid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 28px;
+                        margin-bottom: 28px;
+                    }
+                    .vmv-full { width: 100%; }
+
+                    /* ── Card base ── */
+                    .vmv-card {
+                        position: relative;
+                        padding: 52px 48px;
+                        border: 1px solid rgba(255,255,255,0.09);
+                        background: rgba(255,255,255,0.03);
+                        clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 32px 100%, 0 calc(100% - 32px));
+                        overflow: hidden;
+                        opacity: 0;
+                        transform: translateY(36px) scale(0.97);
+                        transition: opacity 0.7s ease, transform 0.7s var(--vmv-spring), background 0.35s ease, border-color 0.35s ease;
+                    }
+                    .vmv-card.in {
+                        opacity: 1;
+                        transform: translateY(0) scale(1);
+                    }
+                    /* Shimmer on hover */
+                    .vmv-card::before {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(135deg, rgba(201,243,29,0.07) 0%, transparent 50%);
+                        pointer-events: none;
+                        opacity: 0;
+                        transition: opacity 0.4s ease;
+                    }
+                    .vmv-card:hover::before { opacity: 1; }
+                    .vmv-card:hover {
+                        border-color: rgba(201,243,29,0.28);
+                        background: rgba(255,255,255,0.05);
+                    }
+                    /* Clipped corner accent */
+                    .vmv-card::after {
+                        content: '';
+                        position: absolute;
+                        top: 0; right: 0;
+                        width: 32px; height: 1px;
+                        background: var(--vmv-accent);
+                        opacity: 0.6;
+                        transform-origin: right;
+                        transform: scaleX(0);
+                        transition: transform 0.5s var(--vmv-ease) 0.3s;
+                    }
+                    .vmv-card.in::after { transform: scaleX(1); }
+
+                    /* ── Icon ── */
+                    .vmv-icon {
+                        width: 64px;
+                        height: 64px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: rgba(201,243,29,0.1);
+                        border: 1px solid rgba(201,243,29,0.3);
+                        border-radius: 14px;
+                        margin-bottom: 28px;
+                        transform: scale(0);
+                        transition: transform 0.55s var(--vmv-spring) 0.2s;
+                    }
+                    .vmv-card.in .vmv-icon { transform: scale(1); }
+                    .vmv-icon svg { width: 30px; height: 30px; }
+
+                    /* ── Card label (eyebrow) ── */
+                    .vmv-card-label {
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-size: 0.78rem;
+                        font-weight: 700;
+                        letter-spacing: 0.26em;
+                        text-transform: uppercase;
+                        color: var(--vmv-accent) !important;
+                        margin-bottom: 10px;
+                        opacity: 0;
+                        transform: translateY(8px);
+                        transition: opacity 0.45s ease 0.25s, transform 0.45s var(--vmv-ease) 0.25s;
+                    }
+                    .vmv-card.in .vmv-card-label { opacity: 1; transform: translateY(0); }
+
+                    /* ── Card title ── */
+                    .vmv-card-title {
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-size: clamp(1.8rem, 3vw, 2.6rem);
+                        font-weight: 900;
+                        color: #fff !important;
+                        text-transform: uppercase;
+                        letter-spacing: 0.04em;
+                        margin: 0 0 22px;
+                        line-height: 1.1;
+                        opacity: 0;
+                        transform: translateY(8px);
+                        transition: opacity 0.45s ease 0.32s, transform 0.45s var(--vmv-ease) 0.32s;
+                    }
+                    .vmv-card.in .vmv-card-title { opacity: 1; transform: translateY(0); }
+
+                    /* ── Accent bar ── */
+                    .vmv-bar {
+                        display: block;
+                        width: 60px;
+                        height: 4px;
+                        background: linear-gradient(90deg, var(--vmv-accent), rgba(201,243,29,0.3));
+                        border-radius: 4px;
+                        margin-bottom: 32px;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.5s var(--vmv-ease) 0.18s;
+                    }
+                    .vmv-card.in .vmv-bar { transform: scaleX(1); }
+
+                    /* ── Intro text ── */
+                    .vmv-intro {
+                        font-family: "Kanit", sans-serif;
+                        font-size: 1.15rem;
+                        font-weight: 400;
+                        color: rgba(255,255,255,0.68) !important;
+                        line-height: 1.8;
+                        margin-bottom: 24px;
+                        opacity: 0;
+                        transform: translateY(8px);
+                        transition: opacity 0.45s ease 0.38s, transform 0.45s var(--vmv-ease) 0.38s;
+                    }
+                    .vmv-card.in .vmv-intro { opacity: 1; transform: translateY(0); }
+
+                    /* ── Bullet list ── */
+                    .vmv-list {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                    .vmv-list li {
+                        font-family: "Kanit", sans-serif;
+                        font-size: 1.15rem;
+                        font-weight: 500;
+                        color: rgba(255,255,255,0.9) !important;
+                        display: flex;
+                        align-items: center;
+                        gap: 14px;
+                        padding: 12px 18px;
+                        background: rgba(255,255,255,0.04);
+                        border: 1px solid rgba(255,255,255,0.07);
+                        border-left: 3px solid var(--vmv-accent);
+                        border-radius: 0 6px 6px 0;
+                        opacity: 0;
+                        transform: translateX(-14px);
+                        transition: opacity 0.4s ease, transform 0.4s var(--vmv-ease), background 0.25s ease;
+                    }
+                    .vmv-list li:hover {
+                        background: rgba(201,243,29,0.07);
+                    }
+                    .vmv-card.in .vmv-list li:nth-child(1) { opacity:1; transform:translateX(0); transition-delay:0.40s; }
+                    .vmv-card.in .vmv-list li:nth-child(2) { opacity:1; transform:translateX(0); transition-delay:0.48s; }
+                    .vmv-card.in .vmv-list li:nth-child(3) { opacity:1; transform:translateX(0); transition-delay:0.56s; }
+                    .vmv-card.in .vmv-list li:nth-child(4) { opacity:1; transform:translateX(0); transition-delay:0.64s; }
+                    .vmv-card.in .vmv-list li:nth-child(5) { opacity:1; transform:translateX(0); transition-delay:0.72s; }
+                    .vmv-list li::before {
+                        content: '';
+                        width: 8px;
+                        height: 8px;
+                        flex-shrink: 0;
+                        background: var(--vmv-accent);
+                        border-radius: 50%;
+                        box-shadow: 0 0 10px rgba(201,243,29,0.55);
+                    }
+
+                    /* ── Mission layout ── */
+                    .vmv-mission-inner {
+                        display: grid;
+                        grid-template-columns: auto 1fr;
+                        gap: 40px;
+                        align-items: start;
+                    }
+                    .vmv-mission-deco {
+                        font-size: 9rem;
+                        line-height: 0.75;
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-weight: 900;
+                        color: rgba(201,243,29,0.12);
+                        user-select: none;
+                        flex-shrink: 0;
+                        padding-top: 8px;
+                        opacity: 0;
+                        transform: scale(0.7);
+                        transition: opacity 0.6s ease 0.25s, transform 0.6s var(--vmv-spring) 0.25s;
+                    }
+                    .vmv-card.in .vmv-mission-deco { opacity: 1; transform: scale(1); }
+
+                    .vmv-mission-text {
+                        font-family: "Kanit", sans-serif;
+                        font-size: 1.2rem;
+                        font-weight: 400;
+                        color: rgba(255,255,255,0.85) !important;
+                        line-height: 2;
+                        margin: 0;
+                        opacity: 0;
+                        transform: translateY(10px);
+                        transition: opacity 0.5s ease 0.38s, transform 0.5s var(--vmv-ease) 0.38s;
+                    }
+                    .vmv-card.in .vmv-mission-text {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                    .vmv-mission-text + .vmv-mission-text {
+                        margin-top: 18px;
+                        transition-delay: 0.52s;
+                    }
+
+                    /* ── Divider bar ── */
+                    .vmv-bar {
+                        display: block;
+                        width: 48px;
+                        height: 3px;
+                        background: var(--vmv-accent);
+                        border-radius: 2px;
+                        margin-bottom: 28px;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.5s var(--vmv-ease) 0.18s;
+                    }
+                    .vmv-card.in .vmv-bar {
+                        transform: scaleX(1);
+                    }
+
+                    /* ── Responsive ── */
+                    @media (max-width: 900px) {
+                        .vmv-top-grid {
+                            grid-template-columns: 1fr;
+                        }
+                        .vmv-card {
+                            padding: 32px 28px;
+                        }
+                    }
+                </style>
+
+                <div class="container">
+                    <!-- Header -->
+                    <div class="vmv-header" data-vmv-header>
+                        <div class="vmv-header-label">Who We Are</div>
+                        <h2>Vision, <span>Mission</span> &amp; Values</h2>
+                    </div>
+
+                    <!-- Top row: Vision + Values -->
+                    <div class="vmv-top-grid">
+
+                        <!-- VISION -->
+                        <div class="vmv-card" data-vmv-card>
+                            <div class="vmv-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#C9F31D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M2 12C4.5 6.5 9 3 12 3s7.5 3.5 10 9c-2.5 5.5-7 9-10 9S4.5 17.5 2 12z"/>
+                                </svg>
+                            </div>
+                            <div class="vmv-card-label">Our Direction</div>
+                            <div class="vmv-card-title">Vision</div>
+                            <span class="vmv-bar"></span>
+                            <p class="vmv-intro">Our work-life balance empowers our clients to achieve their business goals by offering:</p>
+                            <ul class="vmv-list">
+                                <li>Optimized design solutions</li>
+                                <li>Energy-efficient engineering</li>
+                                <li>Industry-standard high quality</li>
+                                <li>Strong business ethics</li>
+                            </ul>
+                        </div>
+
+                        <!-- VALUES -->
+                        <div class="vmv-card" data-vmv-card>
+                            <div class="vmv-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#C9F31D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <div class="vmv-card-label">What We Stand For</div>
+                            <div class="vmv-card-title">Values</div>
+                            <span class="vmv-bar"></span>
+                            <ul class="vmv-list">
+                                <li>Work-Life Balance</li>
+                                <li>Passion</li>
+                                <li>Ownership</li>
+                                <li>Respect &amp; Integrity</li>
+                                <li>Excellence</li>
+                            </ul>
+                        </div>
+
+                    </div><!-- /top grid -->
+
+                    <!-- MISSION full-width -->
+                    <div class="vmv-full">
+                        <div class="vmv-card" data-vmv-card>
+                            <div class="vmv-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#C9F31D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="vmv-card-label">Our Purpose</div>
+                            <div class="vmv-card-title">Mission</div>
+                            <span class="vmv-bar"></span>
+                            <div class="vmv-mission-inner">
+                                <div class="vmv-mission-deco">"</div>
+                                <div>
+                                    <p class="vmv-mission-text">Ades is committed to delivering high-quality, cost-effective projects by employing and supporting motivated, flexible, and focused individuals.</p>
+                                    <p class="vmv-mission-text">We value the importance of our relationships and will continue to remain fair and true in our dealings with employees, clients, subcontractors, and partners.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <script>
+                    (function () {
+                        var sec = document.getElementById('ades-vmv');
+
+                        /* Header */
+                        var hdr = sec.querySelector('[data-vmv-header]');
+                        new IntersectionObserver(function (es) {
+                            es.forEach(function (e) { hdr.classList.toggle('in', e.isIntersecting); });
+                        }, { threshold: 0.3 }).observe(hdr);
+
+                        /* Cards */
+                        sec.querySelectorAll('[data-vmv-card]').forEach(function (card) {
+                            new IntersectionObserver(function (es) {
+                                es.forEach(function (e) { card.classList.toggle('in', e.isIntersecting); });
+                            }, { threshold: 0.18 }).observe(card);
+                        });
+                    })();
+                </script>
+            </section>
+            <!-- ═══════════════════════════════════════════
+                 END VISION MISSION VALUES
+            ═══════════════════════════════════════════ -->
 
             <!-- ═══════════════════════════════════════════
                  OUR KEY STRENGTH SECTION
@@ -1342,38 +1953,62 @@
             <section id="ades-key-strength" style="padding:100px 0 100px;position:relative;">
                 <style>
                     #ades-key-strength {
+                        --ks-accent: #C9F31D;
                         --ks-ease: cubic-bezier(0.22, 1, 0.36, 1);
                         --ks-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
                     }
 
+                    /* ── Section header ── */
                     .ks-header {
                         text-align: left;
-                        margin-bottom: 56px;
-                    }
-
-                    .ks-title {
-                        font-size: clamp(1.5rem, 3vw, 2.2rem);
-                        font-weight: 900;
-                        letter-spacing: 0.08em;
-                        text-transform: uppercase;
-                        color: #C9F31D;
+                        margin-bottom: 64px;
                         opacity: 0;
                         transform: translateY(-18px);
                         transition: opacity 0.65s ease, transform 0.65s var(--ks-ease);
-                        margin: 0 0 8px;
                     }
-
-                    .ks-subtitle {
-                        font-size: 1rem;
-                        font-style: italic;
-                        color: rgba(255, 255, 255, 0.5);
+                    .ks-header.in {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                    .ks-header-label {
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        letter-spacing: 0.28em;
+                        text-transform: uppercase;
+                        color: var(--ks-accent) !important;
+                        margin-bottom: 14px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    .ks-header-label::before {
+                        content: '';
+                        display: inline-block;
+                        width: 32px;
+                        height: 2px;
+                        background: var(--ks-accent);
+                        border-radius: 2px;
+                    }
+                    .ks-header h2 {
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+                        font-weight: 900;
+                        color: #fff !important;
+                        letter-spacing: 0.02em;
+                        text-transform: uppercase;
                         margin: 0;
+                        line-height: 1.1;
+                    }
+                    .ks-subtitle {
+                        font-family: "Kanit", sans-serif;
+                        font-size: 1.25rem;
+                        color: rgba(255, 255, 255, 0.7) !important;
+                        margin: 18px 0 0;
                         opacity: 0;
                         transform: translateY(-12px);
                         transition: opacity 0.65s ease 0.15s, transform 0.65s var(--ks-ease) 0.15s;
                     }
-
-                    .ks-header.in .ks-title,
                     .ks-header.in .ks-subtitle {
                         opacity: 1;
                         transform: translateY(0);
@@ -1382,8 +2017,9 @@
                     /* Grid wrapper */
                     .ks-grid-wrap {
                         position: relative;
-                        border: 2px solid rgba(255, 255, 255, 0.2);
-                        border-radius: 4px;
+                        border: 1px solid rgba(255, 255, 255, 0.08);
+                        background: rgba(255, 255, 255, 0.02);
+                        border-radius: 16px;
                         overflow: hidden;
                     }
 
@@ -1393,10 +2029,10 @@
                         left: 0;
                         right: 0;
                         top: 50%;
-                        height: 2px;
-                        background: rgba(255, 255, 255, 0.2);
+                        height: 1px;
+                        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15) 50%, transparent);
                         transform: scaleX(0);
-                        transform-origin: left;
+                        transform-origin: center;
                         transition: transform 0.85s var(--ks-ease) 0.5s;
                         z-index: 1;
                     }
@@ -1406,10 +2042,10 @@
                         top: 0;
                         bottom: 0;
                         left: 50%;
-                        width: 2px;
-                        background: rgba(255, 255, 255, 0.2);
+                        width: 1px;
+                        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.15) 50%, transparent);
                         transform: scaleY(0);
-                        transform-origin: top;
+                        transform-origin: center;
                         transition: transform 0.85s var(--ks-ease) 0.55s;
                         z-index: 1;
                     }
@@ -1429,14 +2065,15 @@
                     }
 
                     .ks-card {
+                        position: relative;
                         display: flex;
-                        align-items: center;
-                        gap: 24px;
-                        padding: 40px 36px;
+                        flex-direction: column;
+                        gap: 28px;
+                        padding: 60px 52px;
                         opacity: 0;
-                        transform: scale(0.86) translateY(28px);
-                        transition: opacity 0.65s ease,
-                            transform 0.65s var(--ks-spring);
+                        transform: scale(0.96) translateY(24px);
+                        transition: opacity 0.65s ease, transform 0.65s var(--ks-spring), background 0.35s ease;
+                        overflow: hidden;
                     }
 
                     .ks-card.in {
@@ -1444,83 +2081,98 @@
                         transform: scale(1) translateY(0);
                     }
 
+                    .ks-card::before {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(135deg, rgba(201,243,29,0.06) 0%, transparent 60%);
+                        pointer-events: none;
+                        opacity: 0;
+                        transition: opacity 0.4s ease;
+                        z-index: 0;
+                    }
+
+                    .ks-card:hover::before {
+                        opacity: 1;
+                    }
                     .ks-card:hover {
-                        background: rgba(255, 255, 255, 0.02);
+                        background: rgba(255, 255, 255, 0.04);
                     }
 
                     /* card stagger delays */
-                    .ks-card[data-ks="0"] {
-                        transition-delay: 0s, 0s;
-                    }
+                    .ks-card[data-ks="0"] { transition-delay: 0s, 0s; }
+                    .ks-card[data-ks="1"] { transition-delay: 0.1s, 0.1s; }
+                    .ks-card[data-ks="2"] { transition-delay: 0.2s, 0.2s; }
+                    .ks-card[data-ks="3"] { transition-delay: 0.3s, 0.3s; }
 
-                    .ks-card[data-ks="1"] {
-                        transition-delay: 0.12s, 0.12s;
-                    }
-
-                    .ks-card[data-ks="2"] {
-                        transition-delay: 0.24s, 0.24s;
-                    }
-
-                    .ks-card[data-ks="3"] {
-                        transition-delay: 0.36s, 0.36s;
+                    /* top area: icon + title */
+                    .ks-card-top {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        z-index: 2;
                     }
 
                     /* icon circle */
                     .ks-icon-circle {
-                        width: 76px;
-                        height: 76px;
-                        border-radius: 50%;
+                        width: 64px;
+                        height: 64px;
+                        border-radius: 14px;
+                        background: rgba(201,243,29,0.1);
+                        border: 1px solid rgba(201,243,29,0.3);
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         flex-shrink: 0;
                         transform: scale(0);
-                        transition: transform 0.55s var(--ks-spring) 0.22s;
+                        transition: transform 0.55s var(--ks-spring) 0.22s, box-shadow 0.3s ease;
                     }
 
                     .ks-card.in .ks-icon-circle {
                         transform: scale(1);
                     }
 
-                    .ks-icon-circle:hover {
-                        transform: scale(1.12) rotate(6deg) !important;
+                    .ks-card:hover .ks-icon-circle {
+                        transform: scale(1.1) translateY(-4px) !important;
+                        box-shadow: 0 10px 20px rgba(201,243,29,0.15);
                     }
 
                     .ks-icon-circle svg {
-                        width: 36px;
-                        height: 36px;
+                        width: 30px;
+                        height: 30px;
                     }
 
-                    /* card text */
-                    .ks-card-body {
-                        flex: 1;
-                    }
-
+                    /* card title */
                     .ks-card-heading {
-                        font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+                        font-family: "Plus Jakarta Sans", sans-serif;
+                        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
                         font-weight: 900;
                         letter-spacing: 0.06em;
                         text-transform: uppercase;
-                        margin: 0 0 16px;
+                        color: #fff !important;
+                        margin: 0;
                         opacity: 0;
-                        transform: translateY(8px);
+                        transform: translateX(-12px);
                         transition: opacity 0.4s ease, transform 0.4s var(--ks-ease);
                     }
 
                     .ks-card.in .ks-card-heading {
                         opacity: 1;
-                        transform: translateY(0);
+                        transform: translateX(0);
                         transition-delay: 0.28s;
                     }
 
+                    /* card desc */
                     .ks-card-desc {
-                        font-size: 1.25rem;
+                        font-family: "Kanit", sans-serif;
+                        font-size: 1.15rem;
                         line-height: 1.8;
-                        color: rgba(255, 255, 255, 0.85);
+                        color: rgba(255, 255, 255, 0.75);
                         margin: 0;
                         opacity: 0;
                         transform: translateY(8px);
                         transition: opacity 0.4s ease, transform 0.4s var(--ks-ease);
+                        z-index: 2;
                     }
 
                     .ks-card.in .ks-card-desc {
@@ -1529,17 +2181,7 @@
                         transition-delay: 0.36s;
                     }
 
-                    /* left col: text left, icon right */
-                    .ks-card.ks-layout-lr {
-                        flex-direction: row;
-                    }
-
-                    /* right col: icon left, text right */
-                    .ks-card.ks-layout-rl {
-                        flex-direction: row;
-                    }
-
-                    @media(max-width:768px) {
+                    @media(max-width:900px) {
                         .ks-grid {
                             grid-template-columns: 1fr;
                         }
@@ -1547,17 +2189,25 @@
                         .ks-divider-v {
                             display: none;
                         }
+                        
+                        .ks-divider-h {
+                            display: none;
+                        }
 
                         .ks-card {
-                            flex-direction: row !important;
-                            padding: 28px 20px;
+                            padding: 40px 32px;
+                            border-bottom: 1px solid rgba(255,255,255,0.08);
+                        }
+                        .ks-card:last-child {
+                            border-bottom: none;
                         }
                     }
                 </style>
 
                 <div class="container">
                     <div class="ks-header" data-ks-header>
-                        <h2 class="ks-title">OUR KEY STRENGTH</h2>
+                        <div class="ks-header-label">Our Pillars</div>
+                        <h2>OUR KEY STRENGTH</h2>
                         <p class="ks-subtitle">What drives us to deliver the best</p>
                     </div>
 
@@ -1566,79 +2216,62 @@
                         <div class="ks-divider-v"></div>
                         <div class="ks-grid">
 
-                            <!-- Card 1: PROCESS ORIENTED — left col, text L / icon R -->
-                            <div class="ks-card ks-layout-lr" data-ks="0">
-                                <div class="ks-card-body">
-                                    <h3 class="ks-card-heading" style="color:#4d7cf8;">PROCESS ORIENTED</h3>
-                                    <p class="ks-card-desc"><strong style="color:#fff;">ADES is</strong> a process
-                                        driven &amp; service-oriented design firm. We assure our clients of principal
-                                        involvement and commitment on every project.</p>
+                            <!-- Card 1: PROCESS ORIENTED -->
+                            <div class="ks-card" data-ks="0">
+                                <div class="ks-card-top">
+                                    <div class="ks-icon-circle">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#C9F31D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="14" width="8" height="8" rx="1" />
+                                            <rect x="7" y="8" width="8" height="8" rx="1" />
+                                            <rect x="12" y="2" width="8" height="8" rx="1" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="ks-card-heading">Process Oriented</h3>
                                 </div>
-                                <div class="ks-icon-circle"
-                                    style="background:rgba(77,124,248,0.15);border:2px solid rgba(77,124,248,0.4);">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="#4d7cf8" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="2" y="14" width="8" height="8" rx="1" />
-                                        <rect x="7" y="8" width="8" height="8" rx="1" />
-                                        <rect x="12" y="2" width="8" height="8" rx="1" />
-                                    </svg>
-                                </div>
+                                <p class="ks-card-desc"><strong style="color:#C9F31D;">ADES is</strong> a process driven &amp; service-oriented design firm. We assure our clients of principal involvement and commitment on every project.</p>
                             </div>
 
-                            <!-- Card 2: TIME CONSCIOUS — right col, icon L / text R -->
-                            <div class="ks-card ks-layout-rl" data-ks="1">
-                                <div class="ks-icon-circle"
-                                    style="background:rgba(251,176,64,0.15);border:2px solid rgba(251,176,64,0.4);">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="#fbb040" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <ellipse cx="12" cy="5" rx="9" ry="3" />
-                                        <path d="M3 5v4c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
-                                        <path d="M3 9v4c0 1.66 4.03 3 9 3s9-1.34 9-3V9" />
-                                        <path d="M3 13v4c0 1.66 4.03 3 9 3s9-1.34 9-3v-4" />
-                                    </svg>
+                            <!-- Card 2: TIME CONSCIOUS -->
+                            <div class="ks-card" data-ks="1">
+                                <div class="ks-card-top">
+                                    <div class="ks-icon-circle">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#C9F31D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <polyline points="12 6 12 12 16 14" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="ks-card-heading">Time Conscious</h3>
                                 </div>
-                                <div class="ks-card-body">
-                                    <h3 class="ks-card-heading" style="color:#fbb040;">TIME CONSCIOUS</h3>
-                                    <p class="ks-card-desc">On-time delivery and Project Commitments. We take pride in
-                                        delivering the quality while maintaining the time equity.</p>
-                                </div>
+                                <p class="ks-card-desc">On-time delivery and Project Commitments. We take pride in delivering the quality while maintaining the time equity.</p>
                             </div>
 
-                            <!-- Card 3: VALUE ENGINEERING — left col, text L / icon R -->
-                            <div class="ks-card ks-layout-lr" data-ks="2">
-                                <div class="ks-card-body">
-                                    <h3 class="ks-card-heading" style="color:#48c774;">VALUE ENGINEERING</h3>
-                                    <p class="ks-card-desc">Adding value to services that we provide seems to be the
-                                        path forward. ADES ensures this in its offerings.</p>
+                            <!-- Card 3: VALUE ENGINEERING -->
+                            <div class="ks-card" data-ks="2">
+                                <div class="ks-card-top">
+                                    <div class="ks-icon-circle">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#C9F31D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                                            <circle cx="12" cy="15" r="3" />
+                                            <path d="M12 12v0M14.5 13.5l-1-1M9.5 13.5l1-1M9.5 16.5l1-1M14.5 16.5l-1-1" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="ks-card-heading">Value Engineering</h3>
                                 </div>
-                                <div class="ks-icon-circle"
-                                    style="background:rgba(72,199,116,0.15);border:2px solid rgba(72,199,116,0.4);">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="#48c774" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path
-                                            d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                                        <circle cx="12" cy="15" r="3" />
-                                        <path d="M12 12v0M14.5 13.5l-1-1M9.5 13.5l1-1M9.5 16.5l1-1M14.5 16.5l-1-1" />
-                                    </svg>
-                                </div>
+                                <p class="ks-card-desc">Adding value to services that we provide seems to be the path forward. ADES ensures this in its offerings.</p>
                             </div>
 
-                            <!-- Card 4: OUR ETHICS — right col, icon L / text R -->
-                            <div class="ks-card ks-layout-rl" data-ks="3">
-                                <div class="ks-icon-circle"
-                                    style="background:rgba(255,107,157,0.15);border:2px solid rgba(255,107,157,0.4);">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff6b9d" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="8" r="6" />
-                                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-                                        <path d="m9 8 1.5 1.5L13 7" />
-                                    </svg>
+                            <!-- Card 4: OUR ETHICS -->
+                            <div class="ks-card" data-ks="3">
+                                <div class="ks-card-top">
+                                    <div class="ks-icon-circle">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#C9F31D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                            <path d="m9 12 2 2 4-4"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="ks-card-heading">Our Ethics</h3>
                                 </div>
-                                <div class="ks-card-body">
-                                    <h3 class="ks-card-heading" style="color:#ff6b9d;">OUR ETHICS</h3>
-                                    <p class="ks-card-desc">We have a strong foundation of corporate ethical commitments
-                                        and the organization's approach to our corporate responsibility.</p>
-                                </div>
+                                <p class="ks-card-desc">We have a strong foundation of corporate ethical commitments and the organization's approach to our corporate responsibility.</p>
                             </div>
 
                         </div>

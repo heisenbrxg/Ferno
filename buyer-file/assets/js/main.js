@@ -516,9 +516,24 @@
                 allowTouchMove: false,
                 autoplay: {
                     delay: 1,
-                    disableOnInteraction: true,
+                    disableOnInteraction: false,
                 },
       });
+
+      // Pause on hover, resume on leave
+      var heroSliderEl = document.querySelector(".hero-image-slider-four");
+      if (heroSliderEl) {
+        heroSliderEl.addEventListener("mouseenter", function () {
+          // Instantly freeze the running slide animation
+          serviceImageSlider.wrapperEl.style.transitionDuration = '0ms';
+          serviceImageSlider.autoplay.stop();
+        });
+        heroSliderEl.addEventListener("mouseleave", function () {
+          // Restore transition speed and resume
+          serviceImageSlider.wrapperEl.style.transitionDuration = '';
+          serviceImageSlider.autoplay.start();
+        });
+      }
     }
 
     /* ================================
