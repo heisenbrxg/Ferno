@@ -591,6 +591,9 @@
             color: #cccccc;
             margin: 0;
         }
+        /* Hide the text overlay on the image (front face) — labels remain on flip/back */
+        .kh-exp-front > div { display: none; }
+        .kh-exp-front::before { background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.12) 100%); }
 
         .kh-exp-back {
             background: #1a1a1a;
@@ -2869,29 +2872,6 @@
                                     </div>
                                     <span class="kh-exp-category">Sustainability</span>
                                     <p class="kh-exp-desc">Green Buildings (IGBC / GRIHA)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="kh-exp-card" style="--accent: #2ECC71;">
-                            <div class="kh-exp-card-inner">
-                                <div class="kh-exp-front"
-                                    style="background-image:url('assets/img/Sustainability.jpg');">
-                                    <div>
-                                        <span class="kh-exp-category">Sustainability</span>
-                                        <p class="kh-exp-desc">USGBC (LEED) Projects</p>
-                                    </div>
-                                </div>
-                                <div class="kh-exp-back">
-                                    <div class="kh-exp-ring">
-                                        <svg viewBox="0 0 90 90">
-                                            <circle class="kh-ring-bg" cx="45" cy="45" r="40"></circle>
-                                            <circle class="kh-ring-fill" cx="45" cy="45" r="40" data-percent="34.375">
-                                            </circle>
-                                        </svg>
-                                        <span class="kh-exp-num" data-target="11">0</span>
-                                    </div>
-                                    <span class="kh-exp-category">Sustainability</span>
-                                    <p class="kh-exp-desc">USGBC (LEED) Projects</p>
                                 </div>
                             </div>
                         </div>

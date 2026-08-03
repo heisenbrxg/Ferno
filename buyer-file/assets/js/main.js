@@ -514,7 +514,7 @@
                 freemode: true,
                 centeredSlides: true,
                 loop: true,
-                speed: 4000,
+                speed: 2000,
                 allowTouchMove: false,
                 autoplay: {
                     delay: 1,

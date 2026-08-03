@@ -16333,13 +16333,14 @@ span {
 
 .header-main .main-menu ul {
   margin-bottom: 0;
+  white-space: nowrap;
 }
 
 .header-main .main-menu ul li {
   position: relative;
   list-style: none;
   display: inline-block;
-  margin-inline-end: 45px;
+  margin-inline-end: 30px;
 }
 
 .header-main .main-menu ul li:last-child {
@@ -17357,6 +17358,11 @@ span {
 
 .offcanvas__wrapper .offcanvas__content .offcanvas__contact span {
   text-transform: initial;
+}
+
+/* Email addresses should always render lowercase, never capitalized */
+a[href^="mailto:"] {
+  text-transform: lowercase !important;
 }
 
 .offcanvas__wrapper .offcanvas__content .offcanvas__contact .header-button .theme-btn {
