@@ -591,8 +591,10 @@
             color: #cccccc;
             margin: 0;
         }
-        /* Hide the text overlay on the image (front face) — labels remain on flip/back */
-        .kh-exp-front > div { display: none; }
+        /* Remove all title text from the experience image cards (front + back) */
+        .kh-exp-front > div,
+        .kh-exp-back .kh-exp-category,
+        .kh-exp-back .kh-exp-desc { display: none !important; }
         .kh-exp-front::before { background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.12) 100%); }
 
         .kh-exp-back {
