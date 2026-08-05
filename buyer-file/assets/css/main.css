@@ -22865,6 +22865,7 @@ body.loaded {
   border-radius: 100px;
   border: 1px solid var(--gt-border-3);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 @media (max-width: 1399px) {
