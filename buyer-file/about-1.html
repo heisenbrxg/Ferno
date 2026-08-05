@@ -591,12 +591,14 @@
             color: #cccccc;
             margin: 0;
         }
-        /* Project Experience: clean image tiles only — no title text, no flip */
-        .kh-exp-front > div { display: none !important; }
+        /* Project Experience: image tiles with title overlay (no flip) */
         .kh-exp-back { display: none !important; }
         .kh-exp-card { cursor: default; }
         .kh-exp-card:hover .kh-exp-card-inner { transform: none !important; }
-        .kh-exp-front::before { background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.12) 100%); }
+        .kh-exp-front::before { background: linear-gradient(180deg, rgba(0,0,0,0) 32%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.9) 100%); }
+        .kh-exp-front > div { display: block !important; position: relative; z-index: 1; width: 100%; }
+        .kh-exp-front .kh-exp-category { font-size: 11px; letter-spacing: 0.18em; color: var(--accent, #C9F31D); font-weight: 700; margin-bottom: 6px; }
+        .kh-exp-front .kh-exp-desc { font-size: 1.02rem; line-height: 1.35; color: #fff; font-weight: 600; }
 
         .kh-exp-back {
             background: #1a1a1a;
@@ -865,7 +867,7 @@
                                 <div class="about-card style-2">
                                     <div class="about-card-wrapper">
                                         <div class="card-content">
-                                            <span>300+</span>
+                                            <span>350+</span>
                                             <p class="text">Successful projects</p>
                                         </div>
 
