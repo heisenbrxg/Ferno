@@ -16343,6 +16343,17 @@ span {
   margin-inline-end: 30px;
 }
 
+/* Smaller laptops (approx 1200-1500px): tighten the nav so it fits on one line
+   instead of overflowing / cropping */
+@media (min-width: 1200px) and (max-width: 1500px) {
+  .header-main .main-menu ul li {
+    margin-inline-end: 18px;
+  }
+  .header-main .main-menu ul li a {
+    font-size: 14px;
+  }
+}
+
 .header-main .main-menu ul li:last-child {
   margin-inline-end: 0;
 }

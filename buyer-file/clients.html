@@ -38,6 +38,30 @@
             object-fit: contain;
             object-position: center;
         }
+        /* Smaller, neater section titles */
+        .client-grid-area .row h2.text-dark {
+            font-size: clamp(1.25rem, 2.2vw, 1.75rem) !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.01em;
+            line-height: 1.2;
+        }
+        .client-grid-area .sub-title {
+            font-size: 12px !important;
+            letter-spacing: 1.5px !important;
+        }
+        /* Tighten spacing for the logo composite sections */
+        .client-grid-area .row.mb-80 { margin-bottom: 24px !important; }
+        .client-grid-area .col-12.text-center.mb-40 { margin-bottom: 4px !important; }
+        .client-grid-area .col-12.text-center.mb-4 > img {
+            margin-top: -48px;
+            margin-bottom: -42px;
+        }
+        @media (max-width: 767px) {
+            .client-grid-area .col-12.text-center.mb-4 > img {
+                margin-top: -22px;
+                margin-bottom: -18px;
+            }
+        }
     </style>
     <!-- Glassmorphism Footer Style -->
     <style>
@@ -205,51 +229,15 @@
     <!-- Categorized Client Sections -->
     <section class="client-grid-area pt-150 pb-80">
         <div class="container">
-            <!-- Food & Beverage -->
+            <!-- Food Industries -->
             <div class="row mb-80">
                 <div class="col-12 text-center mb-40">
-                    <h2 class="text-dark">Food & Beverage</h2>
-                    <div class="header-line mx-auto"
-                        style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
+                    <h2 class="text-dark">Food Industries</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
                 <div class="col-lg-3 col-6 mb-4">
                     <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Lulu_Hypermarket_logo.png" alt="Lulu Mall Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/ITC_Limited-Logo.wine.png" alt="ITC Foods Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/adani-wilmar.webp" alt="Adani Wilmar Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Bisleri_logo.svg.png" alt="Bisleri Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Cococola.jpg" alt="Coca-Cola Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/cadbery.jpg" alt="Cadbury Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Symrise.jpg" alt="Symrise Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Perfitti.jpg" alt="Perfetti Logo"></div>
+                        <div class="logo-box"><img src="assets/img/smag.jpg" alt="SMAG Logo"></div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 mb-4">
@@ -259,36 +247,22 @@
                 </div>
                 <div class="col-lg-3 col-6 mb-4">
                     <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/smag.jpg" alt="SMAG Logo"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- IT & Corporate -->
-            <div class="row mb-80">
-                <div class="col-12 text-center mb-40">
-                    <h2 class="text-dark">Corporate</h2>
-                    <div class="header-line mx-auto"
-                        style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Cognizant_logo_2022.svg.png" alt="Cognizant Logo"></div>
+                        <div class="logo-box"><img src="assets/img/Perfitti.jpg" alt="Perfetti Logo"></div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 mb-4">
                     <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/eUfs7_7QpwrIcXzsECLola877BLom34xh-_LYfWtkFb5Be8CMn1jx1HwtxduveWmdLA1ETfspNcTiM39FTxOJiBQ_ctXaiw5NSqrk-rmZY8.jpg" alt="HP Logo"></div>
+                        <div class="logo-box"><img src="assets/img/Symrise.jpg" alt="Symrise Logo"></div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 mb-4">
                     <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Tbznqoi2l8lIZVmzdmjvrIw2gN8z6MUb3EKA3X6ebWcee0XWI6GlXyjvBp4fsHD75WS3IU49I1iLaRnNGHM1Il39g1iuXjPEipeA4kLE2x0.jpg" alt="NSE Logo"></div>
+                        <div class="logo-box"><img src="assets/img/cadbery.jpg" alt="Cadbury Logo"></div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 mb-4">
                     <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/stacked.jpg" alt="L&T Tech Logo"></div>
+                        <div class="logo-box"><img src="assets/img/Cococola.jpg" alt="Coca-Cola Logo"></div>
                     </div>
                 </div>
             </div>
@@ -298,146 +272,10 @@
                 <div class="col-12 text-center mb-40">
                     <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
                     <h2 class="text-dark mt-2">IT Offices, Data Centres &amp; Commercial</h2>
-                    <div class="header-line mx-auto" style="width:60px;height:3px;background:#007bff;margin-top:15px;"></div>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/SIFY.jpg" alt="SIFY Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/XEROX.jpg" alt="XEROX Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Accenture.jpg" alt="Accenture Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/EY.jpg" alt="EY Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/HP.jpg" alt="HP Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Alation.jpg" alt="Alation Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Capgemini.jpg" alt="Capgemini Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Petrofac.jpg" alt="Petrofac Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/AstraZeneca.jpg" alt="AstraZeneca Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/KPMG.jpg" alt="KPMG Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/IBM.jpg" alt="IBM Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Hexaware.jpg" alt="Hexaware Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/TCS tata consultancy.jpg" alt="TCS Tata Consultancy Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/United technologies.jpg" alt="United Technologies Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Alcatel.jpg" alt="Alcatel Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box" style="background:#f5f5f5;border-radius:6px;font-weight:600;font-size:13px;color:#333;">Symantec</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/PAYODA.jpg" alt="PAYODA Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/ZAHorashy.jpg" alt="ZAHorashy Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Nokia seimans.jpg" alt="Nokia Siemens Networks Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box" style="background:#f5f5f5;border-radius:6px;font-weight:600;font-size:13px;color:#333;">Olam</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/IGATE.jpg" alt="IGATE Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/CADS.jpg" alt="CADS Logo"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Automobile & Industry -->
-            <div class="row mb-80">
-                <div class="col-12 text-center mb-40">
-                    <h2 class="text-dark">Automobile</h2>
-                    <div class="header-line mx-auto"
-                        style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/RGB_LOGO_APOLLO_TYRES_COMPACT_POS_GTD.jpg" alt="Apollo Tyres Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/-lfJgV716d_WKE1mvg9jRwLhPRwdfDiJNYRIgkvOhty_pXv1wIQoWBhjQWvE5E44O3ERgtj8qC5S3REAeg7r6k1P2iG2hWQlObPLRZ7lHSc.jpg" alt="Saint Gobain Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Parker_Hannifin.svg.png" alt="Parker Hannifin Logo"></div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/tpi-logo-release-v01-01-color.png" alt="TPI Composites Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/IT OFFICES DATA CENTRES AND COMMERCIAL.png" alt="IT Offices, Data Centres &amp; Commercial" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
             </div>
 
@@ -446,77 +284,145 @@
                 <div class="col-12 text-center mb-40">
                     <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
                     <h2 class="text-dark mt-2">Industries</h2>
-                    <div class="header-line mx-auto" style="width:60px;height:3px;background:#007bff;margin-top:15px;"></div>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/FLEXTRONIS.jpg" alt="Flextronics Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/INDUSTRIES.png" alt="Industries" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/AAM.jpg" alt="AAM Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/industry2.png" alt="Industries" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/IGCAR.jpg" alt="IGCAR Logo"></div>
-                    </div>
+            </div>
+
+            <!-- Textile & Paint Industry -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Textile &amp; Paint Industry</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Saintgobin.jpg" alt="Saint-Gobain Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/Textile and paint indutry.png" alt="Textile &amp; Paint Industry" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Emami.jpg" alt="Emami Logo"></div>
-                    </div>
+            </div>
+
+            <!-- Automobile Industry -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Automobile Industry</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/barrywehimelr.jpg" alt="Barry-Wehmiller Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/Automobile indstry.png" alt="Automobile Industry" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Getrag.jpg" alt="Getrag Logo"></div>
-                    </div>
+            </div>
+
+            <!-- Cement / Paper / Power / Clean Room Industries -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Cement / Paper / Power / Clean Room Industries</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Brandix.jpg" alt="Brandix Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/CEMENT  PAPER  POWER  CLEAN ROOM INDUSTRIES.png" alt="Cement / Paper / Power / Clean Room Industries" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Petronesh.jpg" alt="Petronash Logo"></div>
-                    </div>
+            </div>
+
+            <!-- Commercial Building -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Commercial Building</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/HITACHI.jpg" alt="Hitachi Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/commerical building.png" alt="Commercial Building" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/HCL.jpg" alt="HCL Logo"></div>
-                    </div>
+            </div>
+
+            <!-- Hospitality -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Hospitality</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Epic.jpg" alt="Epic Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/hospitality.png" alt="Hospitality" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Interplex.jpg" alt="Interplex Logo"></div>
-                    </div>
+            </div>
+
+            <!-- Supermarkets / Entertainments -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Supermarkets / Entertainments</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4">
-                    <div class="client-card">
-                        <div class="logo-box"><img src="assets/img/Parker.jpg" alt="Parker Logo"></div>
-                    </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/SUPERMARKETS  ENTERTAINMENTS.png" alt="Supermarkets / Entertainments" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
+                </div>
+            </div>
+
+            <!-- Hospital / Lab -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Hospital / Lab</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
+                </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/hospital  lab.png" alt="Hospital / Lab" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
+                </div>
+            </div>
+
+            <!-- Institutions / Conventions / Cinemas / Chapel -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Institutions / Conventions / Cinemas / Chapel</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
+                </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/INSTITUTIONS  CONVENTIONS  CINEMAS  CHAPEL.png" alt="Institutions / Conventions / Cinemas / Chapel" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
+                </div>
+            </div>
+
+            <!-- Residential Projects -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Residential Projects</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
+                </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/RESIDENTIAL PROJECTS.png" alt="Residential Projects" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
+                </div>
+            </div>
+
+            <!-- Projects in Australia -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">List of Projects in Australia</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
+                </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/LIST OF PROJECTS IN AUSTRALIA.png" alt="List of Projects in Australia" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
+                </div>
+            </div>
+
+            <!-- Peer Review -->
+            <div class="row mb-80">
+                <div class="col-12 text-center mb-40">
+                    <span class="sub-title text-uppercase" style="color:#007bff;letter-spacing:2px;font-size:13px;font-weight:600;">Partial List of Clients</span>
+                    <h2 class="text-dark mt-2">Peer Review</h2>
+                    <div class="header-line mx-auto" style="width: 60px; height: 3px; background: #007bff; margin-top: 15px;"></div>
+                </div>
+                <div class="col-12 text-center mb-4">
+                    <img src="assets/img/peer review.png" alt="Peer Review" style="max-width:1100px;width:100%;height:auto;display:inline-block;">
                 </div>
             </div>
 
