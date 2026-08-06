@@ -591,11 +591,7 @@
             color: #cccccc;
             margin: 0;
         }
-        /* Project Experience: image tiles with title overlay (no flip) */
-        .kh-exp-back { display: none !important; }
-        .kh-exp-card { cursor: default; }
-        .kh-exp-card:hover .kh-exp-card-inner,
-        .kh-exp-card.flipped .kh-exp-card-inner { transform: none !important; }
+        /* Project Experience: image tiles with title overlay + flip on hover */
         .kh-exp-front::before { background: linear-gradient(180deg, rgba(0,0,0,0) 32%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.9) 100%); }
         .kh-exp-front > div { display: block !important; position: relative; z-index: 1; width: 100%; }
         .kh-exp-front .kh-exp-category { font-size: 11px; letter-spacing: 0.18em; color: var(--accent, #C9F31D); font-weight: 700; margin-bottom: 6px; }
@@ -785,7 +781,6 @@
                                                 <ul class="submenu">
                                                     <li><a href="faq.html">FAQ</a></li>
                                                     <li><a href="clients.html">Our Clients</a></li>
-                                                    <li><a href="blog-1.html">Our Blog</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -858,10 +853,10 @@
 
                                         <div class="thumb-wrap" style="justify-content:center;">
                                             <div class="thumb thumb-one">
-                                                <img src="./assets/img/about/nd.png" alt="NDTV Design &amp; Architecture Award 2016" style="border:0;">
+                                                <img src="./assets/img/ndtv-award-2016.jpeg" alt="NDTV Design &amp; Architecture Award 2016" style="border:0;max-height:200px;width:auto;object-fit:contain;">
                                             </div>
                                             <div class="thumb thumb-two">
-                                                <img src="./assets/img/about/tn.png" alt="Tamil Nadu Tourism Awards 2023" style="border:0;">
+                                                <img src="./assets/img/about/tn.png" alt="Tamil Nadu Tourism Awards 2023" style="border:0;max-height:200px;width:auto;object-fit:contain;">
                                             </div>
                                         </div>
                                     </div>
@@ -1209,7 +1204,7 @@
                         gap: 10px;
                         flex-wrap: wrap;
                         align-items: center;
-                        margin-top: 14px;
+                        margin-bottom: 16px;
                     }
 
                     .tl-logo {
@@ -1359,6 +1354,9 @@
                     <div class="tl-entry" data-tl-entry>
                         <div class="tl-left">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/update new logo.png" alt="ADES"></div>
+                                </div>
                                 <div class="tl-card-label">Milestone</div>
                                 <div class="tl-card-title">UPGRADED TO PVT LTD</div>
                                 <div class="tl-card-desc">airdesign engineered solutions Private Limited — formalising a
@@ -1373,6 +1371,9 @@
                         <!-- mobile -->
                         <div class="tl-mobile-content">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/update new logo.png" alt="ADES"></div>
+                                </div>
                                 <div class="tl-card-label">2020 · Milestone</div>
                                 <div class="tl-card-title">UPGRADED TO PVT LTD</div>
                                 <div class="tl-card-desc">airdesign engineered solutions Private Limited.</div>
@@ -1389,26 +1390,26 @@
                         </div>
                         <div class="tl-right">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/inception.png" alt="Inception Institute"></div>
+                                    <div class="tl-logo"><img src="./assets/img/intrac.png" alt="Intrac"></div>
+                                </div>
                                 <div class="tl-card-label">Training</div>
                                 <div class="tl-card-title">MEP TRAINING LAUNCHED</div>
                                 <div class="tl-card-desc">Started MEP Training alongside Management and Skill Training
                                     programmes through Inception Institute.</div>
-                                <div class="tl-logo-wrap">
-                                    <div class="tl-logo" style="background:#fff;"><img src="./assets/img/inception.png" alt="Inception Institute"></div>
-                                    <div class="tl-logo" style="background:#fff;"><img src="./assets/img/intrac.png" alt="Intrac"></div>
-                                </div>
                             </div>
                         </div>
                         <!-- mobile -->
                         <div class="tl-mobile-content">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/inception.png" alt="Inception Institute"></div>
+                                    <div class="tl-logo"><img src="./assets/img/intrac.png" alt="Intrac"></div>
+                                </div>
                                 <div class="tl-card-label">2016 · Training</div>
                                 <div class="tl-card-title">MEP TRAINING LAUNCHED</div>
                                 <div class="tl-card-desc">Started MEP, Management and Skill Training.</div>
-                                <div class="tl-logo-wrap">
-                                    <div class="tl-logo" style="background:#fff;"><img src="./assets/img/inception.png" alt="Inception Institute"></div>
-                                    <div class="tl-logo" style="background:#fff;"><img src="./assets/img/intrac.png" alt="Intrac"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1417,13 +1418,13 @@
                     <div class="tl-entry" data-tl-entry>
                         <div class="tl-left">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/innovwell.png" alt="Innowell"></div>
+                                </div>
                                 <div class="tl-card-label">Associated</div>
                                 <div class="tl-card-title">INNOWELL PARTNERSHIP</div>
                                 <div class="tl-card-desc">Associated and Marketed by ADES — expanding reach through
                                     strategic alliances.</div>
-                                <div class="tl-logo-wrap">
-                                    <div class="tl-logo" style="background:#fff;"><img src="./assets/img/innovwell.png" alt="Innowell"></div>
-                                </div>
                             </div>
                         </div>
                         <div class="tl-year-wrap">
@@ -1434,12 +1435,12 @@
                         <!-- mobile -->
                         <div class="tl-mobile-content">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/innovwell.png" alt="Innowell"></div>
+                                </div>
                                 <div class="tl-card-label">2013 · Associated</div>
                                 <div class="tl-card-title">INNOWELL PARTNERSHIP</div>
                                 <div class="tl-card-desc">Associated and marketed by ADES.</div>
-                                <div class="tl-logo-wrap">
-                                    <div class="tl-logo" style="background:#fff;"><img src="./assets/img/innovwell.png" alt="Innowell"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1453,6 +1454,9 @@
                         </div>
                         <div class="tl-right">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/update new logo.png" alt="ADES"></div>
+                                </div>
                                 <div class="tl-card-label">Founded</div>
                                 <div class="tl-card-title">PARTNERSHIP FIRM</div>
                                 <div class="tl-card-desc">airdesign engineered solutions — Humble beginning. A vision
@@ -1462,6 +1466,9 @@
                         <!-- mobile -->
                         <div class="tl-mobile-content">
                             <div class="tl-card">
+                                <div class="tl-logo-wrap">
+                                    <div class="tl-logo"><img src="./assets/img/update new logo.png" alt="ADES"></div>
+                                </div>
                                 <div class="tl-card-label">2008 · Founded</div>
                                 <div class="tl-card-title">PARTNERSHIP FIRM</div>
                                 <div class="tl-card-desc">airdesign engineered solutions — Humble beginning.</div>
@@ -1567,7 +1574,7 @@
                             </div>
                             <div class="wwa-profile-meta">
                                 <h3>Dr. Ferno Susai A</h3>
-                                <span>Principal Consultant</span>
+                                <span>Managing Director</span>
                             </div>
                         </div>
 
@@ -1996,368 +2003,6 @@
                  END VISION MISSION VALUES
             ═══════════════════════════════════════════ -->
 
-            <!-- ═══════════════════════════════════════════
-                 OUR KEY STRENGTH SECTION
-            ═══════════════════════════════════════════ -->
-            <section id="ades-key-strength" style="padding:100px 0 100px;position:relative;">
-                <style>
-                    #ades-key-strength {
-                        --ks-accent: #C9F31D;
-                        --ks-ease: cubic-bezier(0.22, 1, 0.36, 1);
-                        --ks-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-                    }
-
-                    /* ── Section header ── */
-                    .ks-header {
-                        text-align: left;
-                        margin-bottom: 64px;
-                        opacity: 0;
-                        transform: translateY(-18px);
-                        transition: opacity 0.65s ease, transform 0.65s var(--ks-ease);
-                    }
-                    .ks-header.in {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                    .ks-header-label {
-                        font-family: "Plus Jakarta Sans", sans-serif;
-                        font-size: 0.8rem;
-                        font-weight: 700;
-                        letter-spacing: 0.28em;
-                        text-transform: uppercase;
-                        color: var(--ks-accent) !important;
-                        margin-bottom: 14px;
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                    }
-                    .ks-header-label::before {
-                        content: '';
-                        display: inline-block;
-                        width: 32px;
-                        height: 2px;
-                        background: var(--ks-accent);
-                        border-radius: 2px;
-                    }
-                    .ks-header h2 {
-                        font-family: "Plus Jakarta Sans", sans-serif;
-                        font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-                        font-weight: 900;
-                        color: #fff !important;
-                        letter-spacing: 0.02em;
-                        text-transform: uppercase;
-                        margin: 0;
-                        line-height: 1.1;
-                    }
-                    .ks-subtitle {
-                        font-family: "Kanit", sans-serif;
-                        font-size: 1.25rem;
-                        color: rgba(255, 255, 255, 0.7) !important;
-                        margin: 18px 0 0;
-                        opacity: 0;
-                        transform: translateY(-12px);
-                        transition: opacity 0.65s ease 0.15s, transform 0.65s var(--ks-ease) 0.15s;
-                    }
-                    .ks-header.in .ks-subtitle {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-
-                    /* Grid wrapper */
-                    .ks-grid-wrap {
-                        position: relative;
-                        border: 1px solid rgba(255, 255, 255, 0.08);
-                        background: rgba(255, 255, 255, 0.02);
-                        border-radius: 16px;
-                        overflow: hidden;
-                    }
-
-                    /* Animated divider lines */
-                    .ks-divider-h {
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        top: 50%;
-                        height: 1px;
-                        background: rgba(255, 255, 255, 0.28);
-                        transform: scaleX(0);
-                        transform-origin: center;
-                        transition: transform 0.85s var(--ks-ease) 0.5s;
-                        z-index: 1;
-                    }
-
-                    .ks-divider-v {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 50%;
-                        width: 1px;
-                        background: rgba(255, 255, 255, 0.28);
-                        transform: scaleY(0);
-                        transform-origin: center;
-                        transition: transform 0.85s var(--ks-ease) 0.55s;
-                        z-index: 1;
-                    }
-
-                    .ks-grid-wrap.in .ks-divider-h {
-                        transform: scaleX(1);
-                    }
-
-                    .ks-grid-wrap.in .ks-divider-v {
-                        transform: scaleY(1);
-                    }
-
-                    /* 2x2 grid */
-                    .ks-grid {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                    }
-
-                    .ks-card {
-                        position: relative;
-                        display: flex;
-                        flex-direction: column;
-                        gap: 28px;
-                        padding: 60px 52px;
-                        opacity: 0;
-                        transform: scale(0.96) translateY(24px);
-                        transition: opacity 0.65s ease, transform 0.65s var(--ks-spring), background 0.35s ease;
-                        overflow: hidden;
-                    }
-
-                    .ks-card.in {
-                        opacity: 1;
-                        transform: scale(1) translateY(0);
-                    }
-
-                    .ks-card::before {
-                        content: '';
-                        position: absolute;
-                        inset: 0;
-                        background: linear-gradient(135deg, var(--c) 0%, transparent 55%);
-                        pointer-events: none;
-                        opacity: 0;
-                        transition: opacity 0.4s ease;
-                        z-index: 0;
-                    }
-
-                    .ks-card:hover::before {
-                        opacity: 0.1;
-                    }
-                    .ks-card:hover {
-                        background: rgba(255, 255, 255, 0.03);
-                    }
-
-                    /* card stagger delays */
-                    .ks-card[data-ks="0"] { transition-delay: 0s, 0s; }
-                    .ks-card[data-ks="1"] { transition-delay: 0.1s, 0.1s; }
-                    .ks-card[data-ks="2"] { transition-delay: 0.2s, 0.2s; }
-                    .ks-card[data-ks="3"] { transition-delay: 0.3s, 0.3s; }
-
-                    /* per-card accent color */
-                    .ks-card--blue   { --c: #3277B8; }
-                    .ks-card--yellow { --c: #F2B200; }
-                    .ks-card--green  { --c: #6DB33F; }
-                    .ks-card--pink   { --c: #E8156B; }
-
-                    /* card title (colored) */
-                    .ks-card-heading {
-                        font-family: "Plus Jakarta Sans", sans-serif;
-                        font-size: clamp(1.4rem, 2.6vw, 1.9rem);
-                        font-weight: 800;
-                        letter-spacing: 0.04em;
-                        text-transform: uppercase;
-                        color: var(--c) !important;
-                        margin: 0;
-                        opacity: 0;
-                        transform: translateY(10px);
-                        transition: opacity 0.45s ease, transform 0.45s var(--ks-ease);
-                        z-index: 2;
-                    }
-                    .ks-card.in .ks-card-heading {
-                        opacity: 1;
-                        transform: translateY(0);
-                        transition-delay: 0.18s;
-                    }
-
-                    /* body: description + icon row (icon sits toward the centre divider) */
-                    .ks-card-body {
-                        display: flex;
-                        align-items: center;
-                        gap: 32px;
-                        z-index: 2;
-                    }
-                    .ks-card--right .ks-card-body {
-                        flex-direction: row-reverse;
-                    }
-
-                    /* icon circle: solid colour, dark glyph */
-                    .ks-icon-circle {
-                        width: 96px;
-                        height: 96px;
-                        border-radius: 50%;
-                        background: var(--c);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        flex-shrink: 0;
-                        transform: scale(0);
-                        transition: transform 0.55s var(--ks-spring) 0.25s, box-shadow 0.3s ease;
-                    }
-                    .ks-card.in .ks-icon-circle {
-                        transform: scale(1);
-                    }
-                    .ks-card:hover .ks-icon-circle {
-                        transform: scale(1.08) !important;
-                        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
-                    }
-                    .ks-icon-circle svg {
-                        width: 46px;
-                        height: 46px;
-                        stroke: #1c1c1c;
-                    }
-
-                    /* card desc */
-                    .ks-card-desc {
-                        font-family: "Kanit", sans-serif;
-                        font-size: 1.12rem;
-                        line-height: 1.75;
-                        color: rgba(255, 255, 255, 0.82);
-                        margin: 0;
-                        flex: 1;
-                        opacity: 0;
-                        transform: translateY(8px);
-                        transition: opacity 0.45s ease, transform 0.45s var(--ks-ease);
-                    }
-                    .ks-card.in .ks-card-desc {
-                        opacity: 1;
-                        transform: translateY(0);
-                        transition-delay: 0.3s;
-                    }
-
-                    @media(max-width:900px) {
-                        .ks-grid {
-                            grid-template-columns: 1fr;
-                        }
-
-                        .ks-divider-v {
-                            display: none;
-                        }
-                        
-                        .ks-divider-h {
-                            display: none;
-                        }
-
-                        .ks-card {
-                            padding: 40px 32px;
-                            border-bottom: 1px solid rgba(255,255,255,0.08);
-                        }
-                        .ks-card:last-child {
-                            border-bottom: none;
-                        }
-                    }
-                </style>
-
-                <div class="container">
-                    <div class="ks-header" data-ks-header>
-                        <div class="ks-header-label">Our Pillars</div>
-                        <h2>OUR KEY STRENGTH</h2>
-                        <p class="ks-subtitle">What drives us to deliver the best</p>
-                    </div>
-
-                    <div class="ks-grid-wrap" data-ks-grid>
-                        <div class="ks-divider-h"></div>
-                        <div class="ks-divider-v"></div>
-                        <div class="ks-grid">
-
-                            <!-- Card 1: PROCESS ORIENTED (blue) -->
-                            <div class="ks-card ks-card--blue" data-ks="0">
-                                <h3 class="ks-card-heading">Process Oriented</h3>
-                                <div class="ks-card-body">
-                                    <p class="ks-card-desc"><strong style="color:#fff;">ADES is</strong> a process driven &amp; service-oriented design firm. We assure our clients of principal involvement and commitment on every project.</p>
-                                    <div class="ks-icon-circle">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <rect x="2" y="14" width="8" height="8" rx="1" />
-                                            <rect x="7" y="8" width="8" height="8" rx="1" />
-                                            <rect x="12" y="2" width="8" height="8" rx="1" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card 2: TIME CONSCIOUS (yellow) -->
-                            <div class="ks-card ks-card--yellow ks-card--right" data-ks="1">
-                                <h3 class="ks-card-heading">Time Conscious</h3>
-                                <div class="ks-card-body">
-                                    <p class="ks-card-desc">On-time delivery and Project Commitments. We take pride in delivering the quality while maintaining the time equity.</p>
-                                    <div class="ks-icon-circle">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <ellipse cx="12" cy="5" rx="8" ry="3" />
-                                            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
-                                            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card 3: VALUE ENGINEERING (green) -->
-                            <div class="ks-card ks-card--green" data-ks="2">
-                                <h3 class="ks-card-heading">Value Engineering</h3>
-                                <div class="ks-card-body">
-                                    <p class="ks-card-desc">Adding value to services that we provide seems to be the path forward. ADES ensures this in its offerings.</p>
-                                    <div class="ks-icon-circle">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                                            <circle cx="12" cy="15" r="3" />
-                                            <path d="M12 12v0M14.5 13.5l-1-1M9.5 13.5l1-1M9.5 16.5l1-1M14.5 16.5l-1-1" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card 4: OUR ETHICS (pink) -->
-                            <div class="ks-card ks-card--pink ks-card--right" data-ks="3">
-                                <h3 class="ks-card-heading">Our Ethics</h3>
-                                <div class="ks-card-body">
-                                    <p class="ks-card-desc">We have a strong foundation of corporate ethical commitments and the organization's approach to our corporate responsibility.</p>
-                                    <div class="ks-icon-circle">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#1c1c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="8" r="6" />
-                                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <script>
-                    (function () {
-                        var sec = document.getElementById('ades-key-strength');
-
-                        /* Header */
-                        var hdr = sec.querySelector('[data-ks-header]');
-                        new IntersectionObserver(function (es) {
-                            es.forEach(function (e) { hdr.classList.toggle('in', e.isIntersecting); });
-                        }, { threshold: 0.4 }).observe(hdr);
-
-                        /* Grid: dividers + cards */
-                        var grid = sec.querySelector('[data-ks-grid]');
-                        var cards = sec.querySelectorAll('.ks-card');
-                        new IntersectionObserver(function (es) {
-                            es.forEach(function (e) {
-                                grid.classList.toggle('in', e.isIntersecting);
-                                cards.forEach(function (c) { c.classList.toggle('in', e.isIntersecting); });
-                            });
-                        }, { threshold: 0.2 }).observe(grid);
-                    })();
-                </script>
-            </section>
-            <!-- ═══════════════════════════════════════════
-                 END OUR KEY STRENGTH
-            ═══════════════════════════════════════════ -->
 
 
 
@@ -2827,7 +2472,7 @@
                         <div class="kh-exp-card" style="--accent: #2ECC71;">
                             <div class="kh-exp-card-inner">
                                 <div class="kh-exp-front"
-                                    style="background-image:url('assets/img/Screenshot 2026-08-04 104943.png');">
+                                    style="background-image:url('assets/img/green building new images.jpeg');">
                                     <div>
                                         <span class="kh-exp-category">Sustainability</span>
                                         <p class="kh-exp-desc">Green Buildings (IGBC / GRIHA)</p>
@@ -2850,7 +2495,7 @@
                         <div class="kh-exp-card" style="--accent: #F1C40F;">
                             <div class="kh-exp-card-inner">
                                 <div class="kh-exp-front"
-                                    style="background-image:url('assets/img/Projects_in_Australia.jpg');">
+                                    style="background-image:url('assets/img/projects in austrlia.jpeg');">
                                     <div>
                                         <span class="kh-exp-category">International</span>
                                         <p class="kh-exp-desc">Projects in Australia</p>
@@ -2872,7 +2517,7 @@
                         </div>
                         <div class="kh-exp-card" style="--accent: #C9F31D;">
                             <div class="kh-exp-card-inner">
-                                <div class="kh-exp-front" style="background-image:url('assets/img/Advisory.jpeg');">
+                                <div class="kh-exp-front" style="background-image:url('assets/img/peer review.jpeg');">
                                     <div>
                                         <span class="kh-exp-category">Advisory</span>
                                         <p class="kh-exp-desc">Peer Reviews</p>
@@ -2896,52 +2541,6 @@
                 </div>
             </section>
 
-            <!-- We do Section Start -->
-            <section class="we-do-section pt-150 pb-100 fix">
-                <div class="container">
-                    <div class="section-title-area">
-                        <div class="section-title">
-                            <p style="color:#fff;">Our Key Strengths</p>
-                            <h2 class="title title-anim" style="color:#fff;">
-                                What drives us to deliver the best
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="we-do-line">
-                        <span class="dot-1"></span>
-                        <span class="dot-2"></span>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <div class="we-do-item">
-                                <h3 style="color:#fff;">PROCESS ORIENTED</h3>
-                                <p>ADES is a process driven & service
-                                    oriented design firm. We assure our
-                                    clients of principal involvement and
-                                    commitment on every project..</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <div class="we-do-item">
-                                <h3 style="color:#fff;">OUR ETHICS</h3>
-                                <p>We have a strong foundation of
-                                    corporate ethical commitments and
-                                    the organization's approach to our
-                                    corporate responsibility.</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <div class="we-do-item">
-                                <h3 style="color:#fff;">VALUE ENGINEERING</h3>
-                                <p>Adding value to services that we
-                                    provide seems to be the path
-                                    forward. ADES ensures this in it's
-                                    offerings.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <!-- Testimonial Section Start -->
             <!-- Testimonial Section End -->
@@ -3526,7 +3125,6 @@
                                 <li><a href="about-1.html">Who We Are</a></li>
                                 <li><a href="contact.html">Team &amp; Advisors</a></li>
                                 <li><a href="contact.html">Career</a></li>
-                                <li><a href="blog-1.html">Blog</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-4">
