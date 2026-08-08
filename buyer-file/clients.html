@@ -87,6 +87,73 @@
         .client-img-wrapper:hover img {
             transform: scale(1.02);
         }
+
+        /* --- Refined clients section design --- */
+        .client-intro {
+            text-align: center;
+            max-width: 840px;
+            margin: 0 auto 10px;
+        }
+        .client-intro .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: #0066ff;
+            margin-bottom: 16px;
+        }
+        .client-intro .eyebrow::before,
+        .client-intro .eyebrow::after {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: #0066ff;
+            border-radius: 2px;
+        }
+        .client-intro h2 {
+            font-size: clamp(30px, 4.2vw, 50px);
+            font-weight: 900;
+            color: #0a1020;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            margin: 0 0 16px;
+            line-height: 1.06;
+        }
+        .client-intro p {
+            font-size: 16px;
+            line-height: 1.75;
+            color: #5a6472;
+            margin: 0;
+        }
+
+        /* Cleaner category titles (override the heavy gradient pills) */
+        .client-grid-area .client-slides > h3 {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            color: #0a1020 !important;
+            font-size: clamp(20px, 2.6vw, 30px) !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.05em !important;
+            margin: 64px auto 28px !important;
+        }
+        .client-grid-area .client-slides > h3 a {
+            color: inherit !important;
+        }
+        .client-grid-area .client-slides > h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            margin: 16px auto 0;
+            background: linear-gradient(90deg, #0066ff, #C9F31D);
+            border-radius: 3px;
+        }
     </style>
     <!-- Glassmorphism Footer Style -->
     <style>
@@ -255,6 +322,14 @@
     <section class="client-grid-area pt-150 pb-80" style="background:#ffffff;">
         <div class="container">
             <div class="client-slides" style="max-width:1150px;margin:0 auto;">
+                <div class="client-intro">
+                    <span class="eyebrow">Our Clients</span>
+                    <h2>Trusted Across Industries</h2>
+                    <p>Three decades of engineering excellence — delivering optimised MEP solutions to leading
+                        organisations across food, industrial, commercial, IT, hospitality, healthcare, and
+                        international projects.</p>
+                </div>
+
                 <h3 style="text-align:center;color:#060b18;font-size:clamp(22px,3.2vw,34px);font-weight:900;text-transform:uppercase;letter-spacing:0.07em;margin:70px auto 35px;padding:16px 28px;background:linear-gradient(135deg, rgba(0,102,255,0.08), rgba(201,243,29,0.15));border-top:2px solid rgba(0,102,255,0.2);border-bottom:3px solid #0066ff;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.04);"><a href="assets/img/client images new/food industry.png" target="_blank" style="color:inherit;text-decoration:none;display:block;">Food Industries</a></h3>
                 <a href="assets/img/client images new/food industry.png" target="_blank" class="client-img-wrapper">
                     <img src="assets/img/client images new/food industry.png" alt="Food Industries ADES Clients">
