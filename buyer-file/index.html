@@ -146,25 +146,20 @@
             padding-bottom: 1px;
         }
 
-        /* About section — smaller image, readable text, 4 service cards */
+        /* About section — clean image alignment & centered title */
         .about-wrapper.style-4 .about-left-content .thumb {
-            margin-left: -180px;
+            margin-left: 0 !important;
+            width: 100% !important;
         }
 
         .about-wrapper.style-4 .about-left-content .thumb img {
-            max-width: 88%;
-            width: 88%;
-        }
-
-        @media (max-width: 1199px) {
-            .about-wrapper.style-4 .about-left-content .thumb {
-                margin-left: 0;
-            }
-
-            .about-wrapper.style-4 .about-left-content .thumb img {
-                max-width: 100%;
-                width: 100%;
-            }
+            max-width: 100% !important;
+            width: 100% !important;
+            height: auto;
+            border-radius: 8px;
+            transform: none !important;
+            animation: none !important;
+            transition: none !important;
         }
 
         .about-wrapper.style-4 .about-right-content .about-text-content .content-text {
@@ -784,10 +779,10 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="contact.html">Call to Action</a>
+                                                <a href="contact.html">Contact Us</a>
                                             </li>
                                             <li>
-                                                <a href="assets/ADES PROFILE.pdf" download style="padding: 10px 18px; border: 1px solid #C9F31D; color: #C9F31D; border-radius: 4px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s; margin-left: 15px; white-space: nowrap;" onmouseover="this.style.background='#C9F31D';this.style.color='#000';" onmouseout="this.style.background='transparent';this.style.color='#C9F31D';">Download ADES Profile</a>
+                                                <a href="assets/ADES - MEP Profile - 150826 - R6 (2).pdf" download style="padding: 10px 18px; border: 1px solid #C9F31D; color: #C9F31D; border-radius: 4px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.3s; margin-left: 15px; white-space: nowrap;" onmouseover="this.style.background='#C9F31D';this.style.color='#000';" onmouseout="this.style.background='transparent';this.style.color='#C9F31D';">Download ADES Profile</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -1157,27 +1152,27 @@
                         <div class="row gy-5">
                             <div class="col-xl-6">
                                 <div class="about-left-content">
-                                    <!-- Heading moved above image -->
                                     <style>
-                                        @media (min-width: 1200px) {
-                                            .about-founded-content-align {
-                                                margin-top: calc(clamp(32px, 3.5vw, 50px) * 1.15 + 24px) !important;
-                                            }
+                                         @media (min-width: 1200px) {
+                                             .about-founded-content-align {
+                                                 margin-top: calc(2 * clamp(26px, 3.4vw, 48px) * 1.15 + 24px) !important;
+                                             }
 
-                                            .about-left-title-align {
-                                                margin-left: 0 !important;
-                                            }
-                                        }
-                                    </style>
-                                    <div class="section-title-four about-left-title-align" style="margin-bottom: 24px; text-align: center;">
-                                        <div class="title title-anim"
-                                            style="font-size: clamp(32px, 4.2vw, 60px); line-height: 1.1; font-weight: 800; text-align: center;">
-                                            Innovative engineering <span>solutions</span>
-                                        </div>
-                                    </div>
+                                             .about-left-title-align {
+                                                 margin-left: 0 !important;
+                                                 width: 100% !important;
+                                             }
+                                         }
+                                     </style>
+                                     <div class="section-title-four about-left-title-align" style="margin-bottom: 24px; text-align: center; width: 100%; max-width: 100%;">
+                                         <div class="title title-anim"
+                                             style="font-size: clamp(26px, 3.4vw, 48px); line-height: 1.15; font-weight: 800; text-align: center; color: #ffffff; width: 100%; max-width: 100%; box-sizing: border-box; word-break: normal; overflow-wrap: break-word;">
+                                             Innovative engineering <span>solutions</span>
+                                         </div>
+                                     </div>
 
                                     <div class="thumb fix">
-                                        <img data-speed="0.7" src="./assets/img/ades home 1.png" alt="thumb">
+                                        <img src="./assets/img/ades home 1.png" alt="thumb" style="transform: none !important;">
                                         <a href="" class="">
                                             <span class="btn neon-pulse">
                                                 <svg xmlns="" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -1190,9 +1185,8 @@
                                     </div>
 
                                     <!-- Rating moved below image -->
-                                    <div class="about-review gt_fade_anim" data-delay=".5" data-fade-from="top"
-                                        data-ease="bounce"
-                                        style="position: static; margin-top: 20px; margin-bottom: 0; transform: none;">
+                                    <div class="about-review"
+                                        style="position: static; margin-top: 20px; margin-bottom: 0; transform: none !important;">
                                         <span>4.9</span>
                                         <div class="about-review-content">
                                             <p>Google Review</p>
@@ -1231,31 +1225,31 @@
                                 <div class="about-right-content">
                                     <div class="about-founded-content about-founded-content-align"
                                         style="margin-bottom: 0;">
-                                        <ul style="list-style: none; padding: 0; margin: 0 0 22px;">
+                                        <ul style="list-style: none; padding: 0; margin: 0 0 42px;">
                                             <li
-                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 22px; text-indent: -22px;">
-                                                ▪ ADES was founded in 2008</li>
+                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 32px; text-indent: -32px;">
+                                                ▪&nbsp;&nbsp;&nbsp;ADES was founded in 2008</li>
                                             <li
-                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 22px; text-indent: -22px;">
-                                                ▪ Dedicated professionals</li>
+                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 32px; text-indent: -32px;">
+                                                ▪&nbsp;&nbsp;&nbsp;Dedicated professionals</li>
                                             <li
-                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 22px; text-indent: -22px;">
-                                                ▪ Outstanding design and consulting services</li>
+                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 32px; text-indent: -32px;">
+                                                ▪&nbsp;&nbsp;&nbsp;Outstanding design and consulting services</li>
                                             <li
-                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 22px; text-indent: -22px;">
-                                                ▪ Over 39+ years of collective industry experience</li>
+                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 32px; text-indent: -32px;">
+                                                ▪&nbsp;&nbsp;&nbsp;Over 39+ years of collective industry experience</li>
                                             <li
-                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 22px; text-indent: -22px;">
-                                                ▪ Global perspective with experts from various locations</li>
+                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 32px; text-indent: -32px;">
+                                                ▪&nbsp;&nbsp;&nbsp;Global perspective with experts from various locations</li>
                                             <li
-                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 22px; text-indent: -22px;">
-                                                ▪ Process-driven and service-oriented design firm</li>
+                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 32px; text-indent: -32px;">
+                                                ▪&nbsp;&nbsp;&nbsp;Process-driven and service-oriented design firm</li>
                                             <li
-                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 22px; text-indent: -22px;">
-                                                ▪ Principal involvement in every project</li>
+                                                style="font-size: 21px; line-height: 2; color: rgba(255, 255, 255, 0.9); font-family: 'Century Gothic', sans-serif; padding-left: 32px; text-indent: -32px;">
+                                                ▪&nbsp;&nbsp;&nbsp;Principal involvement in every project</li>
                                         </ul>
                                         <p
-                                            style="font-size: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #C9F31D; margin: 0 0 24px;">
+                                            style="font-size: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #C9F31D; margin: 0 0 32px;">
                                             &ldquo;Proudly Providing Engineering Excellence&rdquo;</p>
                                     </div>
 

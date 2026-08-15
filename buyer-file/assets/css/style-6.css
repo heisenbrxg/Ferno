@@ -65,27 +65,29 @@ h1, h2, h3, h4:not(.custom-footer-title), h5, h6 {
     margin: 0 !important;
 }
 
-/* ── Navbar Size Adjustments ── */
+/* ── Navbar Size Adjustments & Responsive Fit ── */
 .header-section .header-3 .header-left {
-    margin-left: 40px !important;
+    margin-left: 20px !important;
+}
+.header-section .header-3 .main-menu ul {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
 }
 .header-section .header-3 .main-menu ul li {
-    margin-inline-end: 28px !important;
+    margin-inline-end: 14px !important;
+    flex-shrink: 0 !important;
+}
+.header-section .header-3 .main-menu ul li:last-child {
+    margin-inline-end: 0 !important;
 }
 .header-section .header-3 .main-menu ul li > a {
-    font-size: 18px !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
 }
 @media (min-width: 1400px) {
-    .header-section .header-3 .main-menu ul li {
-        margin-inline-end: 36px !important;
-    }
-    .header-section .header-3 .main-menu ul li > a {
-        font-size: 19px !important;
-    }
-}
-@media (max-width: 1399px) {
     .header-section .header-3 .header-left {
-        margin-left: 20px !important;
+        margin-left: 28px !important;
     }
     .header-section .header-3 .main-menu ul li {
         margin-inline-end: 18px !important;
@@ -94,19 +96,51 @@ h1, h2, h3, h4:not(.custom-footer-title), h5, h6 {
         font-size: 15px !important;
     }
 }
-@media (max-width: 1199px) {
+@media (min-width: 1600px) {
+    .header-section .header-3 .main-menu ul li {
+        margin-inline-end: 22px !important;
+    }
+    .header-section .header-3 .main-menu ul li > a {
+        font-size: 16px !important;
+    }
+}
+@media (max-width: 1399px) {
     .header-section .header-3 .header-left {
-        margin-left: 10px !important;
+        margin-left: 14px !important;
     }
     .header-section .header-3 .main-menu ul li {
         margin-inline-end: 12px !important;
     }
     .header-section .header-3 .main-menu ul li > a {
-        font-size: 14px !important;
+        font-size: 13.5px !important;
+    }
+}
+@media (max-width: 1199px) {
+    .header-section .header-3 .header-left {
+        margin-left: 10px !important;
+    }
+    .header-section .header-3 .main-menu ul li {
+        margin-inline-end: 10px !important;
+    }
+    .header-section .header-3 .main-menu ul li > a {
+        font-size: 13px !important;
     }
 }
 .header-section .header-3 .main-menu ul li .submenu li a {
-    font-size: 16px !important;
+    font-size: 15px !important;
+}
+
+/* Download Profile Button Navbar Override */
+.header-section .header-3 .main-menu ul li a[download] {
+    padding: 7px 14px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    border: 1px solid #C9F31D !important;
+    color: #C9F31D !important;
+    border-radius: 4px !important;
+    margin-left: 0 !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
 }
 /* ── Universal Responsive Logo Sizing & Aspect-Ratio Preservation ── */
 

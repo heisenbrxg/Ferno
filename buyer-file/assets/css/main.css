@@ -17605,42 +17605,27 @@ a[href^="mailto:"] {
 
 .gt-breadcrumb-wrapper .title {
   font-family: "Kanit", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
   letter-spacing: -0.01em;
   text-align: left;
-  color: var(--gt-text-6);
-  min-width: 100px;
+  color: #ffffff;
   position: relative;
 }
 
-.gt-breadcrumb-wrapper .title.title-1::before {
-  background: var(--gt-text-6);
+@media (max-width: 767px) {
+  .gt-breadcrumb-wrapper .title {
+    font-size: 30px;
+  }
 }
 
-.gt-breadcrumb-wrapper .title.title-1::after {
-  background: var(--gt-text-6);
-}
-
-.gt-breadcrumb-wrapper .title::before {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 2px;
-  background: var(--gt-white);
-  top: 30px;
-  left: 0;
-}
-
+.gt-breadcrumb-wrapper .title.title-1::before,
+.gt-breadcrumb-wrapper .title.title-1::after,
+.gt-breadcrumb-wrapper .title::before,
 .gt-breadcrumb-wrapper .title::after {
-  content: "";
-  position: absolute;
-  width: 39px;
-  height: 2px;
-  background: var(--gt-white);
-  top: 30px;
-  left: 17px;
+  display: none !important;
+  content: none !important;
 }
 
 .gt-breadcrumb-wrapper .text {
