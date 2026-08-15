@@ -108,12 +108,126 @@ h1, h2, h3, h4:not(.custom-footer-title), h5, h6 {
 .header-section .header-3 .main-menu ul li .submenu li a {
     font-size: 16px !important;
 }
-.header-section .header-3 .logo img {
-    height: 55px !important;
+/* ── Universal Responsive Logo Sizing & Aspect-Ratio Preservation ── */
+
+/* Ensure logo wrappers never collapse or squeeze in flex layouts */
+.header-section .logo,
+.header-main .logo,
+.header-3 .logo,
+.offcanvas__logo,
+.footer-logo,
+.tn-logo,
+.mob-logo {
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
 }
-.sticky.header-3 .logo img {
-    height: 50px !important;
+
+/* Master Header Logo Rules (All header styles: .header-1, .header-2, .header-3, .header-4) */
+.header-section .logo img,
+.header-main .logo img,
+.header-logo img,
+.header-logo-2 img,
+.header-3 .logo img,
+.tn-logo img {
+    height: 44px !important;
+    max-height: 44px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    transition: height 0.3s ease, max-height 0.3s ease !important;
 }
+
+/* Sticky Header Logo Sizing (Compact & smooth) */
+.sticky .logo img,
+.sticky.header-3 .logo img,
+.sticky.header-1 .logo img,
+.sticky.header-2 .logo img,
+.sticky.header-4 .logo img,
+.sticky .header-logo-2 img,
+.sticky .header-logo img {
+    height: 38px !important;
+    max-height: 38px !important;
+    width: auto !important;
+}
+
+/* Offcanvas Mobile Menu Logo */
+.offcanvas__logo img,
+.mob-logo img {
+    height: 38px !important;
+    max-height: 38px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+/* Footer Logo Sizing */
+.footer-logo img,
+footer img[alt="logo"],
+footer .logo img,
+.custom-footer-bg img {
+    height: 38px !important;
+    max-height: 38px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+/* Responsive Resolution & Zoom Level Scaling (100%, 80% zoom, 4K, 1080p, Laptops, Mobile) */
+@media (min-width: 1400px) {
+    .header-section .logo img,
+    .header-main .logo img,
+    .header-3 .logo img {
+        height: 46px !important;
+        max-height: 46px !important;
+    }
+    .sticky .logo img,
+    .sticky.header-3 .logo img {
+        height: 40px !important;
+        max-height: 40px !important;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .header-section .logo img,
+    .header-main .logo img,
+    .header-3 .logo img {
+        height: 40px !important;
+        max-height: 40px !important;
+    }
+    .sticky .logo img,
+    .sticky.header-3 .logo img {
+        height: 36px !important;
+        max-height: 36px !important;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 576px) {
+    .header-section .logo img,
+    .header-main .logo img,
+    .header-3 .logo img {
+        height: 38px !important;
+        max-height: 38px !important;
+    }
+    .sticky .logo img,
+    .sticky.header-3 .logo img {
+        height: 34px !important;
+        max-height: 34px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .header-section .logo img,
+    .header-main .logo img,
+    .header-3 .logo img {
+        height: 34px !important;
+        max-height: 34px !important;
+    }
+    .sticky .logo img,
+    .sticky.header-3 .logo img {
+        height: 32px !important;
+        max-height: 32px !important;
+    }
+}
+
 
 /* ── Footer: visible headings + brand social icons on dark background ── */
 .custom-footer-container h4.custom-footer-title,
