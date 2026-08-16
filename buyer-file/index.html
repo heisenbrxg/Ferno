@@ -2012,11 +2012,14 @@
                                 text-align: center;
                                 transition: transform 0.8s;
                                 transform-style: preserve-3d;
+                                -webkit-transform-style: preserve-3d;
                                 border-radius: 12px;
                             }
 
-                            .ades-flip-card:hover .ades-flip-card-inner {
+                            .ades-flip-card:hover .ades-flip-card-inner,
+                            .ades-flip-card.flipped .ades-flip-card-inner {
                                 transform: rotateY(180deg);
+                                -webkit-transform: rotateY(180deg);
                             }
 
                             .ades-flip-front,
@@ -2025,12 +2028,18 @@
                                 width: 100%;
                                 height: 100%;
                                 backface-visibility: hidden;
+                                -webkit-backface-visibility: hidden;
                                 border-radius: 12px;
                                 overflow: hidden;
+                                transition: opacity 0.3s ease, visibility 0.3s ease;
                             }
 
                             .ades-flip-front {
                                 background-color: #1a1a1a;
+                                transform: translateZ(1px);
+                                -webkit-transform: translateZ(1px);
+                                opacity: 1;
+                                visibility: visible;
                             }
 
                             .ades-flip-front img {
@@ -2045,13 +2054,30 @@
                             .ades-flip-back {
                                 background-color: #C9F31D;
                                 color: #121212;
-                                transform: rotateY(180deg);
+                                transform: rotateY(180deg) translateZ(1px);
+                                -webkit-transform: rotateY(180deg) translateZ(1px);
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
                                 align-items: center;
                                 padding: 30px;
                                 text-decoration: none;
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+
+                            .ades-flip-card:hover .ades-flip-front,
+                            .ades-flip-card.flipped .ades-flip-front {
+                                opacity: 0;
+                                visibility: hidden;
+                                pointer-events: none;
+                            }
+
+                            .ades-flip-card:hover .ades-flip-back,
+                            .ades-flip-card.flipped .ades-flip-back {
+                                opacity: 1;
+                                visibility: visible;
+                                pointer-events: auto;
                             }
 
                             .ades-flip-back .card-title {

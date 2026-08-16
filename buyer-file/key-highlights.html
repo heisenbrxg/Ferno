@@ -845,6 +845,7 @@
             position: relative;
             height: 320px;
             perspective: 1000px;
+            -webkit-perspective: 1000px;
             cursor: pointer;
         }
         .kh-exp-card-inner {
@@ -853,10 +854,12 @@
             height: 100%;
             transition: transform 0.6s ease;
             transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
         }
         .kh-exp-card.flipped .kh-exp-card-inner,
         .kh-exp-card:hover .kh-exp-card-inner {
             transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
         }
 
         /* ── Shared face styles ── */
@@ -874,6 +877,7 @@
             align-items: center;
             text-align: center;
             padding: 28px 24px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         /* ── Front face ── */
@@ -881,6 +885,10 @@
             background-size: cover;
             background-position: center;
             justify-content: flex-end;
+            transform: translateZ(1px);
+            -webkit-transform: translateZ(1px);
+            opacity: 1;
+            visibility: visible;
         }
         .kh-exp-front::before {
             content: '';
@@ -918,9 +926,26 @@
         /* ── Back face ── */
         .kh-exp-back {
             background: #1a1a1a;
-            transform: rotateY(180deg);
+            transform: rotateY(180deg) translateZ(1px);
+            -webkit-transform: rotateY(180deg) translateZ(1px);
             justify-content: center;
             border-left: 4px solid var(--accent, #C9F31D);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .kh-exp-card.flipped .kh-exp-front,
+        .kh-exp-card:hover .kh-exp-front {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .kh-exp-card.flipped .kh-exp-back,
+        .kh-exp-card:hover .kh-exp-back {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
         .kh-exp-back .kh-exp-category {
             font-size: 13px;
