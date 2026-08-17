@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="ADES - AirDesign Engineered Solutions">
-    <meta name="description" content="Discover ADES's comprehensive MEP engineering services, including HVAC, Electrical, PHE, and Fire Protection.">
+    <meta name="description"
+        content="Discover ADES's comprehensive MEP engineering services, including HVAC, Electrical, PHE, and Fire Protection.">
     <!-- ======== Page title ============ -->
     <title>Our Services | ADES - Engineering Excellence</title>
     <!--<< Favcion >>-->
@@ -28,7 +29,7 @@
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    
+
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style-6.css">
     <!-- Glassmorphism Footer Style -->
@@ -75,6 +76,49 @@
             border-color: rgba(0, 0, 0, 0.06) !important;
         }
 
+        /* White Navbar Header Styling (Normal Non-Bold Weight) */
+        header.header-section,
+        #header-sticky,
+        .header-3,
+        .sticky-header,
+        .header-main {
+            background: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06) !important;
+        }
+
+        .header-3 .main-menu ul li a {
+            color: #111111 !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.01em !important;
+        }
+
+        .header-3 .main-menu ul li:hover > a {
+            color: #8cb811 !important;
+        }
+
+        .header-3 .main-menu ul li.has-dropdown > a i {
+            color: #111111 !important;
+            font-weight: 400 !important;
+        }
+
+        .header-3 .header-right .header-bar svg path {
+            fill: #111111 !important;
+        }
+
+        .header-3 .main-menu ul li a.btn-download-black,
+        .header-3 .main-menu ul li a[download] {
+            color: #111111 !important;
+            border: 1px solid #111111 !important;
+            font-weight: 500 !important;
+            background: transparent !important;
+        }
+
+        .header-3 .main-menu ul li a.btn-download-black:hover,
+        .header-3 .main-menu ul li a[download]:hover {
+            background-color: #111111 !important;
+            color: #ffffff !important;
+        }
+
         .service-area-one {
             background: #ffffff !important;
         }
@@ -95,7 +139,7 @@
             color: transparent !important;
         }
 
-        .service-page-cta .gt_text_invert > div {
+        .service-page-cta .gt_text_invert>div {
             background-image: linear-gradient(to right, #111013 50%, #9E9EA3 50%) !important;
             color: transparent !important;
             -webkit-background-clip: text !important;
@@ -283,7 +327,7 @@
         }
     </style>
     <style>
-        .service-area-one .row > [class*="col-"] {
+        .service-area-one .row>[class*="col-"] {
             display: flex;
         }
 
@@ -313,7 +357,7 @@
     </style>
 </head>
 
-<body>    <!-- Header Section Start -->
+<body> <!-- Header Section Start -->
     <!-- Offcanvas Area Start -->
     <div class="fix-area">
         <div class="offcanvas__info">
@@ -367,7 +411,8 @@
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="https://www.linkedin.com/in/dr-ferno-susai-8b12bb166/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/dr-ferno-susai-8b12bb166/" target="_blank"><i
+                                    class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -382,7 +427,8 @@
                     <div class="header-main">
                         <div class="logo">
                             <a href="index.html" class="header-logo-2">
-                                <img src="assets/img/update new logo.png" alt="ADES logo" style="height:40px;width:auto;">
+                                <img src="assets/img/update new logo.png" alt="ADES logo"
+                                    style="height:40px;width:auto;">
                             </a>
                         </div>
 
@@ -398,7 +444,8 @@
                                                 <a href="about-1.html">Who We Are</a>
                                             </li>
                                             <li class="has-dropdown">
-                                                <a href="service-2.html">What We Do <i class="fa-solid fa-chevron-down"></i></a>
+                                                <a href="service-2.html">What We Do <i
+                                                        class="fa-solid fa-chevron-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="service-mep.html">Integrated MEP</a></li>
                                                     <li><a href="service-electrical.html">Electrical Systems</a></li>
@@ -428,7 +475,8 @@
                                                 <a href="contact.html">Contact Us</a>
                                             </li>
                                             <li>
-                                                <a href="assets/ADES - MEP Profile - 150826 - R6 (2).pdf" download class="btn-download-black">Download ADES Profile</a>
+                                                <a href="assets/ADES - MEP Profile - 150826 - R6 (2).pdf" download
+                                                    class="btn-download-black">Download ADES Profile</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -440,10 +488,17 @@
                             <div class="header__hamburger">
                                 <div class="sidebar__toggle">
                                     <div class="header-bar">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <path d="M19.375 5H0.625C0.45924 5 0.300269 4.93415 0.183058 4.81694C0.065848 4.69973 0 4.54076 0 4.375C0 4.20924 0.065848 4.05027 0.183058 3.93306C0.300269 3.81585 0.45924 3.75 0.625 3.75H19.375C19.5408 3.75 19.6997 3.81585 19.8169 3.93306C19.9342 4.05027 20 4.20924 20 4.375C20 4.54076 19.9342 4.69973 19.8169 4.81694C19.6997 4.93415 19.5408 5 19.375 5Z" fill="currentColor"/>
-                                            <path d="M19.375 11.25H0.625C0.45924 11.25 0.300269 11.1842 0.183058 11.0669C0.065848 10.9497 0 10.7908 0 10.625C0 10.4592 0.065848 10.3003 0.183058 10.1831C0.300269 10.0658 0.45924 10 0.625 10H19.375C19.5408 10 19.6997 10.0658 19.8169 10.1831C19.9342 10.3003 20 10.4592 20 10.625C20 10.7908 19.9342 10.9497 19.8169 11.0669C19.6997 11.1842 19.5408 11.25 19.375 11.25Z" fill="currentColor"/>
-                                            <path d="M19.375 17.5H0.625C0.45924 17.5 0.300269 17.4342 0.183058 17.3169C0.065848 17.1997 0 17.0408 0 16.875C0 16.7092 0.065848 16.5503 0.183058 16.4331C0.300269 16.3158 0.45924 16.25 0.625 16.25H19.375C19.5408 16.25 19.6997 16.3158 19.8169 16.4331C19.9342 16.5503 20 16.7092 20 16.875C20 17.0408 19.9342 17.1997 19.8169 17.3169C19.6997 17.4342 19.5408 17.5 19.375 17.5Z" fill="currentColor"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M19.375 5H0.625C0.45924 5 0.300269 4.93415 0.183058 4.81694C0.065848 4.69973 0 4.54076 0 4.375C0 4.20924 0.065848 4.05027 0.183058 3.93306C0.300269 3.81585 0.45924 3.75 0.625 3.75H19.375C19.5408 3.75 19.6997 3.81585 19.8169 3.93306C19.9342 4.05027 20 4.20924 20 4.375C20 4.54076 19.9342 4.69973 19.8169 4.81694C19.6997 4.93415 19.5408 5 19.375 5Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M19.375 11.25H0.625C0.45924 11.25 0.300269 11.1842 0.183058 11.0669C0.065848 10.9497 0 10.7908 0 10.625C0 10.4592 0.065848 10.3003 0.183058 10.1831C0.300269 10.0658 0.45924 10 0.625 10H19.375C19.5408 10 19.6997 10.0658 19.8169 10.1831C19.9342 10.3003 20 10.4592 20 10.625C20 10.7908 19.9342 10.9497 19.8169 11.0669C19.6997 11.1842 19.5408 11.25 19.375 11.25Z"
+                                                fill="currentColor" />
+                                            <path
+                                                d="M19.375 17.5H0.625C0.45924 17.5 0.300269 17.4342 0.183058 17.3169C0.065848 17.1997 0 17.0408 0 16.875C0 16.7092 0.065848 16.5503 0.183058 16.4331C0.300269 16.3158 0.45924 16.25 0.625 16.25H19.375C19.5408 16.25 19.6997 16.3158 19.8169 16.4331C19.9342 16.5503 20 16.7092 20 16.875C20 17.0408 19.9342 17.1997 19.8169 17.3169C19.6997 17.4342 19.5408 17.5 19.375 17.5Z"
+                                                fill="currentColor" />
                                         </svg>
                                     </div>
                                 </div>
@@ -459,19 +514,24 @@
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <!-- Breadcrumb page Section Start -->
-            <div class="breadcrumb-page-area-one style-2 pt-96 pb-150 fix">
-                <div class="breadcrumb-page-wrap pt-250 pb-250" style="background: #000 url('./assets/img/ades footer image.png') no-repeat center center; background-size: 85% auto;">
+            <div class="breadcrumb-page-area-one style-2 fix"
+                style="background: #000000; padding: 150px 0 60px; text-align: center;">
+                <div class="container-fluid" style="max-width: 1600px; padding: 0 15px;">
+                    <img src="./assets/img/aaaaaomala dai.png" alt="ADES Services Banner"
+                        style="max-width: 96%; width: auto; height: auto; display: block; margin: 0 auto;">
                 </div>
             </div>
             <!-- Breadcrumb page Section End -->
 
-            <div class="service-page-cta">
+            <div class="service-page-cta" style="padding-top: 90px;">
                 <div class="service-page-cta-wrap pb-150">
                     <div class="container">
                         <div class="content">
 
                             <div class="text gt_text_invert">
-                                From integrated MEP design to specialized technical audits, we provide innovative engineering solutions that transform complex building requirements into high-performance infrastructure.
+                                From integrated MEP design to specialized technical audits, we provide innovative
+                                engineering solutions that transform complex building requirements into high-performance
+                                infrastructure.
                             </div>
                         </div>
                     </div>
@@ -488,7 +548,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">01</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Sustainable Engineering Solutio.jpg" alt="Sustainable engineering solutions">
+                                        <img src="./assets/img/Sustainable Engineering Solutio.jpg"
+                                            alt="Sustainable engineering solutions">
                                     </div>
                                     <h3 class="ades-svc-card__title">Sustainable Engineering Solutions</h3>
                                     <ul class="ades-svc-card__list">
@@ -505,7 +566,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">02</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/BIM-Based Integrated Design.webp" alt="BIM-based integrated design">
+                                        <img src="./assets/img/BIM-Based Integrated Design.webp"
+                                            alt="BIM-based integrated design">
                                     </div>
                                     <h3 class="ades-svc-card__title">BIM-Based Integrated Design</h3>
                                     <ul class="ades-svc-card__list">
@@ -522,7 +584,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">03</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Smart & Energy-Efficient Building Design.avif" alt="Smart energy-efficient building design">
+                                        <img src="./assets/img/Smart & Energy-Efficient Building Design.avif"
+                                            alt="Smart energy-efficient building design">
                                     </div>
                                     <h3 class="ades-svc-card__title">Smart &amp; Energy-Efficient Building Design</h3>
                                     <ul class="ades-svc-card__list">
@@ -539,7 +602,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">04</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Intelligent HVAC Engineering.jpg" alt="Intelligent HVAC engineering">
+                                        <img src="./assets/img/Intelligent HVAC Engineering.jpg"
+                                            alt="Intelligent HVAC engineering">
                                     </div>
                                     <h3 class="ades-svc-card__title">Intelligent HVAC Engineering</h3>
                                     <ul class="ades-svc-card__list">
@@ -556,7 +620,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">05</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Advanced Fire & Life Safety Engineering.jpg" alt="Advanced fire and life safety engineering">
+                                        <img src="./assets/img/Advanced Fire & Life Safety Engineering.jpg"
+                                            alt="Advanced fire and life safety engineering">
                                     </div>
                                     <h3 class="ades-svc-card__title">Advanced Fire &amp; Life Safety Engineering</h3>
                                     <ul class="ades-svc-card__list">
@@ -573,9 +638,11 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">06</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Electrical & Smart Infrastructure Solutions.jpg" alt="Electrical and smart infrastructure">
+                                        <img src="./assets/img/Electrical & Smart Infrastructure Solutions.jpg"
+                                            alt="Electrical and smart infrastructure">
                                     </div>
-                                    <h3 class="ades-svc-card__title">Electrical &amp; Smart Infrastructure Solutions</h3>
+                                    <h3 class="ades-svc-card__title">Electrical &amp; Smart Infrastructure Solutions
+                                    </h3>
                                     <ul class="ades-svc-card__list">
                                         <li>Smart power distribution</li>
                                         <li>Energy monitoring systems</li>
@@ -590,7 +657,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">07</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Digital Engineering & Automation.jpg" alt="Digital engineering and automation">
+                                        <img src="./assets/img/Digital Engineering & Automation.jpg"
+                                            alt="Digital engineering and automation">
                                     </div>
                                     <h3 class="ades-svc-card__title">Digital Engineering &amp; Automation</h3>
                                     <ul class="ades-svc-card__list">
@@ -607,7 +675,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">08</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Project Optimization & Value Engineering.jpg" alt="Project optimization and value engineering">
+                                        <img src="./assets/img/Project Optimization & Value Engineering.jpg"
+                                            alt="Project optimization and value engineering">
                                     </div>
                                     <h3 class="ades-svc-card__title">Project Optimization &amp; Value Engineering</h3>
                                     <ul class="ades-svc-card__list">
@@ -624,7 +693,8 @@
                                 <div class="ades-svc-card">
                                     <span class="ades-svc-card__num">09</span>
                                     <div class="ades-svc-card__img">
-                                        <img src="./assets/img/Industrial & Mission-Critical Solutions.jpg" alt="Industrial and mission-critical solutions">
+                                        <img src="./assets/img/Industrial & Mission-Critical Solutions.jpg"
+                                            alt="Industrial and mission-critical solutions">
                                     </div>
                                     <h3 class="ades-svc-card__title">Industrial &amp; Mission-Critical Solutions</h3>
                                     <ul class="ades-svc-card__list">
@@ -654,7 +724,42 @@
                                 </div>
                             </div>
 
+                            <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="ades-svc-card">
+                                    <span class="ades-svc-card__num">11</span>
+                                    <div class="ades-svc-card__img">
+                                        <img src="./assets/img/Circular &amp; Low carbon Material integration.jpeg"
+                                            alt="Circular &amp; Low Carbon Material Integration">
+                                    </div>
+                                    <h3 class="ades-svc-card__title">Circular &amp; Low-Carbon Material Integration</h3>
+                                    <ul class="ades-svc-card__list">
+                                        <li>Sustainable material selection</li>
+                                        <li>Carbon assessment &amp; reduction</li>
+                                        <li>Cradle-to-cradle design</li>
+                                        <li>Waste minimization</li>
+                                        <li>Low-impact supply chain</li>
+                                    </ul>
+                                </div>
+                            </div>
 
+                            <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="ades-svc-card">
+                                    <span class="ades-svc-card__num">12</span>
+                                    <div class="ades-svc-card__img">
+                                        <img src="./assets/img/Indoor environmental quality &amp; occpant well being.jpeg"
+                                            alt="Indoor Environmental Quality &amp; Occupant Well-Being">
+                                    </div>
+                                    <h3 class="ades-svc-card__title">Indoor Environmental Quality &amp; Occupant
+                                        Well-Being</h3>
+                                    <ul class="ades-svc-card__list">
+                                        <li>Indoor air quality monitoring</li>
+                                        <li>Thermal &amp; acoustic comfort</li>
+                                        <li>Biophilic design &amp; daylighting</li>
+                                        <li>Non-toxic &amp; low-VOC materials</li>
+                                        <li>WELL Standard compliance</li>
+                                    </ul>
+                                </div>
+                            </div>
 
                         </div>
 
@@ -832,335 +937,348 @@
             <!-- Faq Section End -->
 
             <!-- Footer Section -->
-<!-- Contact and Footer Custom Design -->
-                            <style>
-                                .custom-footer-bg {
-                                    background-color: #1a1a1a;
-                                    padding: 60px 0;
-                                    color: #a1a1a1;
-                                    font-family: 'Inter', sans-serif;
-                                }
+            <!-- Contact and Footer Custom Design -->
+            <style>
+                .custom-footer-bg {
+                    background-color: #1a1a1a;
+                    padding: 60px 0;
+                    color: #a1a1a1;
+                    font-family: 'Inter', sans-serif;
+                }
 
-                                .custom-social-btn {border-left: 2px solid #C9F31D;
-                                    background: #222;
-                                    padding: 12px 24px;
-                                    color: #a1a1a1;
-                                    margin-bottom: 15px;
-                                    text-decoration: none;
-                                    font-size: 15px;
-                                    font-weight: 600;max-width: 200px;
-                                }
+                .custom-social-btn {
+                    border-left: 2px solid #C9F31D;
+                    background: #222;
+                    padding: 12px 24px;
+                    color: #a1a1a1;
+                    margin-bottom: 15px;
+                    text-decoration: none;
+                    font-size: 15px;
+                    font-weight: 600;
+                    max-width: 200px;
+                }
 
-                                .custom-social-btn:hover {
-                                    color: #fff;
-                                    background: #2a2a2a;
-                                }
+                .custom-social-btn:hover {
+                    color: #fff;
+                    background: #2a2a2a;
+                }
 
-                                .custom-contact-card {
-                                    background: #222;
-                                    border-radius: 12px;
-                                    padding: 30px;
-                                    border: 1px solid #333;
-                                }
+                .custom-contact-card {
+                    background: #222;
+                    border-radius: 12px;
+                    padding: 30px;
+                    border: 1px solid #333;
+                }
 
-                                .custom-contact-item {
-                                    display: flex;
-                                    align-items: center;
-                                    margin-bottom: 25px;
-                                }
+                .custom-contact-item {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 25px;
+                }
 
-                                .custom-contact-item:last-child {
-                                    margin-bottom: 0;
-                                }
+                .custom-contact-item:last-child {
+                    margin-bottom: 0;
+                }
 
-                                .custom-contact-icon {
-                                    width: 36px;
-                                    height: 36px;
-                                    border: 1px solid #444;
-                                    border-radius: 6px;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    margin-right: 15px;
-                                    flex-shrink: 0;
-                                }
+                .custom-contact-icon {
+                    width: 36px;
+                    height: 36px;
+                    border: 1px solid #444;
+                    border-radius: 6px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 15px;
+                    flex-shrink: 0;
+                }
 
-                                .custom-contact-icon svg {
-                                    width: 16px;
-                                    height: 16px;
-                                    fill: #fff;
-                                }
+                .custom-contact-icon svg {
+                    width: 16px;
+                    height: 16px;
+                    fill: #fff;
+                }
 
-                                .custom-contact-text,
-                                .custom-contact-text a {
-                                    color: #a1a1a1;
-                                    font-size: 13px;
-                                    line-height: 1.6;
-                                    text-decoration: none;
-                                }
+                .custom-contact-text,
+                .custom-contact-text a {
+                    color: #a1a1a1;
+                    font-size: 13px;
+                    line-height: 1.6;
+                    text-decoration: none;
+                }
 
-                                .custom-footer-container {
-                                    background-color: #111;
-                                    border-radius: 20px;
-                                    padding: 60px 50px 30px;
-                                    margin: 0 20px 20px;
-                                    color: #fff;
-                                }
+                .custom-footer-container {
+                    background-color: #111;
+                    border-radius: 20px;
+                    padding: 60px 50px 30px;
+                    margin: 0 20px 20px;
+                    color: #fff;
+                }
 
-                                .custom-footer-title {
-                                    font-size: 16px;
-                                    font-weight: 600;
-                                    color: #C9F31D !important;
-                                    margin-bottom: 25px;
-                                }
+                .custom-footer-title {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #C9F31D !important;
+                    margin-bottom: 25px;
+                }
 
-                                .custom-footer-link {
-                                    list-style: none;
-                                    padding: 0;
-                                    margin: 0;
-                                }
+                .custom-footer-link {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
 
-                                .custom-footer-link li {
-                                    margin-bottom: 12px;
-                                    font-size: 13px;
-                                    color: #a1a1a1;
-                                }
+                .custom-footer-link li {
+                    margin-bottom: 12px;
+                    font-size: 13px;
+                    color: #a1a1a1;
+                }
 
-                                .custom-footer-link a {
-                                    color: #a1a1a1;
-                                    text-decoration: none;
-                                    transition: 0.3se;
-                                }
+                .custom-footer-link a {
+                    color: #a1a1a1;
+                    text-decoration: none;
+                    transition: 0.3se;
+                }
 
-                                .custom-footer-link a:hover {
-                                    color: #fff;
-                                }
+                .custom-footer-link a:hover {
+                    color: #fff;
+                }
 
-                                .custom-newsletter-input {
-                                    background: #1a1a1a;
-                                    border: 1px solid #333;
-                                    border-radius: 4px;
-                                    padding: 12px 15px;
-                                    color: #fff;
-                                    width: 100%;
-                                    font-size: 13px;
-                                }
+                .custom-newsletter-input {
+                    background: #1a1a1a;
+                    border: 1px solid #333;
+                    border-radius: 4px;
+                    padding: 12px 15px;
+                    color: #fff;
+                    width: 100%;
+                    font-size: 13px;
+                }
 
-                                .custom-newsletter-input:focus {
-                                    outline: none;
-                                    border-color: #555;
-                                }
+                .custom-newsletter-input:focus {
+                    outline: none;
+                    border-color: #555;
+                }
 
-                                .custom-newsletter-form {
-                                    position: relative;
-                                    margin-bottom: 15px;
-                                }
+                .custom-newsletter-form {
+                    position: relative;
+                    margin-bottom: 15px;
+                }
 
-                                .custom-newsletter-icon {
-                                    position: absolute;
-                                    right: 15px;
-                                    top: 12px;
-                                    color: #fff;
-                                }
+                .custom-newsletter-icon {
+                    position: absolute;
+                    right: 15px;
+                    top: 12px;
+                    color: #fff;
+                }
 
-                                .custom-big-text {
-                                    text-transform: uppercase;
-                                    line-height: 1;
-                                }
+                .custom-big-text {
+                    text-transform: uppercase;
+                    line-height: 1;
+                }
 
-                                .custom-big-text-1 {
-                                    font-size: 8vw;
-                                    font-weight: bold;
-                                    color: #fff;
-                                    letter-spacing: -2px;
-                                }
+                .custom-big-text-1 {
+                    font-size: 8vw;
+                    font-weight: bold;
+                    color: #fff;
+                    letter-spacing: -2px;
+                }
 
-                                .custom-big-text-2 {
-                                    font-size: 8vw;
-                                    font-weight: 400;
-                                    color: #666;
-                                    font-style: italic;
-                                    letter-spacing: -2px;
-                                    padding-left: 20%;
-                                }
+                .custom-big-text-2 {
+                    font-size: 8vw;
+                    font-weight: 400;
+                    color: #666;
+                    font-style: italic;
+                    letter-spacing: -2px;
+                    padding-left: 20%;
+                }
 
-                                .custom-arrow-btn {
-                                    width: 80px;
-                                    height: 80px;
-                                    border-radius: 50%;
-                                    background: #fff;
-                                    color: #000;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    font-size: 32px;
-                                    text-decoration: none;
-                                    position: relative;
-                                }
+                .custom-arrow-btn {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    background: #fff;
+                    color: #000;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 32px;
+                    text-decoration: none;
+                    position: relative;
+                }
 
-                                .custom-arrow-btn::before {
-                                    content: '';
-                                    position: absolute;
-                                    bottom: 10px;
-                                    left: 10px;
-                                    width: 12px;
-                                    height: 12px;
-                                    border-radius: 50%;
-                                    background: #C9F31D;
-                                }
+                .custom-arrow-btn::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 10px;
+                    left: 10px;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: #C9F31D;
+                }
 
-                                .custom-arrow-btn:hover {
-                                    background: #e0e0e0;
-                                    color: #000;
-                                }
+                .custom-arrow-btn:hover {
+                    background: #e0e0e0;
+                    color: #000;
+                }
 
-                                .custom-divider {
-                                    border-top: 1px solid #333;
-                                    margin: 40px 0;
-                                }
+                .custom-divider {
+                    border-top: 1px solid #333;
+                    margin: 40px 0;
+                }
 
-                                .custom-copyright {
-                                    font-size: 11px;
-                                    text-transform: uppercase;
-                                    letter-spacing: 2px;
-                                    text-align: center;
-                                    color: #666;
-                                }
-                            </style>
+                .custom-copyright {
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    text-align: center;
+                    color: #666;
+                }
+            </style>
 
-                            <div class="custom-footer-bg">
-                                <div class="container">
-                                    <div class="row gy-5 align-items-center">
-                                        <!-- Left Info -->
-                                        <div class="col-xl-4 col-lg-4 col-md-12 pe-lg-5">
-                                            <a href="index.html" class="d-inline-block mb-4">
-                                                <img src="assets/img/update new logo.png" alt="logo"
-                                                    style="height: 40px; width: auto;">
-                                            </a>
-                                            <p style="font-size: 17px; line-height: 1.8;">ADES is a multidisciplinary MEP consultancy delivering innovative, reliable, and cost-effective engineering solutions across commercial, industrial, and institutional projects worldwide.</p>
-                                        </div>
+            <div class="custom-footer-bg">
+                <div class="container">
+                    <div class="row gy-5 align-items-center">
+                        <!-- Left Info -->
+                        <div class="col-xl-4 col-lg-4 col-md-12 pe-lg-5">
+                            <a href="index.html" class="d-inline-block mb-4">
+                                <img src="assets/img/update new logo.png" alt="logo" style="height: 40px; width: auto;">
+                            </a>
+                            <p style="font-size: 17px; line-height: 1.8;">ADES is a multidisciplinary MEP consultancy
+                                delivering innovative, reliable, and cost-effective engineering solutions across
+                                commercial, industrial, and institutional projects worldwide.</p>
+                        </div>
 
-                                        <!-- Center Social -->
-                                        <div class="col-xl-4 col-lg-4 col-md-6 d-flex flex-column align-items-center">
-                                            <a href="#" class="custom-social-btn" aria-label="Facebook"><i class="fab fa-facebook-f social-icon social-icon--fb" aria-hidden="true"></i><span>Facebook</span></a>
-                                            <a href="https://www.linkedin.com/in/dr-ferno-susai-8b12bb166/" class="custom-social-btn" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in social-icon social-icon--linkedin" aria-hidden="true"></i><span>Linked In</span></a>
-                                            <a href="https://www.instagram.com/ades_pvt_ltd?igsh=cThlNms1ZXd4dHVt" target="_blank" class="custom-social-btn" aria-label="Instagram"><i class="fab fa-instagram social-icon social-icon--instagram" aria-hidden="true"></i><span>Instagram</span></a>
-                                            <a href="#" class="custom-social-btn" aria-label="YouTube"><i class="fab fa-youtube social-icon social-icon--youtube" aria-hidden="true"></i><span>You Tube</span></a>
-</div>
+                        <!-- Center Social -->
+                        <div class="col-xl-4 col-lg-4 col-md-6 d-flex flex-column align-items-center">
+                            <a href="#" class="custom-social-btn" aria-label="Facebook"><i
+                                    class="fab fa-facebook-f social-icon social-icon--fb"
+                                    aria-hidden="true"></i><span>Facebook</span></a>
+                            <a href="https://www.linkedin.com/in/dr-ferno-susai-8b12bb166/" class="custom-social-btn"
+                                aria-label="LinkedIn" target="_blank"><i
+                                    class="fab fa-linkedin-in social-icon social-icon--linkedin"
+                                    aria-hidden="true"></i><span>Linked In</span></a>
+                            <a href="https://www.instagram.com/ades_pvt_ltd?igsh=cThlNms1ZXd4dHVt" target="_blank"
+                                class="custom-social-btn" aria-label="Instagram"><i
+                                    class="fab fa-instagram social-icon social-icon--instagram"
+                                    aria-hidden="true"></i><span>Instagram</span></a>
+                            <a href="#" class="custom-social-btn" aria-label="YouTube"><i
+                                    class="fab fa-youtube social-icon social-icon--youtube"
+                                    aria-hidden="true"></i><span>You Tube</span></a>
+                        </div>
 
-                                        <!-- Right Contact -->
-                                        <div class="col-xl-4 col-lg-4 col-md-6">
-                                            <div class="custom-contact-card">
-                                                <div class="custom-contact-item">
-                                                    <div class="custom-contact-icon">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="custom-contact-text">260 / 8, First Floor,<br>Anbu Colony, Anna Nagar (West),<br>Chennai - 600 040</div>
-                                                </div>
-                                                <div class="custom-contact-item">
-                                                    <div class="custom-contact-icon">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="custom-contact-text">+91 97909 51112</div>
-                                                </div>
-                                                <div class="custom-contact-item">
-                                                    <div class="custom-contact-icon">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="custom-contact-text">
-                                                        info@ades.in</div>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <!-- Right Contact -->
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="custom-contact-card">
+                                <div class="custom-contact-item">
+                                    <div class="custom-contact-icon">
+                                        <svg viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
                                     </div>
+                                    <div class="custom-contact-text">260 / 8, First Floor,<br>Anbu Colony, Anna Nagar
+                                        (West),<br>Chennai - 600 040</div>
                                 </div>
-
-                                <div style="height: 60px;"></div>
-
-                                <div class="custom-footer-container">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-6 mb-4">
-                                            <h4 class="custom-footer-title">Our Company</h4>
-                                            <ul class="custom-footer-link">
-                                                <li><a href="service-2.html">What We Do</a></li>
-                                                <li><a href="project-1.html">Cases</a></li>
-                                                <li><a href="about-1.html">Who We Are</a></li>
-                                                <li><a href="contact.html">Team &amp; Advisors</a></li>
-                                                <li><a href="contact.html">Career</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 mb-4">
-                                            <h4 class="custom-footer-title">Main Services</h4>
-                                            <ul class="custom-footer-link">
-                                                <li><a href="service-mep.html">Integrated MEP</a></li>
-                                                <li><a href="service-electrical.html">Electrical Systems</a></li>
-                                                <li><a href="service-hvac.html">HVAC Engineering</a></li>
-                                                <li><a href="service-fire.html">Fire Protection</a></li>
-                                                <li><a href="service-phe.html">Public Health Engineering</a></li>
-                                                <li><a href="service-bms.html">BMS &amp; IBMS</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 mb-4">
-                                            <h4 class="custom-footer-title">Contact</h4>
-                                            <ul class="custom-footer-link">
-                                                <li><a href="#">Chennai, India</a></li>
-                                                <li><a href="tel:+919790951112">+91-97909 51112</a></li>
-                                                <li><a href="mailto:ferno@ades.in">ferno@ades.in</a></li>
-                                                <li><a href="mailto:info@ades.in">info@ades.in</a></li>
-                                                <li><a href="http://www.ades.in" target="_blank">www.ades.in</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6 mb-4">
-                                            <h4 class="custom-footer-title">Find Us</h4>
-                                            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(201,243,29,0.25);box-shadow:0 12px 30px rgba(0,0,0,0.35);">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d876.0992403053899!2d80.19890902823073!3d13.093883422794834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526132ab06fca5%3A0x6b2e3c74a534b563!2sairdesign%20engineered%20solutions%20pvt%20ltd!5e0!3m2!1sen!2sin!4v1785415122396!5m2!1sen!2sin"
-                                                    width="600" height="450"
-                                                    style="border:0;width:100%;height:200px;display:block;"
-                                                    allowfullscreen="" loading="lazy"
-                                                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                                            </div>
-                                        </div>
+                                <div class="custom-contact-item">
+                                    <div class="custom-contact-icon">
+                                        <svg viewBox="0 0 24 24">
+                                            <path
+                                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                                        </svg>
                                     </div>
-
-                                    <div class="custom-divider"></div>
-
-                                    <div class="row align-items-center">
-                                        <div class="col-md-9">
-                                            <div class="custom-big-text">
-                                                <div class="custom-big-text-1">Collaborate</div>
-                                                <div class="custom-big-text-2">WITH US</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 d-flex justify-content-center justify-content-md-end">
-                                            <a href="#" class="custom-arrow-btn">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <line x1="5" y1="19" x2="19" y2="5"></line>
-                                                    <polyline points="10 5 19 5 19 14"></polyline>
-                                                </svg>
-                                            </a>
-                                        </div>
+                                    <div class="custom-contact-text">+91 97909 51112</div>
+                                </div>
+                                <div class="custom-contact-item">
+                                    <div class="custom-contact-icon">
+                                        <svg viewBox="0 0 24 24">
+                                            <path
+                                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                        </svg>
                                     </div>
-
-                                    <div class="custom-divider"></div>
-
-                                    <div class="custom-copyright">
-                                        © ADES. ALL RIGHT RESERVED
-                                    </div>
+                                    <div class="custom-contact-text">
+                                        info@ades.in</div>
                                 </div>
                             </div>
-                            <!-- Footer Section end (Modified manually) -->
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 60px;"></div>
+
+                <div class="custom-footer-container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-6 mb-4">
+                            <h4 class="custom-footer-title">Our Company</h4>
+                            <ul class="custom-footer-link">
+                                <li><a href="service-2.html">What We Do</a></li>
+                                <li><a href="project-1.html">Cases</a></li>
+                                <li><a href="about-1.html">Who We Are</a></li>
+                                <li><a href="contact.html">Team &amp; Advisors</a></li>
+                                <li><a href="contact.html">Career</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <h4 class="custom-footer-title">Main Services</h4>
+                            <ul class="custom-footer-link">
+                                <li><a href="service-mep.html">Integrated MEP</a></li>
+                                <li><a href="service-electrical.html">Electrical Systems</a></li>
+                                <li><a href="service-hvac.html">HVAC Engineering</a></li>
+                                <li><a href="service-fire.html">Fire Protection</a></li>
+                                <li><a href="service-phe.html">Public Health Engineering</a></li>
+                                <li><a href="service-bms.html">BMS &amp; IBMS</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <h4 class="custom-footer-title">Contact</h4>
+                            <ul class="custom-footer-link">
+                                <li><a href="#">Chennai, India</a></li>
+                                <li><a href="tel:+919790951112">+91-97909 51112</a></li>
+                                <li><a href="mailto:ferno@ades.in">ferno@ades.in</a></li>
+                                <li><a href="mailto:info@ades.in">info@ades.in</a></li>
+                                <li><a href="http://www.ades.in" target="_blank">www.ades.in</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <h4 class="custom-footer-title">Find Us</h4>
+                            <div
+                                style="border-radius:12px;overflow:hidden;border:1px solid rgba(201,243,29,0.25);box-shadow:0 12px 30px rgba(0,0,0,0.35);">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d876.0992403053899!2d80.19890902823073!3d13.093883422794834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526132ab06fca5%3A0x6b2e3c74a534b563!2sairdesign%20engineered%20solutions%20pvt%20ltd!5e0!3m2!1sen!2sin!4v1785415122396!5m2!1sen!2sin"
+                                    width="600" height="450" style="border:0;width:100%;height:200px;display:block;"
+                                    allowfullscreen="" loading="lazy"
+                                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="custom-divider"></div>
+
+                    <div class="row align-items-center">
+                        <div class="col-md-9">
+                            <div class="custom-big-text">
+                                <div class="custom-big-text-1">Collaborate</div>
+                                <div class="custom-big-text-2">WITH US</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center justify-content-md-end">
+                            <a href="#" class="custom-arrow-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="19" x2="19" y2="5"></line>
+                                    <polyline points="10 5 19 5 19 14"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="custom-divider"></div>
+
+                    <div class="custom-copyright">
+                        © ADES. ALL RIGHT RESERVED
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Section end (Modified manually) -->
         </div>
     </div>
 
@@ -1200,22 +1318,22 @@
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
     <!-- Custom Nav Script -->
-                    <script>
-                        const nav = document.getElementById("navbar");
-                        if (nav) {
-                            window.addEventListener("scroll", () => {
-                                nav.classList.toggle("scrolled", window.scrollY > 40);
-                            });
-                        }
-                        const btn = document.getElementById("menuBtn");
-                        const menu = document.getElementById("mobileMenu");
-                        if (btn && menu) {
-                            btn.addEventListener("click", () => {
-                                btn.classList.toggle("active");
-                                menu.classList.toggle("open");
-                            });
-                        }
-                    </script>
+    <script>
+        const nav = document.getElementById("navbar");
+        if (nav) {
+            window.addEventListener("scroll", () => {
+                nav.classList.toggle("scrolled", window.scrollY > 40);
+            });
+        }
+        const btn = document.getElementById("menuBtn");
+        const menu = document.getElementById("mobileMenu");
+        if (btn && menu) {
+            btn.addEventListener("click", () => {
+                btn.classList.toggle("active");
+                menu.classList.toggle("open");
+            });
+        }
+    </script>
 </body>
 
 </html>
