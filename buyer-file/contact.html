@@ -314,8 +314,7 @@
 
                             <div class="col-xl-6 col-lg-6">
                                 <div class="contact-form style-2">
-                                    <form id="ades-contact-form" autocomplete="on">
-                                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                                    <form id="ades-contact-form" autocomplete="on" action="contact.php" method="POST">
                                         <input type="hidden" name="subject" value="New Enquiry from ADES Website">
                                         <input type="hidden" name="from_name" value="ADES Website Contact Form">
                                         <div class="row">
@@ -375,22 +374,22 @@
 
                                         const data = new FormData(this);
                                         try {
-                                            const res = await fetch('https://api.web3forms.com/submit', {
+                                            const res = await fetch('contact.php', {
                                                 method: 'POST',
                                                 body: data
                                             });
-                                            const json = await res.json();
-                                            if (json.success) {
+                                            const text = await res.text();
+                                            if (res.ok) {
                                                 status.textContent = '✓ Message sent! We will get back to you shortly.';
                                                 status.style.color = '#3aaf3a';
                                                 status.style.display = 'block';
                                                 this.reset();
                                                 label.textContent = 'send message';
                                             } else {
-                                                throw new Error(json.message || 'Submission failed');
+                                                throw new Error(text || 'Submission failed');
                                             }
                                         } catch(err) {
-                                            status.textContent = '✗ Failed to send. Please email us directly at info@ades.in';
+                                            status.textContent = '✗ Failed to send. Please email us directly at ferno@ades.in';
                                             status.style.color = '#e53e3e';
                                             status.style.display = 'block';
                                             label.textContent = 'send message';

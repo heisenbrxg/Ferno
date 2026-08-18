@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Recipient
-    $recipient = "example@example.com"; // <-- change to your email
+    $recipient = "ferno@ades.in"; // <-- change to your email
 
     // Subject
     $subject = "New contact form message from $name";
