@@ -372,28 +372,45 @@
                                         label.textContent = 'Sending…';
                                         status.style.display = 'none';
 
+                                        const name = document.getElementById('name').value;
+                                        const email = document.getElementById('email').value;
+                                        const phone = document.getElementById('phone').value;
+                                        const subjectVal = document.getElementById('subject').value || 'New Enquiry from ADES Website';
+                                        const message = document.getElementById('message').value;
+
+                                        let sentSuccess = false;
                                         const data = new FormData(this);
+                                        
                                         try {
                                             const res = await fetch('contact.php', {
                                                 method: 'POST',
                                                 body: data
                                             });
                                             const text = await res.text();
-                                            if (res.ok) {
+                                            if (res.ok && text.includes('Thank you')) {
                                                 status.textContent = '✓ Message sent! We will get back to you shortly.';
                                                 status.style.color = '#3aaf3a';
                                                 status.style.display = 'block';
                                                 this.reset();
-                                                label.textContent = 'send message';
-                                            } else {
-                                                throw new Error(text || 'Submission failed');
+                                                sentSuccess = true;
                                             }
                                         } catch(err) {
-                                            status.textContent = '✗ Failed to send. Please email us directly at ferno@ades.in';
-                                            status.style.color = '#e53e3e';
-                                            status.style.display = 'block';
-                                            label.textContent = 'send message';
+                                            // Static site or PHP unavailable
                                         }
+
+                                        if (!sentSuccess) {
+                                            // Fallback: Redirect typed content to ferno@ades.in mailto link
+                                            const bodyText = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
+                                            const mailtoUrl = `mailto:ferno@ades.in?subject=${encodeURIComponent(subjectVal)}&body=${encodeURIComponent(bodyText)}`;
+                                            
+                                            status.textContent = '✓ Redirecting to email client for ferno@ades.in...';
+                                            status.style.color = '#3aaf3a';
+                                            status.style.display = 'block';
+                                            
+                                            window.location.href = mailtoUrl;
+                                        }
+
+                                        label.textContent = 'send message';
                                         btn.disabled = false;
                                     });
                                     </script>
